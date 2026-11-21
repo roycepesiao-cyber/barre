@@ -1,0 +1,2215 @@
+<!doctype html>
+<html lang="en" data-theme="ballet">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" id="themeColor" content="#FFF5F7">
+<meta name="description" content="barre: soft, graceful 10-minute posture, endurance and flexibility workouts using only a mat, a wall and a chair.">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="barre">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<title>barre</title>
+<link rel="icon" id="favicon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%23FFE4EC'/%3E%3Cpath d='M50 46C42 32 24 26 19 31s-2 25 5 28 19-3 26-13zM50 46c8-14 26-20 31-15s2 25-5 28-19-3-26-13z' fill='%23F7B8CB' stroke='%23C8426F' stroke-width='4' stroke-linejoin='round'/%3E%3Ccircle cx='50' cy='47' r='7' fill='%23C8426F'/%3E%3Cpath d='M46 53 37 80M54 53l9 27' stroke='%23C8426F' stroke-width='4.5' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="apple-touch-icon" id="appleIcon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23FFE4EC'/%3E%3C/svg%3E">
+<!-- Inline data-URI Web Manifest (upgraded at runtime with absolute start_url + PNG icons) -->
+<link rel="manifest" id="manifestLink" href="data:application/manifest+json,%7B%22name%22%3A%22barre%22%2C%22short_name%22%3A%22barre%22%2C%22display%22%3A%22fullscreen%22%2C%22background_color%22%3A%22%23FFF5F7%22%2C%22theme_color%22%3A%22%23FFF5F7%22%7D">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@500;600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;1,500;1,600;1,700&display=swap" rel="stylesheet">
+<style>
+/* ================= THEMES ================= */
+:root,[data-theme="ballet"]{--bg:#FFF5F7;--bg2:#FFE2EB;--surface:#FFFFFF;--surface2:#FDEBF1;--line:#F6D9E2;--text:#43262F;--muted:#A17F8B;--accent:#E0628A;--accent-strong:#C8426F;--accent-ink:#FFFFFF;--accent-soft:rgba(224,98,138,.12);--rest:#9A7FD6;--rest-soft:rgba(154,127,214,.14);--prep:#DF8C5A;--prep-soft:rgba(223,140,90,.14);--pearl:#BD8653;--pearl-soft:rgba(189,134,83,.12);--fig:#4A2A38;--prop:#DDB7C5;--propfill:#FCEEF3;--hatch:#F2D6E0;--shadow:0 14px 32px -16px rgba(200,66,111,.32);--glass:rgba(255,255,255,.82)}
+[data-theme="night"]{--bg:#1C1317;--bg2:#331C27;--surface:#261A20;--surface2:#33232B;--line:#43303A;--text:#FBEAF0;--muted:#BC9CAA;--accent:#F48FB1;--accent-strong:#F8A9C4;--accent-ink:#2A0F1B;--accent-soft:rgba(244,143,177,.14);--rest:#B9A2F0;--rest-soft:rgba(185,162,240,.15);--prep:#F5B48A;--prep-soft:rgba(245,180,138,.15);--pearl:#E8C08F;--pearl-soft:rgba(232,192,143,.13);--fig:#FBEAF0;--prop:#6E5160;--propfill:#2E2128;--hatch:#3A2932;--shadow:0 14px 32px -16px rgba(0,0,0,.6);--glass:rgba(38,26,32,.84)}
+[data-theme="rose"]{--bg:#FBEDF0;--bg2:#F6D3DB;--surface:#FFFFFF;--surface2:#F9E0E6;--line:#EFC9D2;--text:#3B1D26;--muted:#9A6C79;--accent:#C2456E;--accent-strong:#A5305A;--accent-ink:#FFFFFF;--accent-soft:rgba(194,69,110,.11);--rest:#8E6FC8;--rest-soft:rgba(142,111,200,.14);--prep:#D9824F;--prep-soft:rgba(217,130,79,.14);--pearl:#B07A47;--pearl-soft:rgba(176,122,71,.12);--fig:#3B1D26;--prop:#D7A9B6;--propfill:#FAE6EB;--hatch:#EFCDD6;--shadow:0 14px 32px -16px rgba(165,48,90,.32);--glass:rgba(255,255,255,.84)}
+[data-theme="pearl"]{--bg:#FBF8F5;--bg2:#F4E8E6;--surface:#FFFFFF;--surface2:#F5EEEC;--line:#EADFDB;--text:#3D3034;--muted:#9A8A8E;--accent:#C98199;--accent-strong:#A9607A;--accent-ink:#FFFFFF;--accent-soft:rgba(201,129,153,.12);--rest:#8E86C2;--rest-soft:rgba(142,134,194,.14);--prep:#C99566;--prep-soft:rgba(201,149,102,.14);--pearl:#A88660;--pearl-soft:rgba(168,134,96,.12);--fig:#3D3034;--prop:#D8C8C6;--propfill:#F7F0EE;--hatch:#ECE1DE;--shadow:0 14px 32px -16px rgba(120,90,95,.28);--glass:rgba(255,255,255,.84)}
+[data-theme="ribbon"]{--bg:#FFF0F4;--bg2:#FFD6E3;--surface:#FFFFFF;--surface2:#FFE3EC;--line:#FFCBDA;--text:#47202D;--muted:#B07A8C;--accent:#F25C8A;--accent-strong:#D63F70;--accent-ink:#FFFFFF;--accent-soft:rgba(242,92,138,.12);--rest:#A27DDB;--rest-soft:rgba(162,125,219,.14);--prep:#F08A57;--prep-soft:rgba(240,138,87,.14);--pearl:#C47F4C;--pearl-soft:rgba(196,127,76,.12);--fig:#47202D;--prop:#F4AFC5;--propfill:#FFEAF1;--hatch:#FFD2E0;--shadow:0 14px 32px -16px rgba(214,63,112,.34);--glass:rgba(255,255,255,.84)}
+[data-theme="satin"]{--bg:#F8F3FC;--bg2:#E9DDF8;--surface:#FFFFFF;--surface2:#F0E8FA;--line:#E3D6F2;--text:#302542;--muted:#8D7FA4;--accent:#A57BD6;--accent-strong:#875EBE;--accent-ink:#FFFFFF;--accent-soft:rgba(165,123,214,.13);--rest:#E0628A;--rest-soft:rgba(224,98,138,.13);--prep:#D99363;--prep-soft:rgba(217,147,99,.14);--pearl:#A9845E;--pearl-soft:rgba(169,132,94,.12);--fig:#302542;--prop:#CDBDE3;--propfill:#F4EEFB;--hatch:#E6DBF3;--shadow:0 14px 32px -16px rgba(135,94,190,.3);--glass:rgba(255,255,255,.84)}
+[data-theme="swan"]{--bg:#15131F;--bg2:#2A2140;--surface:#1F1B2D;--surface2:#2A253D;--line:#383150;--text:#F6F1FF;--muted:#A69EC2;--accent:#F2A7C3;--accent-strong:#F7BFD4;--accent-ink:#24152B;--accent-soft:rgba(242,167,195,.14);--rest:#9FB7F5;--rest-soft:rgba(159,183,245,.15);--prep:#F3C08F;--prep-soft:rgba(243,192,143,.15);--pearl:#E9CFA0;--pearl-soft:rgba(233,207,160,.13);--fig:#F6F1FF;--prop:#5C5378;--propfill:#262137;--hatch:#332C48;--shadow:0 14px 32px -16px rgba(0,0,0,.65);--glass:rgba(31,27,45,.86)}
+[data-theme="prima"]{--bg:#FCF7EF;--bg2:#F6E6D2;--surface:#FFFFFF;--surface2:#F8EEE1;--line:#EEDFCA;--text:#3A2C22;--muted:#9C8670;--accent:#C8964E;--accent-strong:#A67830;--accent-ink:#FFFFFF;--accent-soft:rgba(200,150,78,.13);--rest:#D77A9A;--rest-soft:rgba(215,122,154,.14);--prep:#C98A5E;--prep-soft:rgba(201,138,94,.14);--pearl:#B58641;--pearl-soft:rgba(181,134,65,.13);--fig:#3A2C22;--prop:#E2CDB2;--propfill:#FAF2E7;--hatch:#F0E3D1;--shadow:0 14px 32px -16px rgba(166,120,48,.32);--glass:rgba(255,255,255,.84)}
+
+/* ================= BASE ================= */
+*{box-sizing:border-box;margin:0;padding:0}
+[hidden]{display:none!important}
+html,body{height:100%}
+body{background:var(--bg);background-image:radial-gradient(130% 55% at 50% -8%,var(--bg2) 0%,transparent 70%);background-attachment:fixed;color:var(--text);font-family:Nunito,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,system-ui,sans-serif;font-weight:600;-webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:transparent;touch-action:manipulation;overscroll-behavior-y:none;font-size:16px;line-height:1.4;transition:background-color .3s}
+button{font:inherit;color:inherit;border:0;background:none;cursor:pointer;-webkit-user-select:none;user-select:none}
+input,textarea{font:inherit;color:inherit}
+.serif{font-family:"Playfair Display",Georgia,"Times New Roman",serif}
+.ic{width:1.15em;height:1.15em;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;flex:none;vertical-align:-.2em}
+#app{max-width:480px;margin:0 auto;min-height:100vh;min-height:100dvh;display:flex;flex-direction:column}
+
+/* Top bar */
+.topbar{position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between;gap:8px;padding:calc(env(safe-area-inset-top) + 10px) 16px 10px;background:var(--glass);-webkit-backdrop-filter:blur(16px) saturate(1.4);backdrop-filter:blur(16px) saturate(1.4)}
+.brand{display:flex;align-items:center;gap:5px;font-family:"Playfair Display",Georgia,serif;font-style:italic;font-weight:700;font-size:27px;letter-spacing:-.02em;line-height:1;color:var(--text)}
+.brand .ic{color:var(--accent);width:22px;height:22px;margin-top:-4px}
+.pills{display:flex;gap:6px}
+.pill{display:inline-flex;align-items:center;gap:5px;height:34px;padding:0 11px;border-radius:999px;background:var(--surface);border:1px solid var(--line);font-weight:800;font-size:15px;font-variant-numeric:tabular-nums;white-space:nowrap;box-shadow:0 4px 12px -8px rgba(200,66,111,.3)}
+.pill .ic{width:18px;height:18px}
+.pill .c-streak{color:var(--accent)}
+.pill .c-pearl{color:var(--pearl)}
+.pill.done{background:var(--accent-soft);border-color:var(--accent);color:var(--accent-strong)}
+.bump{animation:bump .55s ease}
+@keyframes bump{40%{transform:scale(1.18)}}
+
+main{flex:1;padding:2px 16px calc(104px + env(safe-area-inset-bottom))}
+.tab{display:none}
+.tab.active{display:block}
+
+/* Tab bar */
+.tabbar{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:480px;display:grid;grid-template-columns:repeat(5,1fr);padding:7px 6px calc(7px + env(safe-area-inset-bottom));background:var(--glass);-webkit-backdrop-filter:blur(18px) saturate(1.4);backdrop-filter:blur(18px) saturate(1.4);border-top:1px solid var(--line);z-index:30}
+.tabbar button{display:flex;flex-direction:column;align-items:center;gap:2px;padding:6px 0 5px;font-size:11px;font-weight:800;color:var(--muted);letter-spacing:.02em;border-radius:16px;transition:background .2s,color .2s}
+.tabbar .ic{width:25px;height:25px;stroke-width:1.6}
+.tabbar button.active{color:var(--accent-strong);background:var(--accent-soft)}
+
+/* Generic */
+.card{background:var(--surface);border:1px solid var(--line);border-radius:26px;padding:16px;margin-top:14px;box-shadow:var(--shadow)}
+.title{font-family:"Playfair Display",Georgia,serif;font-style:italic;font-size:31px;font-weight:600;letter-spacing:-.01em;line-height:1.12;margin-top:6px}
+.eyebrow{font-size:11.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.muted{color:var(--muted)}
+.small{font-size:13px}
+.center{text-align:center}
+.row-h{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 18px;border-radius:18px;background:var(--surface2);font-weight:800;font-size:16px;color:var(--text)}
+.btn.primary{background:linear-gradient(135deg,var(--accent),var(--accent-strong));color:var(--accent-ink);box-shadow:0 10px 22px -12px var(--accent-strong)}
+.btn.soft{background:var(--accent-soft);color:var(--accent-strong)}
+.btn.danger{background:rgba(214,63,90,.1);color:#C93A5C}
+.btn.block{width:100%}
+.btn.sm{min-height:36px;padding:0 13px;font-size:14px;border-radius:13px}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.btn:active:not(:disabled),.start-btn:active{transform:scale(.97)}
+.bar{height:9px;border-radius:99px;background:var(--surface2);overflow:hidden}
+.bar>i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--accent),var(--accent-strong));border-radius:inherit;transition:width .5s ease}
+.hint{font-size:13px;color:var(--muted);margin-top:10px;font-weight:600}
+.sec-h{display:flex;justify-content:space-between;align-items:baseline;margin:24px 2px 2px}
+.sec-h h2{font-family:"Playfair Display",Georgia,serif;font-style:italic;font-size:21px;font-weight:600}
+.head-row{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.seg2{display:flex;background:var(--surface2);border-radius:14px;padding:3px;border:1px solid var(--line)}
+.seg2 button{padding:8px 14px;border-radius:11px;font-weight:800;font-size:14px;color:var(--muted)}
+.seg2 button.on{background:var(--surface);color:var(--accent-strong);box-shadow:0 2px 8px -3px rgba(200,66,111,.35)}
+.chips{display:flex;gap:8px;overflow-x:auto;padding:4px 2px 8px;margin:6px -16px 0;padding-left:16px;padding-right:16px;scrollbar-width:none}
+.chips::-webkit-scrollbar{display:none}
+.chip{flex:none;display:inline-flex;align-items:center;gap:6px;padding:9px 14px;border-radius:999px;background:var(--surface);border:1.5px solid var(--line);font-weight:800;font-size:14px;color:var(--muted)}
+.chip.on{background:var(--accent-soft);border-color:var(--accent);color:var(--accent-strong)}
+
+/* Train */
+.hello{margin-top:6px}
+.challenge{display:flex;gap:12px;align-items:center;cursor:pointer}
+.ch-ic{flex:none;width:50px;height:50px;border-radius:18px;display:grid;place-items:center;background:var(--pearl-soft);color:var(--pearl)}
+.ch-ic .ic{width:26px;height:26px}
+.ch-body{flex:1;min-width:0}
+.ch-title{font-weight:800;font-size:16px;margin:2px 0 8px;line-height:1.25}
+.ch-rw{flex:none;display:flex;align-items:center;gap:3px;font-weight:900;font-size:14px;color:var(--pearl);text-align:right}
+.challenge.done .ch-ic{background:var(--accent-soft);color:var(--accent-strong)}
+.challenge.done .ch-rw{color:var(--accent-strong)}
+.prog-desc{font-size:13px;color:var(--muted);margin-top:2px}
+.seg{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px}
+.seg button{padding:12px 0 10px;border-radius:18px;background:var(--surface2);border:2px solid transparent;font-weight:900;font-size:26px;letter-spacing:-.02em;font-variant-numeric:tabular-nums;line-height:1.05;color:var(--text)}
+.seg button small{display:block;font-size:10.5px;font-weight:800;letter-spacing:.1em;color:var(--muted);margin-top:3px}
+.seg button.on{border-color:var(--accent);background:var(--accent-soft);color:var(--accent-strong)}
+.flow{margin-top:14px;border-top:1px dashed var(--line);padding-top:12px}
+.flow-list{list-style:none;display:grid;gap:2px;margin-top:8px}
+.flow-list li{display:flex;align-items:center;gap:10px;padding:7px 2px;font-size:14.5px;font-weight:700}
+.flow-list li .n{flex:none;width:24px;height:24px;border-radius:50%;display:grid;place-items:center;font-size:12px;font-weight:900;background:var(--surface2);color:var(--muted)}
+.flow-list li .nm{flex:1;min-width:0}
+.flow-list li .nm small{color:var(--muted);font-weight:700;font-size:12px;margin-left:4px}
+.flow-list li .ic{color:var(--muted)}
+.flow-list li.more{color:var(--accent-strong);justify-content:center;cursor:pointer}
+.start-btn{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;height:76px;border-radius:28px;background:linear-gradient(135deg,var(--accent),var(--accent-strong));color:var(--accent-ink);font-size:23px;font-weight:900;letter-spacing:-.01em;margin-top:14px;box-shadow:0 16px 34px -14px var(--accent-strong);transition:transform .1s;position:relative;overflow:hidden}
+.start-btn::after{content:"";position:absolute;inset:0;background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.28) 50%,transparent 70%);transform:translateX(-100%);animation:shine 3.6s ease-in-out infinite}
+@keyframes shine{60%,100%{transform:translateX(100%)}}
+.start-btn .ic{width:26px;height:26px}
+.equip-row{display:flex;justify-content:center;gap:16px;margin-top:12px;font-size:13px;color:var(--muted);font-weight:700}
+.equip-row span{display:inline-flex;align-items:center;gap:5px}
+.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px}
+.tile{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:12px;box-shadow:var(--shadow)}
+.tile b{display:block;font-size:25px;font-weight:900;letter-spacing:-.02em;font-variant-numeric:tabular-nums;margin-top:2px}
+.tile span{display:flex;align-items:center;gap:4px;font-size:12px;color:var(--muted);font-weight:700}
+.tile .ic{color:var(--accent)}
+.trend{display:flex;align-items:flex-end;gap:8px;height:96px;margin-top:12px}
+.trend .tb{flex:1;display:flex;flex-direction:column;align-items:center;gap:6px;height:100%;justify-content:flex-end}
+.trend .tb i{display:block;width:100%;max-width:34px;border-radius:12px 12px 6px 6px;background:linear-gradient(180deg,var(--accent),var(--accent-strong));min-height:6px}
+.trend .tb small{font-size:11px;color:var(--muted);font-weight:800}
+.empty{font-size:14px;color:var(--muted);margin-top:10px}
+.hist{display:flex;justify-content:space-between;align-items:center;padding:11px 0;border-bottom:1px solid var(--line);font-size:15px}
+.hist:last-child{border-bottom:0}
+.hist b{font-weight:800}
+.hist .r{color:var(--muted);font-size:13px;text-align:right;font-weight:700}
+
+/* Player */
+.idle-card{text-align:center;padding:22px 16px}
+.idle-card p{margin-bottom:14px}
+.lib{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:6px}
+.lib-card{background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:8px 8px 12px;text-align:left;display:flex;flex-direction:column;box-shadow:var(--shadow);position:relative}
+.lib-card svg.pose{width:100%;aspect-ratio:1;border-radius:16px;background:var(--surface2)}
+.lib-meta{padding:8px 4px 0}
+.lib-meta b{display:block;font-size:14px;line-height:1.2;margin-top:6px;font-weight:800}
+.lib-meta small{display:flex;align-items:center;gap:4px;font-size:12px;color:var(--muted);margin-top:4px;font-weight:700}
+.tried{position:absolute;top:14px;right:14px;width:24px;height:24px;border-radius:50%;display:grid;place-items:center;background:var(--accent);color:var(--accent-ink)}
+.tried .ic{width:14px;height:14px;stroke-width:2.6}
+.tag{display:inline-flex;align-items:center;gap:4px;font-size:10px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;padding:3px 8px;border-radius:8px;background:var(--accent-soft);color:var(--accent-strong)}
+.tag.g{background:var(--rest-soft);color:var(--rest)}
+
+#playerActive{display:flex;flex-direction:column;height:100vh;height:100dvh;padding:calc(env(safe-area-inset-top) + 10px) 16px calc(env(safe-area-inset-bottom) + 12px);--phase:var(--accent-strong);--phase-soft:var(--accent-soft);background:radial-gradient(120% 45% at 50% 0%,var(--phase-soft),transparent 70%)}
+#playerActive[data-phase="rest"]{--phase:var(--rest);--phase-soft:var(--rest-soft)}
+#playerActive[data-phase="prep"]{--phase:var(--prep);--phase-soft:var(--prep-soft)}
+.p-top{display:flex;align-items:center;gap:8px}
+.p-chip{font-size:12.5px;font-weight:900;letter-spacing:.14em;padding:7px 13px;border-radius:999px;background:var(--phase-soft);color:var(--phase)}
+.p-meta{flex:1;font-size:14px;font-weight:800;color:var(--muted);font-variant-numeric:tabular-nums}
+.icon-btn{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:var(--surface);border:1px solid var(--line);color:var(--text)}
+.p-progress{height:7px;border-radius:9px;background:var(--surface2);margin-top:10px;overflow:hidden}
+.p-progress i{display:block;height:100%;width:0;background:var(--phase);border-radius:inherit;transition:width .2s linear}
+.p-head{margin-top:12px}
+.p-eq{display:flex;gap:8px;align-items:center;font-size:13px;font-weight:800;color:var(--muted)}
+.p-eq .eqb{display:inline-flex;align-items:center;gap:5px;padding:4px 11px;border-radius:999px;background:var(--surface);border:1px solid var(--line);color:var(--text)}
+.p-name{font-family:"Playfair Display",Georgia,serif;font-style:italic;font-size:24px;font-weight:600;line-height:1.15;margin-top:8px}
+.p-target{display:flex;align-items:center;gap:7px;margin-top:5px;font-size:14px;font-weight:800;color:var(--accent-strong)}
+.p-target .dot{width:9px;height:9px;border-radius:50%;background:var(--accent);box-shadow:0 0 10px var(--accent);flex:none}
+.p-side{color:var(--muted);font-weight:800}
+.p-stage{position:relative;flex:1;min-height:120px;margin-top:6px}
+.p-stage svg{position:absolute;inset:0;width:100%;height:100%}
+.p-flag{position:absolute;top:6px;left:0;font-size:12px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;padding:5px 10px;border-radius:10px;background:var(--phase-soft);color:var(--phase)}
+.p-paused{position:absolute;inset:0;display:grid;place-items:center;font-family:"Playfair Display",Georgia,serif;font-style:italic;font-size:28px;font-weight:600;color:var(--text);background:var(--glass);border-radius:22px}
+.p-stage.flash::after{content:"";position:absolute;inset:0;border-radius:24px;background:var(--phase);opacity:0;animation:flash .6s ease;pointer-events:none}
+@keyframes flash{20%{opacity:.16}}
+.p-timer{text-align:center;font-size:min(34vw,17vh,168px);font-weight:900;line-height:.92;letter-spacing:-.04em;font-variant-numeric:tabular-nums;color:var(--phase);margin-top:4px}
+.p-timer.hot{animation:hot 1s ease infinite}
+@keyframes hot{0%{transform:scale(1.07)}60%{transform:scale(1)}}
+.p-unit{text-align:center;font-size:11.5px;font-weight:900;letter-spacing:.24em;color:var(--muted);margin-top:2px}
+.p-cues{list-style:none;margin-top:10px;display:grid;gap:5px}
+.p-cues li{display:flex;gap:9px;align-items:center;font-size:15px;font-weight:700}
+.p-cues li .ic{color:var(--phase);width:15px;height:15px}
+.p-controls{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:14px;margin-top:12px}
+.p-controls .btn{min-height:56px;font-size:15px;background:var(--surface);border:1px solid var(--line)}
+.p-pause{width:80px;height:80px;border-radius:50%;background:var(--phase);color:#fff;display:grid;place-items:center;box-shadow:0 12px 28px -10px var(--phase)}
+[data-theme="night"] .p-pause,[data-theme="swan"] .p-pause{color:var(--bg)}
+.p-pause .ic{width:32px;height:32px;stroke:none;fill:currentColor}
+.p-wake{text-align:center;font-size:11px;color:var(--muted);margin-top:8px;font-weight:700}
+
+/* Pose SVG */
+.pose line{stroke-linecap:round;stroke-linejoin:round}
+.pose .seg{stroke:var(--fig);stroke-width:5.5}
+.pose .seg.far{opacity:.36}
+.pose .seg.hl{stroke:var(--accent);stroke-width:6.5;opacity:1}
+.pose .seg.hl.far{opacity:.7}
+.pose .glowline{stroke:var(--accent);stroke-width:15;opacity:.5}
+.pose .headc{fill:var(--fig)}
+.pose .glute{fill:var(--accent)}
+.pose .glute-glow{fill:var(--accent);opacity:.55}
+.pose .pline{stroke:var(--prop);stroke-width:3.5;fill:none}
+.pose .pthick{stroke-width:5}
+.pose .pfill{fill:var(--propfill)}
+.pose .pstroke{stroke:var(--prop);stroke-width:2}
+.pose .phatch{stroke:var(--hatch);stroke-width:1.5}
+.pose .pmat{fill:var(--accent-soft);stroke:var(--accent);stroke-opacity:.45;stroke-width:1.5}
+.pose .floor{stroke:var(--line);stroke-width:2}
+.pose.dim{opacity:.55}
+
+/* Ranks */
+.div-hero{display:flex;align-items:center;gap:14px;background:linear-gradient(135deg,var(--surface),var(--accent-soft))}
+.medal{flex:none;width:64px;height:64px;border-radius:22px;display:grid;place-items:center;background:linear-gradient(145deg,var(--surface),var(--accent-soft));border:1.5px solid var(--accent);color:var(--accent-strong);box-shadow:0 10px 24px -12px var(--accent-strong)}
+.medal .ic{width:34px;height:34px;stroke-width:1.5}
+.div-name{font-family:"Playfair Display",Georgia,serif;font-style:italic;font-size:24px;font-weight:600;line-height:1.1}
+.perk-chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.perk-chips span{display:inline-flex;align-items:center;gap:4px;font-size:12px;font-weight:800;padding:5px 10px;border-radius:999px;background:var(--surface);border:1px solid var(--line);color:var(--accent-strong)}
+.lb{margin-top:10px}
+.lb-row{display:grid;grid-template-columns:28px 38px 1fr auto;align-items:center;gap:10px;padding:9px 10px;border-radius:16px}
+.lb-row+.lb-row{margin-top:2px}
+.lb-rank{font-weight:900;font-size:15px;text-align:center;color:var(--muted);font-variant-numeric:tabular-nums;display:grid;place-items:center}
+.lb-row.top .lb-rank{color:var(--pearl)}
+.lb-rank .ic{width:22px;height:22px}
+.lb-av{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;font-weight:900;font-size:15px;color:#5A2E40}
+.lb-name{font-weight:800;font-size:15px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.lb-name small{display:block;font-size:12px;color:var(--muted);font-weight:700}
+.lb-pts{font-weight:900;font-variant-numeric:tabular-nums;font-size:16px}
+.lb-row.me{background:var(--accent-soft);outline:1.5px solid var(--accent)}
+.lb-row.me .lb-av{background:linear-gradient(135deg,var(--accent),var(--accent-strong));color:var(--accent-ink)}
+.zone{display:flex;align-items:center;gap:8px;font-size:11px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;margin:8px 4px}
+.zone::before,.zone::after{content:"";flex:1;height:1px;background:currentColor;opacity:.35}
+.zone.up{color:var(--accent-strong)}.zone.down{color:var(--rest)}
+.ladder{display:grid;gap:10px;margin-top:10px}
+.rung{background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:14px;box-shadow:var(--shadow)}
+.rung-top{display:flex;align-items:center;gap:12px}
+.rung .medal{width:46px;height:46px;border-radius:16px}
+.rung .medal .ic{width:26px;height:26px}
+.rung h3{font-family:"Playfair Display",Georgia,serif;font-style:italic;font-weight:600;font-size:19px}
+.rung .st{margin-left:auto;font-size:11px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;padding:4px 9px;border-radius:8px;background:var(--surface2);color:var(--muted);white-space:nowrap}
+.rung.here{border:1.5px solid var(--accent);background:linear-gradient(135deg,var(--surface),var(--accent-soft))}
+.rung.here .st{background:var(--accent);color:var(--accent-ink)}
+.rung.got .st{background:var(--accent-soft);color:var(--accent-strong)}
+.rung.locked .medal{border-color:var(--line);color:var(--muted);background:var(--surface2);box-shadow:none}
+.rung.locked h3{color:var(--muted)}
+.perks{list-style:none;display:grid;gap:5px;margin-top:10px}
+.perks li{display:flex;gap:8px;align-items:flex-start;font-size:13.5px;font-weight:700}
+.perks li .ic{width:16px;height:16px;margin-top:2px;color:var(--accent);stroke-width:2.4}
+.rung.locked .perks li{color:var(--muted)}
+.rung.locked .perks li .ic{color:var(--muted);stroke-width:1.8}
+.badge-sum{display:flex;align-items:center;gap:14px}
+.badges{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:12px}
+.badge{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:12px 8px 10px;text-align:center;box-shadow:var(--shadow);display:flex;flex-direction:column;align-items:center}
+.bmed{width:54px;height:54px;border-radius:50%;display:grid;place-items:center;position:relative}
+.bmed .ic{width:28px;height:28px;stroke-width:1.6}
+.badge.r1 .bmed{background:radial-gradient(circle at 35% 30%,#fff,#FFD3E0);color:#C8426F;box-shadow:0 0 0 2.5px #F7B8CB}
+.badge.r2 .bmed{background:radial-gradient(circle at 35% 30%,#fff,#E9E2F4);color:#7D69B5;box-shadow:0 0 0 2.5px #D6CCEB}
+.badge.r3 .bmed{background:radial-gradient(circle at 35% 30%,#fff,#F7E3C5);color:#A67830;box-shadow:0 0 0 2.5px #E7C68E,0 0 16px -2px #E7C68E}
+.badge.locked .bmed{background:var(--surface2);color:var(--muted);box-shadow:0 0 0 2px var(--line);filter:grayscale(.6);opacity:.75}
+.badge b{display:block;font-size:12.5px;font-weight:900;line-height:1.2;margin-top:8px}
+.badge small{display:block;font-size:11px;color:var(--muted);font-weight:700;line-height:1.25;margin-top:3px}
+.badge .bar{height:5px;width:80%;margin-top:7px}
+.badge .rar{font-size:9.5px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:6px}
+
+/* Shop */
+.coin-hero{text-align:center;padding:22px 16px;background:linear-gradient(160deg,var(--surface),var(--pearl-soft))}
+.coin-hero b{display:flex;align-items:center;justify-content:center;gap:8px;font-size:52px;font-weight:900;letter-spacing:-.03em;line-height:1;font-variant-numeric:tabular-nums;margin-top:6px}
+.coin-hero b .ic{width:40px;height:40px;color:var(--pearl)}
+.item{display:flex;gap:14px;align-items:flex-start}
+.item-ic{flex:none;width:62px;height:62px;border-radius:20px;display:grid;place-items:center;background:rgba(140,180,235,.15);color:#6C93D2}
+.item-ic .ic{width:34px;height:34px}
+.item h3{font-size:17px;font-weight:900}
+.item p{font-size:13px;color:var(--muted);margin-top:3px}
+.slots{display:flex;gap:6px;margin-top:10px;align-items:center}
+.slots span{width:30px;height:30px;border-radius:10px;display:grid;place-items:center;background:var(--surface2);color:var(--muted);opacity:.5}
+.slots span.on{opacity:1;background:rgba(140,180,235,.18);color:#6C93D2}
+.slots em{font-style:normal;font-size:13px;font-weight:800;color:var(--muted);margin-left:4px}
+.wk{padding:12px 0;border-bottom:1px solid var(--line)}
+.wk:last-child{border-bottom:0;padding-bottom:2px}
+.wk-top{display:flex;justify-content:space-between;gap:10px;font-size:15px;font-weight:800;margin-bottom:8px}
+.wk-top span{display:inline-flex;align-items:center;gap:3px;color:var(--pearl);font-size:13px;font-weight:900;white-space:nowrap}
+.wk.claimed .wk-top span{color:var(--accent-strong)}
+.wk small{display:block;font-size:12px;color:var(--muted);margin-top:6px;font-weight:700}
+.earn{list-style:none;display:grid;gap:9px;margin-top:10px;font-size:14px}
+.earn li{display:flex;justify-content:space-between;gap:8px}
+.earn b{display:inline-flex;align-items:center;gap:3px;color:var(--pearl);font-weight:900}
+
+/* Settings */
+.set-h{display:flex;align-items:center;gap:7px;font-size:12.5px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+.set-h .ic{color:var(--accent)}
+.srow{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:8px 0}
+.srow small{display:block;font-size:12px;color:var(--muted);font-weight:600}
+.srow.col{flex-direction:column;align-items:stretch;gap:6px}
+.srow.col>span{display:flex;justify-content:space-between}
+input[type=range]{width:100%;accent-color:var(--accent);height:28px}
+input[type=time]{background:var(--surface2);border:1px solid var(--line);border-radius:14px;padding:10px 12px;font-weight:800;font-size:16px}
+.switch{appearance:none;-webkit-appearance:none;width:52px;height:32px;border-radius:99px;background:var(--surface2);position:relative;transition:background .2s;flex:none;cursor:pointer;border:1px solid var(--line)}
+.switch::after{content:"";position:absolute;top:3px;left:3px;width:24px;height:24px;border-radius:50%;background:#fff;transition:transform .2s;box-shadow:0 2px 6px rgba(0,0,0,.2)}
+.switch:checked{background:var(--accent);border-color:var(--accent)}
+.switch:checked::after{transform:translateX(20px)}
+.themes{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.theme-sw{display:flex;flex-direction:column;align-items:center;gap:6px;font-size:11.5px;font-weight:800;color:var(--muted);text-align:center;line-height:1.15}
+.theme-sw i{position:relative;width:52px;height:52px;border-radius:50%;border:2px solid var(--line);display:grid;place-items:center}
+.theme-sw.on i{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
+.theme-sw.on{color:var(--accent-strong)}
+.theme-sw .lk{position:absolute;inset:0;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.55);color:#6d5560}
+.theme-sw .lk .ic{width:18px;height:18px}
+textarea{width:100%;background:var(--surface2);border:1px solid var(--line);border-radius:16px;padding:12px;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12px;resize:vertical;word-break:break-all}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
+.foot{display:flex;align-items:center;justify-content:center;gap:6px;font-size:12px;color:var(--muted);margin:22px 0 4px;font-weight:700}
+.foot .ic{color:var(--accent)}
+
+/* Modal + toast + unlock */
+.modal-back{position:fixed;inset:0;z-index:80;background:rgba(60,25,40,.38);-webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px);display:flex;align-items:flex-end;justify-content:center;animation:fadeIn .2s ease}
+@keyframes fadeIn{from{opacity:0}}
+.sheet{width:100%;max-width:480px;max-height:92vh;max-height:92dvh;overflow:auto;background:var(--surface);border-radius:30px 30px 0 0;padding:22px 18px calc(18px + env(safe-area-inset-bottom));animation:up .3s cubic-bezier(.2,.9,.3,1)}
+@keyframes up{from{transform:translateY(40px);opacity:.4}}
+.sheet h2{font-family:"Playfair Display",Georgia,serif;font-style:italic;font-size:27px;font-weight:600;line-height:1.15}
+.sheet .pv{width:100%;max-width:300px;aspect-ratio:1;display:block;margin:8px auto 0;background:var(--surface2);border-radius:24px}
+.sheet .cues{list-style:none;display:grid;gap:7px;margin:14px 0}
+.sheet .cues li{display:flex;gap:10px;align-items:center;font-weight:700}
+.sheet .cues li .ic{color:var(--accent);width:15px;height:15px}
+.sheet .actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px}
+.done-hero{text-align:center}
+.done-hero .big{width:72px;height:72px;margin:0 auto 8px;border-radius:50%;display:grid;place-items:center;background:var(--accent-soft);color:var(--accent-strong)}
+.done-hero .big .ic{width:42px;height:42px;stroke-width:1.5}
+.rewards{display:grid;gap:8px;margin:16px 0}
+.rw{display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:16px;background:var(--surface2);font-weight:700;font-size:14.5px}
+.rw .ri{flex:none;width:34px;height:34px;border-radius:12px;display:grid;place-items:center;background:var(--surface);color:var(--pearl)}
+.rw .ri .ic{width:20px;height:20px}
+.rw .rt{flex:1;min-width:0;line-height:1.25}
+.rw b{font-weight:900;color:var(--pearl);white-space:nowrap}
+.rw.st .ri,.rw.st b{color:var(--accent-strong)}
+.rw.ach{background:linear-gradient(120deg,var(--surface2),var(--accent-soft))}
+.rw.ach .ri{color:var(--accent-strong)}
+.reflect{border:1px solid var(--line);border-radius:24px;padding:16px;text-align:center;margin-bottom:14px}
+.ring{position:relative;width:78px;height:78px;margin:10px auto 6px}
+.ring svg{width:100%;height:100%;transform:rotate(-90deg)}
+.ring circle{fill:none;stroke-width:6}
+.ring .bg{stroke:var(--surface2)}
+.ring .fg{stroke:var(--accent);stroke-linecap:round;stroke-dasharray:163.4;stroke-dashoffset:163.4;transition:stroke-dashoffset 5s linear}
+.ring span{position:absolute;inset:0;display:grid;place-items:center;font-size:26px;font-weight:900;color:var(--accent-strong)}
+.r-prompt{font-family:"Playfair Display",Georgia,serif;font-style:italic;font-size:18px;min-height:26px}
+.rate{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin-top:12px}
+.rate button{padding:10px 0 8px;border-radius:16px;background:var(--surface2);font-weight:900;font-size:20px;border:2px solid transparent}
+.rate button small{display:block;font-size:10px;font-weight:800;color:var(--muted);letter-spacing:.02em}
+.rate button.sel{border-color:var(--accent);background:var(--accent-soft);color:var(--accent-strong)}
+.r-saved{font-size:13px;color:var(--accent-strong);font-weight:800;min-height:18px;margin-top:8px}
+.warn{background:var(--rest-soft);color:var(--rest);padding:12px 14px;border-radius:16px;font-weight:700;font-size:14px;margin:16px 0}
+.toast{position:fixed;left:50%;top:calc(env(safe-area-inset-top) + 12px);transform:translate(-50%,-150%);z-index:120;display:flex;align-items:center;gap:8px;background:var(--text);color:var(--bg);padding:12px 18px;border-radius:18px;font-weight:800;font-size:14px;max-width:min(92vw,440px);box-shadow:0 14px 30px -12px rgba(0,0,0,.4);transition:transform .38s cubic-bezier(.2,.9,.3,1)}
+.toast .ic{color:var(--accent);flex:none}
+.toast.show{transform:translate(-50%,0)}
+.unlock{position:fixed;inset:0;z-index:100;background:var(--bg);background-image:radial-gradient(90% 60% at 50% 30%,var(--bg2),transparent 75%);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:24px;text-align:center;cursor:pointer}
+.unlock .bow{width:96px;height:96px;color:var(--accent-strong);stroke-width:1.2;animation:float 3.2s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-6px) rotate(-3deg)}}
+.unlock .logo{font-family:"Playfair Display",Georgia,serif;font-style:italic;font-size:78px;font-weight:600;letter-spacing:-.02em;line-height:1}
+.unlock .tagline{font-size:13px;font-weight:800;letter-spacing:.24em;text-transform:uppercase;color:var(--muted)}
+.unlock .tap{margin-top:34px;padding:15px 30px;border-radius:99px;background:linear-gradient(135deg,var(--accent),var(--accent-strong));color:var(--accent-ink);font-weight:900;letter-spacing:.1em;animation:breathe 2.4s ease-in-out infinite}
+@keyframes breathe{50%{box-shadow:0 0 0 12px var(--accent-soft)}}
+
+/* ================= MOTION (minimal) ================= */
+button,.chip,.lib-card,.theme-sw i{transition:transform .14s ease,background-color .25s ease,color .25s ease,border-color .25s ease,box-shadow .25s ease,opacity .25s ease}
+button:active:not(:disabled){transform:scale(.96)}
+.lib-card:active{transform:scale(.98)}
+@keyframes rise{from{opacity:0;transform:translateY(10px)}}
+@keyframes tabInR{from{opacity:0;transform:translateX(16px)}}
+@keyframes tabInL{from{opacity:0;transform:translateX(-16px)}}
+@keyframes fadeOut{to{opacity:0}}
+@keyframes pop{0%{transform:scale(.85)}55%{transform:scale(1.14)}100%{transform:scale(1)}}
+.tab.active.from-r{animation:tabInR .32s ease}
+.tab.active.from-l{animation:tabInL .32s ease}
+:is(.tab.active,#rvLeague,#rvBadges,.stagger,.sheet)>*{animation:rise .45s cubic-bezier(.2,.8,.3,1) backwards;animation-delay:calc(var(--n,0) * 45ms)}
+:is(.tab.active,#rvLeague,#rvBadges,.stagger,.sheet)>:nth-child(2){--n:1}
+:is(.tab.active,#rvLeague,#rvBadges,.stagger,.sheet)>:nth-child(3){--n:2}
+:is(.tab.active,#rvLeague,#rvBadges,.stagger,.sheet)>:nth-child(4){--n:3}
+:is(.tab.active,#rvLeague,#rvBadges,.stagger,.sheet)>:nth-child(5){--n:4}
+:is(.tab.active,#rvLeague,#rvBadges,.stagger,.sheet)>:nth-child(6){--n:5}
+:is(.tab.active,#rvLeague,#rvBadges,.stagger,.sheet)>:nth-child(7){--n:6}
+:is(.tab.active,#rvLeague,#rvBadges,.stagger,.sheet)>:nth-child(8){--n:7}
+:is(.tab.active,#rvLeague,#rvBadges,.stagger,.sheet)>:nth-child(9){--n:8}
+:is(.tab.active,#rvLeague,#rvBadges,.stagger,.sheet)>:nth-child(10){--n:9}
+:is(.tab.active,#rvLeague,#rvBadges,.stagger,.sheet)>:nth-child(n+11){--n:10}
+.tab.entering .bar>i{animation:grow .9s cubic-bezier(.2,.8,.3,1) .15s backwards;transform-origin:left}
+@keyframes grow{from{transform:scaleX(0)}}
+.tabbar button.active .ic{animation:tabPop .45s cubic-bezier(.2,1.6,.4,1)}
+@keyframes tabPop{40%{transform:translateY(-3px) scale(1.12)}}
+.modal-back.closing{animation:fadeOut .22s ease forwards}
+.modal-back.closing .sheet{animation:sheetDown .22s ease forwards}
+@keyframes sheetDown{to{transform:translateY(40px);opacity:0}}
+.p-chip{transition:background-color .3s,color .3s}
+.p-progress i{transition:width .2s linear,background-color .3s}
+.p-timer.tick{animation:tick .32s ease}
+@keyframes tick{from{opacity:.4;transform:translateY(-5px) scale(.97)}}
+.fresh{animation:rise .45s cubic-bezier(.2,.8,.3,1) backwards}
+.p-cues.fresh{animation:none}
+.p-cues.fresh>li{animation:rise .45s cubic-bezier(.2,.8,.3,1) backwards}
+.p-cues.fresh>li:nth-child(2){animation-delay:.07s}
+.p-cues.fresh>li:nth-child(3){animation-delay:.14s}
+.p-paused{animation:fadeIn .2s ease}
+.unlock.leaving{opacity:0;transform:scale(1.05);transition:opacity .4s ease,transform .4s ease}
+.theming,.theming *{transition:background-color .45s ease,color .45s ease,border-color .45s ease,fill .45s ease,stroke .45s ease!important}
+
+/* ================= RANK CLIMB + LEVEL-UP ================= */
+.climb{position:fixed;inset:0;z-index:90;overflow-y:auto;background:var(--bg);background-image:radial-gradient(110% 55% at 50% 0%,var(--bg2),transparent 72%);padding:calc(env(safe-area-inset-top) + 22px) 18px calc(env(safe-area-inset-bottom) + 18px);animation:fadeIn .35s ease}
+.climb.leaving{animation:fadeOut .3s ease forwards}
+.climb-in{max-width:440px;margin:0 auto}
+.climb-head{text-align:center;animation:rise .5s backwards}
+.climb-rank{font-weight:900;font-size:88px;line-height:1;letter-spacing:-.04em;color:var(--accent-strong);font-variant-numeric:tabular-nums;margin-top:8px}
+.climb-rank .hash{font-size:.45em;opacity:.55;vertical-align:.7em;margin-right:2px}
+.climb-rank.pop{animation:pop .6s cubic-bezier(.2,1.6,.4,1)}
+.climb-sub{font-family:"Playfair Display",Georgia,serif;font-style:italic;font-size:25px;font-weight:600;margin-top:4px;min-height:32px}
+.climb-pts{display:inline-flex;align-items:center;gap:6px;margin-top:10px;padding:7px 15px;border-radius:999px;background:var(--accent-soft);color:var(--accent-strong);font-weight:900;font-variant-numeric:tabular-nums}
+.cboard{position:relative;margin-top:20px;animation:rise .5s .15s backwards}
+.crow{position:absolute;left:0;right:0;top:0;height:36px;display:grid;grid-template-columns:24px 28px 1fr auto;gap:10px;align-items:center;padding:0 12px;border-radius:12px;font-size:14px;font-weight:800;transition:transform .3s cubic-bezier(.3,.9,.3,1)}
+.crow .rk{color:var(--muted);text-align:center;font-variant-numeric:tabular-nums}
+.crow .av{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;font-size:12px;font-weight:900;color:#5A2E40}
+.crow .av .ic{width:16px;height:16px}
+.crow .nm{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.crow .pt{font-variant-numeric:tabular-nums}
+.crow.me{z-index:3;background:var(--surface);outline:1.5px solid var(--accent);box-shadow:0 10px 24px -10px var(--accent-strong)}
+.crow.me .av{background:linear-gradient(135deg,var(--accent),var(--accent-strong));color:var(--accent-ink)}
+.crow.me .rk{color:var(--accent-strong)}
+.crow.passed{animation:passed .6s ease}
+@keyframes passed{25%{background:var(--rest-soft);opacity:.55}}
+.cline{position:absolute;left:6px;right:6px;height:0;border-top:1.5px dashed currentColor;opacity:.65;z-index:1}
+.cline span{position:absolute;right:0;top:-8px;font-size:9.5px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;background:var(--bg);padding:0 6px}
+.cline.up{color:var(--accent-strong)}.cline.down{color:var(--rest)}
+.climb-note{margin:18px 0 16px;text-align:center;font-size:15px;font-weight:700;color:var(--muted);min-height:44px;opacity:0;transform:translateY(8px);transition:opacity .45s ease,transform .45s ease}
+.climb-note.show{opacity:1;transform:none}
+.climb-note b{color:var(--text)}
+.zone-promo{display:flex;justify-content:center;align-items:center;gap:10px;margin-bottom:10px;color:var(--accent-strong)}
+.zone-promo .medal{width:48px;height:48px;border-radius:16px}
+.zone-promo .medal .ic{width:26px;height:26px}
+.zone-promo .medal.next{animation:pop .7s .25s cubic-bezier(.2,1.6,.4,1) backwards}
+.lvl-stage{position:relative;width:150px;height:150px;margin:18px auto 6px}
+.lvl-medal{position:absolute;inset:15px;border-radius:40px;display:grid;place-items:center;background:linear-gradient(145deg,var(--surface),var(--accent-soft));border:2px solid var(--accent);color:var(--accent-strong);box-shadow:0 18px 40px -16px var(--accent-strong);transition:transform .65s cubic-bezier(.2,1.5,.4,1),opacity .45s ease}
+.lvl-medal .ic{width:64px;height:64px;stroke-width:1.3}
+.lvl-medal.new{transform:scale(.3) rotate(-25deg);opacity:0}
+.lvl-stage.go .old{transform:scale(.4) rotate(20deg);opacity:0}
+.lvl-stage.go .new{transform:none;opacity:1}
+.lvl-ring{position:absolute;inset:0;border-radius:50%;border:3px solid var(--accent);opacity:0}
+.lvl-stage.go .lvl-ring{animation:ring .9s ease-out}
+@keyframes ring{0%{transform:scale(.5);opacity:.9}100%{transform:scale(1.5);opacity:0}}
+.track{display:flex;justify-content:space-between;gap:4px;margin-top:22px;padding:0 4px}
+.track span{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;background:var(--surface2);color:var(--muted);transition:background-color .4s,color .4s}
+.track span .ic{width:20px;height:20px}
+.track span.on{background:var(--accent-soft);color:var(--accent-strong)}
+.track span.pop{animation:pop .7s cubic-bezier(.2,1.6,.4,1);background:linear-gradient(135deg,var(--accent),var(--accent-strong));color:var(--accent-ink)}
+.lv-perks{margin:10px auto 20px;max-width:340px}
+.lv-perks li{opacity:0;transform:translateY(8px);transition:opacity .4s ease,transform .4s ease}
+.lv-perks.show li{opacity:1;transform:none}
+.lv-perks.show li:nth-child(2){transition-delay:.12s}
+.lv-perks.show li:nth-child(3){transition-delay:.24s}
+.lv-perks.show li:nth-child(4){transition-delay:.36s}
+.lv-perks.show li:nth-child(5){transition-delay:.48s}
+.petal{position:fixed;top:-24px;z-index:110;pointer-events:none;border-radius:80% 0 80% 0;opacity:.92;animation:fall var(--d) cubic-bezier(.3,.2,.6,1) var(--dl) forwards}
+@keyframes fall{to{transform:translate(var(--x),112vh) rotate(var(--r))}}
+
+body.workout .topbar,body.workout .tabbar{display:none}
+body.workout main{padding:0}
+/* Reduced motion: applied via the .calm class (Settings > Animations: Auto follows the device) */
+.calm *,.calm *::before,.calm *::after{animation:none!important;transition:none!important}
+</style>
+</head>
+<body>
+<!-- ================= CUSTOM ICON SET ================= -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-bow" viewBox="0 0 24 24"><path d="M12 11.6C10 8 5.5 6 4 7.2s-.7 6.6 1 7.4 5.2-.5 7-3zM12 11.6c2-3.6 6.5-5.6 8-4.4s.7 6.6-1 7.4-5.2-.5-7-3z" fill="currentColor" fill-opacity=".18"/><circle cx="12" cy="11.8" r="1.8" fill="currentColor"/><path d="M11 13.3 8.4 20.2M13 13.3l2.6 6.9"/></symbol>
+    <symbol id="i-pearl" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" fill="currentColor" fill-opacity=".16"/><path d="M8.1 10.3a4.4 4.4 0 0 1 3.5-3.1" stroke-width="2"/><circle cx="15.6" cy="15.2" r=".9" fill="currentColor" stroke="none"/></symbol>
+    <symbol id="i-flame" viewBox="0 0 24 24"><path d="M12 21c-4 0-6.6-2.7-6.6-6.3 0-3.4 2.6-5.3 3.6-8.4.3-.9 1.4-1.1 2-.4 1.7 2 2.4 3.6 2.4 5.4.8-.6 1.3-1.5 1.5-2.4.2-.7 1.1-.9 1.5-.3 1.3 1.8 2.2 3.7 2.2 5.6C18.6 18.3 16 21 12 21z" fill="currentColor" fill-opacity=".16"/><path d="M12 18s-2.4-1.4-2.4-3.1a1.2 1.2 0 0 1 2.4-.6 1.2 1.2 0 0 1 2.4.6C14.4 16.6 12 18 12 18z" fill="currentColor" stroke="none"/></symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20s-7.5-4.6-7.5-10.3A4.2 4.2 0 0 1 12 7.2a4.2 4.2 0 0 1 7.5 2.5C19.5 15.4 12 20 12 20z" fill="currentColor" fill-opacity=".16"/></symbol>
+    <symbol id="i-heartcheck" viewBox="0 0 24 24"><path d="M12 20s-7.5-4.6-7.5-10.3A4.2 4.2 0 0 1 12 7.2a4.2 4.2 0 0 1 7.5 2.5C19.5 15.4 12 20 12 20z" fill="currentColor" fill-opacity=".16"/><path d="M9 11.6l2 2 4-4"/></symbol>
+    <symbol id="i-snow" viewBox="0 0 24 24"><path d="M12 3v18M4.2 7.5l15.6 9M4.2 16.5l15.6-9M9.6 4.6 12 6.6l2.4-2M9.6 19.4 12 17.4l2.4 2M4.4 11l2.9 1-.6 3M19.6 13l-2.9-1 .6-3"/></symbol>
+    <symbol id="i-tiara" viewBox="0 0 24 24"><path d="M3.6 17 5 8.6l4 4.6L12 6.2l3 7 4-4.6 1.4 8.4z" fill="currentColor" fill-opacity=".18"/><path d="M4 20h16"/><circle cx="12" cy="3.8" r="1.3" fill="currentColor"/><circle cx="5" cy="7.2" r=".9" fill="currentColor"/><circle cx="19" cy="7.2" r=".9" fill="currentColor"/></symbol>
+    <symbol id="i-shoe" viewBox="0 0 24 24"><path d="M3.5 15.6c0-1.9 1.5-3.1 3.6-3.1h4.3c2.3 0 4.2-1.6 6.3-1.6 1.6 0 2.8 1 2.8 2.4 0 1.7-1.6 2.9-3.6 3.4l-8.4 1.9c-2.7.6-5-.6-5-3z" fill="currentColor" fill-opacity=".18"/><path d="M11 12.5c-.4-2.8.6-6 2.6-8.4M13.6 12c.8-2.5 2.8-4.6 5-5.6"/></symbol>
+    <symbol id="i-watch" viewBox="0 0 24 24"><circle cx="12" cy="13.6" r="7" fill="currentColor" fill-opacity=".12"/><path d="M12 13.6V10M10 2.8h4M12 2.8v3.8M17.6 6.7l1.3-1.3"/></symbol>
+    <symbol id="i-bag" viewBox="0 0 24 24"><path d="M5.5 8.5h13l-1.1 11.5H6.6z" fill="currentColor" fill-opacity=".14"/><path d="M9 8.5V7a3 3 0 0 1 6 0v1.5"/><path d="M12 17s-2.1-1.2-2.1-2.8a1.05 1.05 0 0 1 2.1-.5 1.05 1.05 0 0 1 2.1.5c0 1.6-2.1 2.8-2.1 2.8z" fill="currentColor" stroke="none"/></symbol>
+    <symbol id="i-sliders" viewBox="0 0 24 24"><path d="M4 7h9M17.4 7H20M4 17h2.6M11 17h9"/><circle cx="15.2" cy="7" r="2.2" fill="currentColor" fill-opacity=".18"/><circle cx="8.8" cy="17" r="2.2" fill="currentColor" fill-opacity=".18"/></symbol>
+    <symbol id="i-sparkle" viewBox="0 0 24 24"><path d="M11 4.5l1.8 5.4 5.4 1.8-5.4 1.8L11 18.9l-1.8-5.4-5.4-1.8 5.4-1.8z" fill="currentColor" fill-opacity=".18"/><path d="M18.5 3v3.4M16.8 4.7h3.4M18.6 16.5v2.6M17.3 17.8h2.6"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 3.6l2.6 5.3 5.8.8-4.2 4.1 1 5.8L12 16.9l-5.2 2.7 1-5.8-4.2-4.1 5.8-.8z" fill="currentColor" fill-opacity=".18"/></symbol>
+    <symbol id="i-medal" viewBox="0 0 24 24"><path d="M8 3l3.2 6M16 3l-3.2 6"/><circle cx="12" cy="14.6" r="5.6" fill="currentColor" fill-opacity=".16"/><path d="M12 12.2l.9 1.7 1.9.3-1.4 1.3.3 1.9-1.7-.9-1.7.9.3-1.9-1.4-1.3 1.9-.3z" fill="currentColor" stroke="none"/></symbol>
+    <symbol id="i-gem" viewBox="0 0 24 24"><path d="M6.5 4h11L21 9l-9 11L3 9z" fill="currentColor" fill-opacity=".16"/><path d="M3 9h18M9.4 4 12 20l2.6-16"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" fill="currentColor" fill-opacity=".12"/><path d="M12 7.6V12l3 2"/></symbol>
+    <symbol id="i-blossom" viewBox="0 0 24 24"><g fill="currentColor" fill-opacity=".16"><circle cx="12" cy="7.6" r="3"/><circle cx="16.3" cy="10.7" r="3"/><circle cx="14.6" cy="15.7" r="3"/><circle cx="9.4" cy="15.7" r="3"/><circle cx="7.7" cy="10.7" r="3"/></g><circle cx="12" cy="12" r="1.4" fill="currentColor" stroke="none"/></symbol>
+    <symbol id="i-rose" viewBox="0 0 24 24"><path d="M12 20.5v-6.3"/><path d="M12 14.2c-3.3 0-5.5-2.2-5.5-5.2C6.5 6.1 8.8 4 12 4s5.5 2.1 5.5 5c0 3-2.2 5.2-5.5 5.2z" fill="currentColor" fill-opacity=".18"/><path d="M12 7.3c1.4 0 2.3.9 2.3 2s-1 2-2.3 2-2.3-.8-2.3-1.9M12 17.6c-1.4-1.5-3.2-2-4.9-1.6M12 18.6c1.4-1.3 3-1.7 4.6-1.3"/></symbol>
+    <symbol id="i-swan" viewBox="0 0 24 24"><path d="M3.5 13.8c1.4 3.6 4.9 5.6 8.8 5.6 4.2 0 7-2.6 7.6-6.5-2.2 1.7-5 1.8-8.1.1" fill="currentColor" fill-opacity=".18"/><path d="M11.8 13c1.6-1.3 2-3.3.9-4.6-1.2-1.5-1.3-3.3 0-4.3 1.2-.9 2.8-.4 3.3.9l2.2.7-2.3.5"/></symbol>
+    <symbol id="i-posture" viewBox="0 0 24 24"><circle cx="12" cy="4.6" r="2" fill="currentColor" fill-opacity=".2"/><path d="M12 7.2v7.6M7.6 10.2l4.4-1.4 4.4 1.4M12 14.8l-2.6 5.6M12 14.8l2.6 5.6"/></symbol>
+    <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" fill="currentColor" fill-opacity=".1"/><circle cx="12" cy="12" r="4.6"/><circle cx="12" cy="12" r="1.4" fill="currentColor"/></symbol>
+    <symbol id="i-leaf" viewBox="0 0 24 24"><path d="M5 19c0-8 5.2-13.5 14.2-14 .5 9-5 14-14.2 14z" fill="currentColor" fill-opacity=".16"/><path d="M5 19l8.6-8.6"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4" fill="currentColor" fill-opacity=".18"/><path d="M12 2.8v2.4M12 18.8v2.4M2.8 12h2.4M18.8 12h2.4M5.5 5.5l1.7 1.7M16.8 16.8l1.7 1.7M5.5 18.5l1.7-1.7M16.8 7.2l1.7-1.7"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M19.5 14.5A7.6 7.6 0 1 1 9.5 4.4a6 6 0 0 0 10 10.1z" fill="currentColor" fill-opacity=".16"/><path d="M16.5 3.6v3M15 5.1h3"/></symbol>
+    <symbol id="i-up" viewBox="0 0 24 24"><path d="M12 19V5.5M6.5 11 12 5.5l5.5 5.5"/></symbol>
+    <symbol id="i-down" viewBox="0 0 24 24"><path d="M12 5v13.5M6.5 13l5.5 5.5 5.5-5.5"/></symbol>
+    <symbol id="i-trophy" viewBox="0 0 24 24"><path d="M7 4h10v4.5a5 5 0 0 1-10 0z" fill="currentColor" fill-opacity=".16"/><path d="M7 6H4.6a2.6 2.6 0 0 0 2.7 4.1M17 6h2.4a2.6 2.6 0 0 1-2.7 4.1M12 13.5V17M8.5 20.5h7M9.6 17h4.8"/></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="10.5" width="14" height="10" rx="3" fill="currentColor" fill-opacity=".14"/><path d="M8 10.5V8a4 4 0 0 1 8 0v2.5"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.6l4.4 4.4L19 7.4"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><path d="M7.5 4.8v14.4L19.2 12z" fill="currentColor" stroke-linejoin="round"/></symbol>
+    <symbol id="i-pause" viewBox="0 0 24 24"><rect x="6.5" y="5" width="3.6" height="14" rx="1.4" fill="currentColor"/><rect x="13.9" y="5" width="3.6" height="14" rx="1.4" fill="currentColor"/></symbol>
+    <symbol id="i-skip" viewBox="0 0 24 24"><path d="M5.5 5.6v12.8l9-6.4z" fill="currentColor" fill-opacity=".2"/><path d="M18 5.5v13"/></symbol>
+    <symbol id="i-swap" viewBox="0 0 24 24"><path d="M4 8.2h13.4l-3.5-3.5M20 15.8H6.6l3.5 3.5"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="M6.5 6.5l11 11M17.5 6.5l-11 11"/></symbol>
+    <symbol id="i-shuffle" viewBox="0 0 24 24"><path d="M3.5 7H7c4 0 6 10 10 10h3.5M17.6 14l2.9 3-2.9 3M3.5 17H7c1.6 0 2.8-1.6 3.8-3.4M13.2 10.4C14.2 8.6 15.4 7 17 7h3.5M17.6 4l2.9 3-2.9 3"/></symbol>
+    <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15.5" rx="3.5" fill="currentColor" fill-opacity=".1"/><path d="M3.5 10h17M8 3v4M16 3v4"/><path d="M12 17.6s-2.1-1.2-2.1-2.7a1.05 1.05 0 0 1 2.1-.4 1.05 1.05 0 0 1 2.1.4c0 1.5-2.1 2.7-2.1 2.7z" fill="currentColor" stroke="none"/></symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24"><rect x="8.5" y="8.5" width="11.5" height="11.5" rx="3" fill="currentColor" fill-opacity=".12"/><path d="M15.5 8.5V6.5a2.5 2.5 0 0 0-2.5-2.5H6.5A2.5 2.5 0 0 0 4 6.5V13a2.5 2.5 0 0 0 2.5 2.5h2"/></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 4v11M7 10.5l5 5 5-5M5 20h14"/></symbol>
+    <symbol id="i-upload" viewBox="0 0 24 24"><path d="M12 15.5v-11M7 9.5l5-5 5 5M5 20h14"/></symbol>
+    <symbol id="i-volume" viewBox="0 0 24 24"><path d="M4 9.5h3.6L12 5.6v12.8l-4.4-3.9H4z" fill="currentColor" fill-opacity=".16"/><path d="M15.5 9a4.2 4.2 0 0 1 0 6M18 6.5a7.6 7.6 0 0 1 0 11"/></symbol>
+    <symbol id="i-palette" viewBox="0 0 24 24"><path d="M12 3.5a8.5 8.5 0 1 0 0 17c1.2 0 1.8-.9 1.4-2-.5-1.3.3-2.5 1.7-2.5H17a3.5 3.5 0 0 0 3.5-3.5c0-5-3.8-9-8.5-9z" fill="currentColor" fill-opacity=".12"/><circle cx="7.8" cy="11" r="1.3" fill="currentColor" stroke="none"/><circle cx="11" cy="7.4" r="1.3" fill="currentColor" stroke="none"/><circle cx="15.4" cy="8.6" r="1.3" fill="currentColor" stroke="none"/></symbol>
+    <symbol id="i-gift" viewBox="0 0 24 24"><rect x="4" y="9.5" width="16" height="10.5" rx="2.5" fill="currentColor" fill-opacity=".14"/><path d="M4 13.5h16M12 9.5V20M12 9.5c-1.6-3-5-3.4-5-1.4s3 1.4 5 1.4zM12 9.5c1.6-3 5-3.4 5-1.4s-3 1.4-5 1.4z"/></symbol>
+    <symbol id="i-mat" viewBox="0 0 24 24"><path d="M3 18.5h13.5a3.5 3.5 0 0 0 0-7H5.5A2.5 2.5 0 0 0 3 14z" fill="currentColor" fill-opacity=".16"/><circle cx="16.5" cy="15" r="1.6"/></symbol>
+    <symbol id="i-wall" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="3" fill="currentColor" fill-opacity=".12"/><path d="M4 9.3h16M4 14.6h16M10 4v5.3M15 9.3v5.3M9 14.6V20"/></symbol>
+    <symbol id="i-chair" viewBox="0 0 24 24"><path d="M7.5 3.5v17M17.5 12.5v8M7.5 3.5h2.6"/><path d="M6.5 12.5h12" stroke-width="2.6"/></symbol>
+    <symbol id="i-chev" viewBox="0 0 24 24"><path d="M9 5.5l6.5 6.5L9 18.5"/></symbol>
+    <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5" fill="currentColor" fill-opacity=".1"/><path d="M12 11v5.5M12 7.6v.1"/></symbol>
+  </defs>
+</svg>
+
+<div id="app">
+  <header class="topbar">
+    <div class="brand"><svg class="ic"><use href="#i-bow"/></svg>barre</div>
+    <div class="pills">
+      <span class="pill" id="hStreak" title="Streak"></span>
+      <span class="pill" id="hCoins" title="Pearls"></span>
+      <span class="pill" id="hBadge" title="Today's workout"></span>
+    </div>
+  </header>
+
+  <main>
+    <!-- ============ TAB 1: TRAIN ============ -->
+    <section id="tab-train" class="tab active">
+      <div class="hello">
+        <div class="eyebrow" id="tDate"></div>
+        <h1 class="title" id="tGreet">Stand tall.</h1>
+      </div>
+      <div class="card challenge" id="dailyCard">
+        <div class="ch-ic" id="dIc"></div>
+        <div class="ch-body">
+          <div class="eyebrow">Daily challenge</div>
+          <div class="ch-title" id="dTitle"></div>
+          <div class="bar"><i id="dBar"></i></div>
+        </div>
+        <div class="ch-rw" id="dRw"></div>
+      </div>
+      <div class="card">
+        <div class="row-h"><span class="eyebrow">Program</span><span class="muted small" id="progDesc"></span></div>
+        <div class="chips" id="progs"></div>
+        <div class="eyebrow" style="margin-top:8px">Session length</div>
+        <div class="seg" id="durSeg">
+          <button data-dur="10">10<small>MIN</small></button>
+          <button data-dur="15">15<small>MIN</small></button>
+          <button data-dur="20">20<small>MIN</small></button>
+        </div>
+        <div class="flow">
+          <div class="row-h"><span class="eyebrow" id="flowHead">Today's flow</span><button class="btn soft sm" id="shuffleBtn"><svg class="ic"><use href="#i-shuffle"/></svg>Shuffle</button></div>
+          <ul class="flow-list stagger" id="flowList"></ul>
+        </div>
+        <button class="start-btn" data-start><svg class="ic"><use href="#i-play"/></svg><span id="startLabel">Start Workout</span></button>
+        <div class="equip-row"><span><svg class="ic"><use href="#i-mat"/></svg>Mat</span><span><svg class="ic"><use href="#i-wall"/></svg>Wall</span><span><svg class="ic"><use href="#i-chair"/></svg>Chair</span></div>
+      </div>
+      <div class="tiles">
+        <div class="tile"><span><svg class="ic"><use href="#i-flame"/></svg>Streak</span><b id="tStreak">0</b><span id="tBest">best 0</span></div>
+        <div class="tile"><span><svg class="ic"><use href="#i-snow"/></svg>Freezes</span><b id="tFreeze">0/2</b><span>auto-used</span></div>
+        <div class="tile"><span><svg class="ic"><use href="#i-clock"/></svg>This week</span><b id="tWeek">0</b><span>minutes</span></div>
+      </div>
+      <div class="card">
+        <div class="row-h"><span class="eyebrow">Posture trend</span><span class="muted small">last 7 check-ins</span></div>
+        <div id="trend"></div>
+      </div>
+      <div class="card">
+        <div class="eyebrow">Recent sessions</div>
+        <div id="recent"></div>
+      </div>
+    </section>
+
+    <!-- ============ TAB 2: PLAYER ============ -->
+    <section id="tab-player" class="tab">
+      <div id="playerIdle">
+        <h1 class="title">Player</h1>
+        <div class="card idle-card">
+          <p class="muted">No workout running. Each block is 45 seconds of work and 15 seconds to reset.</p>
+          <button class="btn primary block" data-start id="idleStart">Start workout</button>
+        </div>
+        <div class="sec-h"><h2>Move library</h2><span class="muted small" id="libCount"></span></div>
+        <div class="chips" id="libChips"></div>
+        <div class="lib stagger" id="lib"></div>
+      </div>
+
+      <div id="playerActive" hidden data-phase="prep">
+        <div class="p-top">
+          <span class="p-chip" id="pPhase">GET READY</span>
+          <span class="p-meta"><span id="pBlock">1 / 10</span> · <span id="pLeft">10:00 left</span></span>
+          <button class="icon-btn" id="pEnd" aria-label="End workout"><svg class="ic"><use href="#i-close"/></svg></button>
+        </div>
+        <div class="p-progress"><i id="pBar"></i></div>
+        <div class="p-head">
+          <div class="p-eq"><span class="eqb" id="pEq"></span><span id="pFocus"></span></div>
+          <div class="p-name" id="pName"></div>
+          <div class="p-target"><span class="dot"></span><span id="pTarget"></span><span class="p-side" id="pSide"></span></div>
+        </div>
+        <div class="p-stage" id="pStage">
+          <svg id="pSvg" class="pose" viewBox="0 0 200 200" aria-hidden="true"></svg>
+          <span class="p-flag" id="pFlag">Up next</span>
+          <div class="p-paused" id="pPaused" hidden>paused</div>
+        </div>
+        <div class="p-timer" id="pTimer">10</div>
+        <div class="p-unit">SECONDS</div>
+        <ul class="p-cues" id="pCues"></ul>
+        <div class="p-controls">
+          <button class="btn" id="pSwap"></button>
+          <button class="p-pause" id="pPause" aria-label="Pause"><svg class="ic"><use id="pPauseUse" href="#i-pause"/></svg></button>
+          <button class="btn" id="pSkip">Skip<svg class="ic"><use href="#i-skip"/></svg></button>
+        </div>
+        <div class="p-wake" id="pWake"></div>
+      </div>
+    </section>
+
+    <!-- ============ TAB 3: RANKS ============ -->
+    <section id="tab-ranks" class="tab">
+      <div class="head-row"><h1 class="title">Ranks</h1>
+        <div class="seg2" id="rankSeg"><button data-rview="league" class="on">League</button><button data-rview="badges">Badges</button></div>
+      </div>
+      <div id="rvLeague">
+        <div class="card div-hero" id="divHero"></div>
+        <div class="card" id="rLast" hidden></div>
+        <div class="card">
+          <div class="row-h"><span class="eyebrow">Standings</span><span class="muted small" id="rMine"></span></div>
+          <div class="lb" id="lb"></div>
+        </div>
+        <div class="sec-h"><h2>Division ladder</h2><span class="muted small">benefits by level</span></div>
+        <div class="ladder stagger" id="ladder"></div>
+        <p class="hint center">You score 10 pts per minute trained. Rivals score base + day × pace. Top 3 are promoted and the bottom 2 drop a division when the week resets on Monday at 00:00.</p>
+      </div>
+      <div id="rvBadges" hidden>
+        <div class="card badge-sum" id="badgeSum"></div>
+        <div class="badges stagger" id="badges"></div>
+      </div>
+    </section>
+
+    <!-- ============ TAB 4: SHOP ============ -->
+    <section id="tab-shop" class="tab">
+      <h1 class="title">Shop &amp; Challenges</h1>
+      <div class="card coin-hero">
+        <div class="eyebrow">Your pearls</div>
+        <b><svg class="ic"><use href="#i-pearl"/></svg><span id="sCoins">0</span></b>
+        <div class="muted small" id="sBonus"></div>
+      </div>
+      <div class="card">
+        <div class="item">
+          <div class="item-ic"><svg class="ic"><use href="#i-snow"/></svg></div>
+          <div style="flex:1">
+            <h3>Streak Freeze</h3>
+            <p>Miss a day and one freeze is spent automatically, so your streak stays alive.</p>
+            <div class="slots" id="slots"></div>
+          </div>
+        </div>
+        <button class="btn primary block" id="buyFreeze" style="margin-top:14px"></button>
+      </div>
+      <div class="card">
+        <div class="row-h"><span class="eyebrow">Weekly challenges</span><span class="muted small" id="wkReset"></span></div>
+        <div id="weeklyList"></div>
+      </div>
+      <div class="card">
+        <div class="eyebrow">Today</div>
+        <div id="dailyShop"></div>
+      </div>
+      <div class="card">
+        <div class="eyebrow">How to earn pearls</div>
+        <ul class="earn" id="earnList"></ul>
+      </div>
+    </section>
+
+    <!-- ============ TAB 5: SETTINGS ============ -->
+    <section id="tab-settings" class="tab">
+      <h1 class="title">Settings</h1>
+      <div class="card">
+        <div class="set-h"><svg class="ic"><use href="#i-palette"/></svg>Theme</div>
+        <div class="themes" id="themes"></div>
+        <p class="hint">Reach new divisions in the league to unlock more themes.</p>
+        <div class="srow" style="margin-top:8px"><span>Animations<small>Auto follows your device's reduce-motion setting</small></span>
+          <div class="seg2" id="motionSeg"><button data-motion="auto">Auto</button><button data-motion="on">On</button><button data-motion="off">Off</button></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="set-h"><svg class="ic"><use href="#i-volume"/></svg>Sound</div>
+        <label class="srow"><span>Countdown beeps<small>3 · 2 · 1 beeps and a chime at every interval</small></span><input type="checkbox" class="switch" id="sndOn"></label>
+        <div class="srow col"><span>Volume <b id="volVal"></b></span><input type="range" id="vol" min="0" max="1" step="0.05"></div>
+        <div class="srow col"><span>Pitch <b id="pitchVal"></b></span><input type="range" id="pitch" min="440" max="1320" step="20"></div>
+        <button class="btn block" id="testSnd" style="margin-top:6px"><svg class="ic"><use href="#i-play"/></svg>Test sound</button>
+        <p class="hint">On iPhone, the ring/silent switch has to be on ring for beeps to play.</p>
+      </div>
+      <div class="card">
+        <div class="set-h"><svg class="ic"><use href="#i-calendar"/></svg>Daily reminder</div>
+        <div class="srow"><span>Reminder time</span><input type="time" id="remTime"></div>
+        <button class="btn primary block" id="icsBtn" style="margin-top:6px"><svg class="ic"><use href="#i-calendar"/></svg>Add to calendar (.ics)</button>
+        <p class="hint">Downloads a calendar file with a daily 10-minute workout and an alert. Open it to add it to your phone's calendar.</p>
+      </div>
+      <div class="card">
+        <div class="set-h"><svg class="ic"><use href="#i-copy"/></svg>Backup</div>
+        <textarea id="saveCode" rows="4" placeholder="Paste a save code here, then tap Import…" spellcheck="false" autocomplete="off"></textarea>
+        <div class="two">
+          <button class="btn primary" id="exportBtn"><svg class="ic"><use href="#i-upload"/></svg>Export</button>
+          <button class="btn" id="importBtn"><svg class="ic"><use href="#i-download"/></svg>Import</button>
+        </div>
+        <p class="hint">Progress is stored only on this device. Export a save code now and then and keep it in your notes.</p>
+      </div>
+      <div class="card">
+        <div class="set-h"><svg class="ic"><use href="#i-heart"/></svg>Install</div>
+        <p class="hint" id="installText" style="margin-top:0"></p>
+        <button class="btn block" id="installBtn" hidden style="margin-top:10px"><svg class="ic"><use href="#i-download"/></svg>Install barre</button>
+      </div>
+      <div class="card">
+        <div class="set-h"><svg class="ic"><use href="#i-info"/></svg>Danger zone</div>
+        <button class="btn block danger" id="resetBtn">Reset all progress</button>
+      </div>
+      <p class="foot"><svg class="ic"><use href="#i-bow"/></svg>barre 2.0 · mat · wall · chair</p>
+    </section>
+  </main>
+
+  <nav class="tabbar" id="tabbar">
+    <button data-tab="train" class="active"><svg class="ic"><use href="#i-shoe"/></svg>Train</button>
+    <button data-tab="player"><svg class="ic"><use href="#i-watch"/></svg>Player</button>
+    <button data-tab="ranks"><svg class="ic"><use href="#i-tiara"/></svg>Ranks</button>
+    <button data-tab="shop"><svg class="ic"><use href="#i-bag"/></svg>Shop</button>
+    <button data-tab="settings"><svg class="ic"><use href="#i-sliders"/></svg>Settings</button>
+  </nav>
+</div>
+
+<div class="unlock" id="unlock" role="button" aria-label="Tap to begin">
+  <svg class="ic bow"><use href="#i-bow"/></svg>
+  <div class="logo">barre</div>
+  <div class="tagline">posture · grace · strength</div>
+  <div class="tap">TAP TO BEGIN</div>
+  <div class="muted small" style="margin-top:12px">Turns on workout sounds</div>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<div id="modalRoot"></div>
+
+<script>
+(() => {
+'use strict';
+const $ = (s, r = document) => r.querySelector(s);
+const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
+const ic = (n, c = '') => `<svg class="ic ${c}" aria-hidden="true"><use href="#i-${n}"/></svg>`;
+
+/* =========================================================
+   Date helpers (local time)
+   ========================================================= */
+const pad = n => String(n).padStart(2, '0');
+const ymd = (d = new Date()) => `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
+const parseYmd = s => { const [y, m, d] = s.split('-').map(Number); return new Date(y, m - 1, d); };
+const dayNum = s => { const [y, m, d] = s.split('-').map(Number); return Math.round(Date.UTC(y, m - 1, d) / 864e5); };
+const addDays = (s, n) => { const d = parseYmd(s); d.setDate(d.getDate() + n); return ymd(d); };
+const mondayOf = (d = new Date()) => { const x = new Date(d.getFullYear(), d.getMonth(), d.getDate()); x.setDate(x.getDate() - ((x.getDay() + 6) % 7)); return x; };
+const weekKey = () => ymd(mondayOf());
+const maxDate = (a, b) => (!a ? b : !b ? a : (a > b ? a : b));
+const fmtClock = t => { t = Math.max(0, Math.ceil(t)); return `${Math.floor(t / 60)}:${pad(t % 60)}`; };
+const fmtDay = s => parseYmd(s).toLocaleDateString(undefined, { weekday: 'short', month: 'short', day: 'numeric' });
+const fmtSpan = ms => { const d = Math.floor(ms / 864e5), h = Math.floor(ms % 864e5 / 36e5), m = Math.floor(ms % 36e5 / 6e4); return d ? `${d}d ${h}h` : h ? `${h}h ${m}m` : `${m}m`; };
+const clone = o => JSON.parse(JSON.stringify(o));
+const isYmd = s => typeof s === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(s);
+function hashStr(s) { let h = 2166136261 >>> 0; for (let i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 16777619); } return h >>> 0; }
+function rng(seed) { let a = seed >>> 0; return () => { a = (a + 0x6D2B79F5) >>> 0; let t = a; t = Math.imul(t ^ (t >>> 15), t | 1); t ^= t + Math.imul(t ^ (t >>> 7), t | 61); return ((t ^ (t >>> 14)) >>> 0) / 4294967296; }; }
+
+/* =========================================================
+   Move library: 38 moves, joints in a 200×200 box.
+   L = near limbs (solid), R = far limbs (soft) in side views.
+   cat: p posture · l barre/lower · g glutes & back · c core · f stretch
+   lvl: 1 gentle · 2 standard
+   ========================================================= */
+const EQUIP = { mat: { icon: 'mat', label: 'Mat' }, wall: { icon: 'wall', label: 'Wall' }, chair: { icon: 'chair', label: 'Chair' } };
+const CATS = {
+  p: { name: 'Posture', icon: 'posture' }, l: { name: 'Barre', icon: 'shoe' }, g: { name: 'Glutes & Back', icon: 'heart' },
+  c: { name: 'Core', icon: 'target' }, f: { name: 'Stretch', icon: 'leaf' }
+};
+const F = (base, over) => Object.assign({}, base, over || {});
+const STAND_R = { head: [112, 40], neck: [110, 52], mid: [108, 80], hip: [107, 106], sh: [110, 57], eL: [129, 71], hL: [150, 86], kL: [108, 143], fL: [108, 176], tL: [120, 182] };
+const SUPINE = { head: [30, 168], neck: [42, 171], mid: [68, 173], hip: [94, 173], sh: [44, 171], eL: [64, 175], hL: [86, 176], kL: [116, 144], fL: [134, 178], tL: [146, 180] };
+const TABLE = { head: [30, 168], neck: [42, 171], mid: [70, 173], hip: [96, 173], sh: [44, 171], eL: [64, 175], hL: [86, 176], kL: [104, 142], fL: [134, 144] };
+const SEAT = { head: [77, 73], neck: [75, 85], mid: [74, 111], hip: [74, 137], sh: [76, 89], kL: [110, 138], fL: [110, 177], tL: [121, 181] };
+const QUAD = { head: [133, 130], neck: [122, 139], mid: [96, 141], hip: [70, 143], sh: [120, 140], eL: [121, 160], hL: [122, 179], kL: [68, 179], fL: [34, 180] };
+const PRONE = { head: [146, 170], neck: [134, 173], mid: [108, 174], hip: [82, 174], sh: [132, 173], kL: [46, 175], fL: [12, 176], tL: [6, 179] };
+const FRONT_CH = { head: [92, 40], neck: [92, 52], mid: [92, 79], hip: [92, 105], shL: [80, 57], shR: [104, 57], eL: [74, 80], hL: [82, 100], eR: [120, 70], hR: [140, 81], hipL: [85, 105], hipR: [99, 105], kL: [84, 142], fL: [84, 177], tL: [78, 181], kR: [100, 142], fR: [100, 177], tR: [106, 181] };
+const CHAIR_R = { t: 'chairSide', x: 150, w: 28, seat: 132, top: 86 };
+const CHAIR_SEAT = { t: 'chairSide', x: 56, w: 38, seat: 142, top: 90 };
+const CHAIR_FRONT = { t: 'chairFront', x: 138, w: 34, top: 80, seat: 124 };
+const MAT = { t: 'mat' };
+
+const EX = {
+  /* ---------- POSTURE ---------- */
+  scap: { name: 'Wall Scapular Retraction & Slide', short: 'Wall Scap Slide', cat: 'p', lvl: 2, eq: 'wall', target: 'Upper back · Mid traps', view: 'front',
+    props: [{ t: 'wallBack' }], hl: ['torsoUp', 'shoulders'],
+    cues: ['Head, upper back & tailbone on the wall', 'Ribcage knit down', 'Shoulders pulled back & down'],
+    frames: [
+      { head: [100, 38], neck: [100, 51], mid: [100, 78], hip: [100, 104], shL: [87, 56], shR: [113, 56], eL: [68, 68], hL: [67, 46], eR: [132, 68], hR: [133, 46], hipL: [92, 104], hipR: [108, 104], kL: [91, 141], fL: [90, 177], tL: [83, 181], kR: [109, 141], fR: [110, 177], tR: [117, 181] },
+      { head: [100, 38], neck: [100, 51], mid: [100, 78], hip: [100, 104], shL: [87, 56], shR: [113, 56], eL: [76, 36], hL: [66, 16], eR: [124, 36], hR: [134, 16], hipL: [92, 104], hipR: [108, 104], kL: [91, 141], fL: [90, 177], tL: [83, 181], kR: [109, 141], fR: [110, 177], tR: [117, 181] }] },
+  chinTuck: { name: 'Wall Chin Tuck & Press', short: 'Wall Chin Tuck', cat: 'p', lvl: 1, eq: 'wall', target: 'Deep neck flexors · Upper back',
+    props: [{ t: 'wall', x: 64 }], hl: ['neck', 'torsoUp'],
+    cues: ['Glide the chin straight back', 'Back of the head kisses the wall', 'Long neck, soft jaw'],
+    frames: [
+      { head: [80, 41], neck: [72, 54], mid: [70, 80], hip: [70, 106], sh: [71, 58], eL: [72, 82], hL: [75, 105], kL: [72, 143], fL: [74, 178], tL: [85, 182] },
+      { head: [73, 39], neck: [71, 53], mid: [70, 80], hip: [70, 106], sh: [71, 58], eL: [72, 82], hL: [75, 105], kL: [72, 143], fL: [74, 178], tL: [85, 182] }] },
+  swanLift: { name: 'Mat Swan Lift', short: 'Swan Lift', cat: 'p', lvl: 2, eq: 'mat', target: 'Spinal extensors · Upper back',
+    props: [MAT], hl: ['torsoUp', 'torsoLow'],
+    cues: ['Lengthen forward before you lift', 'Shoulders slide down the back', 'Pubic bone stays on the mat'],
+    frames: [F(PRONE, { eL: [124, 160], hL: [140, 176] }), F(PRONE, { neck: [130, 152], head: [141, 143], mid: [106, 166], sh: [129, 155], eL: [122, 168], hL: [140, 176] })] },
+  proneW: { name: 'Mat Prone W-Pull', short: 'Prone W-Pull', cat: 'p', lvl: 2, eq: 'mat', target: 'Mid traps · Rhomboids',
+    props: [MAT], hl: ['torsoUp', 'uaL'],
+    cues: ['Forehead hovers, gaze down', 'Pull elbows into back pockets', 'Squeeze blades, don’t shrug'],
+    frames: [F(PRONE, { head: [147, 166], neck: [135, 171], sh: [133, 171], eL: [155, 166], hL: [177, 162] }), F(PRONE, { head: [147, 166], neck: [135, 171], sh: [133, 170], eL: [116, 160], hL: [134, 156] })] },
+  seatSqueeze: { name: 'Seated Chair Shoulder Blade Squeeze', short: 'Seated Blade Squeeze', cat: 'p', lvl: 1, eq: 'chair', target: 'Upper back · Rhomboids',
+    props: [CHAIR_SEAT], hl: ['torsoUp'],
+    cues: ['Sit tall at the front of the seat', 'Shoulders pulled back & down', 'Squeeze, don’t shrug'],
+    frames: [F(SEAT, { eL: [98, 93], hL: [120, 91] }), F(SEAT, { eL: [58, 107], hL: [79, 101] })] },
+  seatThoracic: { name: 'Chair Thoracic Extension', short: 'Thoracic Extension', cat: 'p', lvl: 1, eq: 'chair', target: 'Thoracic spine · Chest',
+    props: [CHAIR_SEAT], hl: ['torsoUp'],
+    cues: ['Hands cradle the head, elbows wide', 'Arch over the chair top', 'Ribs stay soft, breathe in'],
+    frames: [F(SEAT, { eL: [92, 72], hL: [75, 67] }), F(SEAT, { head: [70, 72], neck: [72, 84], mid: [74, 110], sh: [72, 88], eL: [86, 70], hL: [68, 64] })] },
+
+  /* ---------- BARRE / LOWER BODY ---------- */
+  plie: { name: 'Chair Barre Plié & Calf Pulse', short: 'Plié & Calf Pulse', cat: 'l', lvl: 2, eq: 'chair', target: 'Inner thighs · Calves', view: 'front',
+    props: [CHAIR_FRONT], hl: ['thL', 'thR', 'shinL', 'shinR'],
+    cues: ['Knees track over toes', 'Tailbone neutral, spine tall', 'Lift heels and pulse an inch'],
+    frames: [
+      { head: [92, 50], neck: [92, 62], mid: [92, 88], hip: [92, 113], shL: [80, 67], shR: [104, 67], eL: [70, 88], hL: [82, 106], eR: [120, 79], hR: [140, 81], hipL: [85, 113], hipR: [99, 113], kL: [66, 141], fL: [68, 177], tL: [60, 181], kR: [118, 141], fR: [116, 177], tR: [124, 181] },
+      { head: [92, 58], neck: [92, 70], mid: [92, 96], hip: [92, 121], shL: [80, 75], shR: [104, 75], eL: [70, 96], hL: [82, 114], eR: [121, 85], hR: [140, 81], hipL: [85, 121], hipR: [99, 121], kL: [62, 146], fL: [66, 172], tL: [62, 181], kR: [122, 146], fR: [118, 172], tR: [122, 181] }] },
+  heelRaise: { name: 'Chair-Supported Heel Raises', short: 'Chair Heel Raises', cat: 'l', lvl: 1, eq: 'chair', target: 'Calves · Ankles',
+    props: [CHAIR_R], hl: ['shinL', 'shinR'],
+    cues: ['Light grip on the chair', 'Rise straight up through the big toe', 'Lower slowly for 2 counts'],
+    frames: [F(STAND_R), { head: [112, 33], neck: [110, 45], mid: [108, 73], hip: [107, 99], sh: [110, 50], eL: [130, 66], hL: [150, 86], kL: [108, 136], fL: [110, 169], tL: [120, 182] }] },
+  releveSquat: { name: 'Chair Barre Squat', short: 'Barre Squat', cat: 'l', lvl: 2, eq: 'chair', target: 'Quads · Glutes',
+    props: [CHAIR_R], hl: ['thL', 'glutes'], gl: [-6, 0],
+    cues: ['Sit back like there’s a chair behind you', 'Weight in the heels', 'Chest proud, spine long'],
+    frames: [F(STAND_R), { head: [118, 66], neck: [110, 77], mid: [96, 102], hip: [84, 126], sh: [110, 81], eL: [130, 82], hL: [150, 86], kL: [114, 136], fL: [106, 176], tL: [118, 182] }] },
+  curtsy: { name: 'Chair Curtsy Lunge Pulse', short: 'Curtsy Lunge', cat: 'l', lvl: 2, eq: 'chair', target: 'Glute med · Quads', view: 'front', bilateral: true,
+    props: [CHAIR_FRONT], hl: ['thL', 'thR'],
+    cues: ['Step back and across, like a curtsy', 'Hips stay square to the front', 'Pulse low, light on the chair'],
+    frames: [F(FRONT_CH), { head: [92, 54], neck: [92, 66], mid: [92, 92], hip: [92, 118], shL: [80, 71], shR: [104, 71], eL: [74, 92], hL: [82, 112], eR: [121, 78], hR: [140, 81], hipL: [85, 118], hipR: [99, 118], kL: [80, 148], fL: [84, 177], tL: [78, 181], kR: [86, 156], fR: [70, 170], tR: [64, 176] }] },
+  sitStand: { name: 'Chair Slow Sit-to-Stand', short: 'Slow Sit-to-Stand', cat: 'l', lvl: 1, eq: 'chair', target: 'Quads · Glutes',
+    props: [CHAIR_SEAT], hl: ['thL', 'glutes'], gl: [-5, 0],
+    cues: ['Feet hip-width, heels grounded', 'Rise in 3 counts, lower in 3', 'Arms float forward for balance'],
+    frames: [F(SEAT, { eL: [98, 93], hL: [120, 91] }), { head: [108, 40], neck: [106, 52], mid: [104, 80], hip: [102, 106], sh: [106, 57], eL: [128, 62], hL: [150, 62], kL: [106, 143], fL: [110, 177], tL: [121, 181] }] },
+  sideLeg: { name: 'Chair-Supported Side Leg Lift', short: 'Side Leg Lift', cat: 'l', lvl: 1, eq: 'chair', target: 'Outer hips · Glute med', view: 'front', bilateral: true,
+    props: [CHAIR_FRONT], hl: ['thL', 'pelvis'],
+    cues: ['Standing leg long, soft knee', 'Lift from the outer hip', 'Toes point forward, not up'],
+    frames: [F(FRONT_CH), F(FRONT_CH, { head: [97, 40], neck: [96, 52], mid: [94, 79], shL: [84, 57], shR: [108, 57], eL: [76, 80], hL: [84, 100], eR: [123, 70], kL: [62, 132], fL: [42, 160], tL: [36, 166] })] },
+  wallSitHeel: { name: 'Wall Sit Heel Lifts', short: 'Wall Sit Heel Lifts', cat: 'l', lvl: 2, eq: 'wall', target: 'Quads · Calves',
+    props: [{ t: 'wall', x: 50 }], hl: ['thL', 'shinL'],
+    cues: ['Back flat on the wall', 'Knees stacked over ankles', 'Lift both heels, lower with control'],
+    frames: [
+      { head: [62, 76], neck: [62, 88], mid: [62, 114], hip: [64, 140], sh: [63, 92], eL: [70, 116], hL: [92, 134], kL: [100, 140], fL: [100, 177], tL: [111, 181] },
+      { head: [62, 72], neck: [62, 84], mid: [62, 110], hip: [64, 136], sh: [63, 88], eL: [70, 112], hL: [92, 130], kL: [100, 134], fL: [101, 170], tL: [111, 181] }] },
+  splitSquat: { name: 'Chair Split Squat Pulse', short: 'Split Squat Pulse', cat: 'l', lvl: 2, eq: 'chair', target: 'Quads · Glutes', bilateral: true,
+    props: [CHAIR_R], hl: ['thL', 'glutes'], gl: [-5, 0],
+    cues: ['Front knee over the ankle', 'Back heel lifted, hips square', 'Drop straight down, pulse an inch'],
+    frames: [
+      { head: [104, 40], neck: [102, 52], mid: [100, 80], hip: [100, 106], sh: [102, 57], eL: [124, 70], hL: [150, 86], kL: [114, 142], fL: [118, 178], tL: [129, 182], kR: [88, 142], fR: [76, 174], tR: [70, 182] },
+      { head: [102, 58], neck: [101, 70], mid: [100, 98], hip: [100, 124], sh: [101, 75], eL: [125, 82], hL: [150, 86], kL: [126, 140], fL: [120, 178], tL: [131, 182], kR: [92, 160], fR: [66, 174], tR: [60, 182] }] },
+
+  /* ---------- GLUTES & BACK ---------- */
+  wallGlute: { name: 'Wall Glute Isometric Hold', short: 'Wall Glute Hold', cat: 'g', lvl: 2, eq: 'wall', target: 'Glutes · Quads',
+    props: [{ t: 'wall', x: 50 }], hl: ['glutes', 'thL'], gl: [-5, 1],
+    cues: ['Thighs parallel, knees over ankles', 'Low back gently on the wall', 'Squeeze glutes, breathe steady'],
+    frames: [
+      { head: [62, 76], neck: [62, 88], mid: [62, 114], hip: [64, 140], sh: [63, 92], eL: [70, 116], hL: [92, 134], kL: [100, 140], fL: [100, 177], tL: [111, 181] },
+      { head: [62, 80], neck: [62, 92], mid: [62, 118], hip: [64, 144], sh: [63, 96], eL: [70, 120], hL: [92, 138], kL: [101, 143], fL: [100, 177], tL: [111, 181] }] },
+  arab: { name: 'Chair-Supported Arabesque Lift', short: 'Arabesque Lift', cat: 'g', lvl: 2, eq: 'chair', target: 'Glutes · Low back · Hamstrings', bilateral: true,
+    props: [CHAIR_R], hl: ['glutes', 'thL', 'torsoLow'], gl: [-6, 0],
+    cues: ['Hips square to the chair', 'Lift from the glute, not the low back', 'Shoulders pulled back, chest proud'],
+    frames: [
+      { head: [116, 44], neck: [112, 56], mid: [106, 82], hip: [100, 108], sh: [112, 60], eL: [130, 72], hL: [150, 86], kL: [90, 143], fL: [80, 177], tL: [73, 182], kR: [102, 144], fR: [103, 178], tR: [114, 182] },
+      { head: [122, 50], neck: [117, 61], mid: [108, 85], hip: [100, 110], sh: [117, 64], eL: [134, 74], hL: [150, 86], kL: [70, 124], fL: [40, 136], tL: [32, 140], kR: [102, 145], fR: [103, 178], tR: [114, 182] }] },
+  bridge: { name: 'Mat Glute Bridge Hold', short: 'Glute Bridge Hold', cat: 'g', lvl: 1, eq: 'mat', target: 'Glutes · Hamstrings',
+    props: [MAT], hl: ['glutes', 'thL'], gl: [0, 5],
+    cues: ['Feet hip-width, heels close', 'Tailbone curls up first', 'Squeeze glutes at the top'],
+    frames: [F(SUPINE), F(SUPINE, { mid: [66, 163], hip: [92, 150], kL: [126, 146] })] },
+  slBridge: { name: 'Mat Single-Leg Bridge', short: 'Single-Leg Bridge', cat: 'g', lvl: 2, eq: 'mat', target: 'Glutes · Hamstrings', bilateral: true,
+    props: [MAT], hl: ['glutes', 'thL'], gl: [0, 5],
+    cues: ['Extended leg stays long', 'Hips rise level, no tilting', 'Press through the planted heel'],
+    frames: [F(SUPINE, { kR: [124, 160], fR: [154, 147], tR: [154, 147] }), F(SUPINE, { mid: [66, 163], hip: [92, 150], kL: [126, 146], kR: [126, 140], fR: [158, 128], tR: [158, 128] })] },
+  donkey: { name: 'Mat Donkey Kick Pulse', short: 'Donkey Kick Pulse', cat: 'g', lvl: 2, eq: 'mat', target: 'Glutes', bilateral: true,
+    props: [MAT], hl: ['glutes', 'thL'], gl: [-4, -3],
+    cues: ['Knee bent at 90°, foot flexed', 'Press the sole toward the ceiling', 'Ribs lifted, no sagging'],
+    frames: [F(QUAD, { kR: [68, 179], fR: [34, 180], kL: [40, 152], fL: [36, 118] }), F(QUAD, { kR: [68, 179], fR: [34, 180], kL: [38, 130], fL: [28, 97] })] },
+  birdDog: { name: 'Mat Bird Dog Hold', short: 'Bird Dog Hold', cat: 'g', lvl: 1, eq: 'mat', target: 'Low back · Glutes · Core', bilateral: true,
+    props: [MAT], hl: ['torsoLow', 'glutes'], gl: [-4, -3],
+    cues: ['Wrists under shoulders', 'Reach long, not high', 'Keep hips level'],
+    frames: [F(QUAD), F(QUAD, { eR: [142, 130], hR: [164, 122], kL: [38, 138], fL: [6, 134], kR: [68, 179], fR: [34, 180] })] },
+  chairBridge: { name: 'Chair Elevated Bridge', short: 'Elevated Bridge', cat: 'g', lvl: 2, eq: 'chair', target: 'Hamstrings · Glutes',
+    props: [MAT, { t: 'chairSide', x: 140, w: 34, seat: 146, top: 96, back: 'r' }], hl: ['glutes', 'thL'], gl: [0, 5],
+    cues: ['Heels on the seat, toes up', 'Lift hips in one long line', 'Lower one vertebra at a time'],
+    frames: [
+      { head: [24, 168], neck: [36, 171], mid: [62, 173], hip: [88, 173], sh: [38, 171], eL: [58, 175], hL: [80, 176], kL: [118, 150], fL: [148, 142], tL: [154, 134] },
+      { head: [24, 168], neck: [36, 171], mid: [62, 160], hip: [88, 146], sh: [38, 171], eL: [58, 175], hL: [80, 176], kL: [120, 138], fL: [148, 142], tL: [154, 134] }] },
+  sideLying: { name: 'Mat Side-Lying Leg Lift', short: 'Side-Lying Leg Lift', cat: 'g', lvl: 1, eq: 'mat', target: 'Outer hips · Obliques', view: 'front', bilateral: true,
+    props: [MAT], hl: ['thL', 'pelvis'],
+    cues: ['Stack hips like a pearl strand', 'Lead with the heel', 'Head rests on the lower arm'],
+    frames: [
+      { head: [26, 164], neck: [38, 168], mid: [66, 170], hip: [94, 170], shL: [40, 167], shR: [40, 169], eL: [58, 158], hL: [70, 174], eR: [30, 178], hR: [18, 168], hipL: [94, 168], hipR: [94, 172], kL: [130, 168], fL: [166, 168], tL: [172, 163], kR: [130, 173], fR: [166, 174], tR: [172, 170] },
+      { head: [26, 164], neck: [38, 168], mid: [66, 170], hip: [94, 170], shL: [40, 167], shR: [40, 169], eL: [58, 158], hL: [70, 174], eR: [30, 178], hR: [18, 168], hipL: [94, 168], hipR: [94, 172], kL: [128, 150], fL: [160, 132], tL: [166, 127], kR: [130, 173], fR: [166, 174], tR: [172, 170] }] },
+
+  /* ---------- CORE ---------- */
+  deadbug: { name: 'Mat Pelvic Tilt & Deadbug Hold', short: 'Pelvic Tilt Deadbug', cat: 'c', lvl: 2, eq: 'mat', target: 'Deep core · Transverse abs',
+    props: [MAT], hl: ['torsoLow'],
+    cues: ['Low back heavy on the mat', 'Ribcage knit down', 'Exhale as you reach, move slowly'],
+    frames: [F(TABLE, { eL: [46, 150], hL: [48, 128] }), F(TABLE, { eL: [46, 150], hL: [48, 128], eR: [26, 158], hR: [6, 160], kL: [128, 160], fL: [162, 166], kR: [104, 142], fR: [134, 144] })] },
+  heelSlide: { name: 'Mat Pelvic Tilt Heel Slides', short: 'Heel Slides', cat: 'c', lvl: 1, eq: 'mat', target: 'Deep core',
+    props: [MAT], hl: ['torsoLow'],
+    cues: ['Tilt pelvis, low back down', 'Slide heel out & back slowly', 'Ribcage knit down'],
+    frames: [F(SUPINE), F(SUPINE, { kL: [128, 166], fL: [162, 174], tL: [170, 166], kR: [116, 144], fR: [134, 178], tR: [146, 180] })] },
+  plank: { name: 'Mat Forearm Plank', short: 'Forearm Plank', cat: 'c', lvl: 2, eq: 'mat', target: 'Deep core · Shoulders',
+    props: [MAT], hl: ['torsoLow', 'torsoUp'],
+    cues: ['Elbows under shoulders', 'One long line, heels to crown', 'Breathe into the back ribs'],
+    frames: [
+      { head: [148, 146], neck: [136, 150], mid: [109, 155], hip: [82, 160], sh: [134, 152], eL: [134, 175], hL: [156, 176], kL: [46, 167], fL: [12, 174], tL: [8, 181] },
+      { head: [148, 146], neck: [136, 150], mid: [109, 152], hip: [82, 154], sh: [134, 152], eL: [134, 175], hL: [156, 176], kL: [47, 164], fL: [12, 174], tL: [8, 181] }] },
+  hundred: { name: 'Mat Hundred Prep', short: 'Hundred Prep', cat: 'c', lvl: 2, eq: 'mat', target: 'Deep core · Abs',
+    props: [MAT], hl: ['torsoLow', 'torsoUp'],
+    cues: ['Chin tucked, gaze to the knees', 'Pump arms small and quick', 'Inhale 5 pumps, exhale 5'],
+    frames: [F(TABLE, { head: [34, 160], neck: [44, 166], mid: [70, 172], sh: [46, 167], eL: [66, 165], hL: [88, 163] }), F(TABLE, { head: [35, 158], neck: [44, 166], mid: [70, 172], sh: [46, 167], eL: [66, 171], hL: [88, 173] })] },
+  wallPlank: { name: 'Wall Incline Plank Tap', short: 'Wall Plank Tap', cat: 'c', lvl: 1, eq: 'wall', target: 'Core · Shoulder stability',
+    props: [{ t: 'wall', x: 162, r: true }], hl: ['torsoLow', 'torsoUp'],
+    cues: ['Hands on the wall at chest height', 'Body in one diagonal line', 'Tap the chest, hips stay still'],
+    frames: [
+      { head: [132, 68], neck: [124, 79], mid: [111, 99], hip: [99, 118], sh: [122, 82], eL: [140, 86], hL: [158, 76], kL: [80, 147], fL: [62, 177], tL: [72, 182] },
+      { head: [132, 68], neck: [124, 79], mid: [111, 99], hip: [99, 118], sh: [122, 82], eL: [132, 98], hL: [126, 86], eR: [140, 86], hR: [158, 76], kL: [80, 147], fL: [62, 177], tL: [72, 182] }] },
+  seatKnee: { name: 'Chair Seated Knee Lifts', short: 'Seated Knee Lifts', cat: 'c', lvl: 1, eq: 'chair', target: 'Lower abs · Hip flexors',
+    props: [CHAIR_SEAT], hl: ['torsoLow', 'thL'],
+    cues: ['Hold the seat edges lightly', 'Lean back an inch, spine long', 'Lift knees on the exhale'],
+    frames: [
+      { head: [69, 74], neck: [71, 86], mid: [72, 111], hip: [74, 137], sh: [72, 90], eL: [74, 114], hL: [90, 140], kL: [110, 138], fL: [110, 177], tL: [121, 181] },
+      { head: [69, 74], neck: [71, 86], mid: [72, 111], hip: [74, 137], sh: [72, 90], eL: [74, 114], hL: [90, 140], kL: [104, 116], fL: [124, 146], tL: [133, 142] }] },
+  toeTaps: { name: 'Mat Tabletop Toe Taps', short: 'Toe Taps', cat: 'c', lvl: 1, eq: 'mat', target: 'Lower abs',
+    props: [MAT], hl: ['torsoLow'],
+    cues: ['Knees stacked over hips', 'Tap toes down, back stays flat', 'Exhale on every tap'],
+    frames: [F(TABLE), F(TABLE, { kL: [116, 146], fL: [132, 176], tL: [140, 178], kR: [104, 142], fR: [134, 144], tR: [134, 144] })] },
+
+  /* ---------- STRETCH ---------- */
+  chest: { name: 'Mat Chest Opener & Doorpost Stretch', short: 'Doorpost Chest Opener', cat: 'f', lvl: 1, eq: 'wall', target: 'Chest · Front shoulders', bilateral: true,
+    props: [{ t: 'post', x: 66, w: 8 }], hl: ['torsoUp', 'uaL'],
+    cues: ['Elbow at shoulder height on the frame', 'Step through, ribs stay down', 'Chin tucked, neck long'],
+    frames: [
+      { head: [104, 40], neck: [102, 52], mid: [100, 80], hip: [99, 106], sh: [101, 57], eL: [77, 60], hL: [76, 36], eR: [100, 82], hR: [104, 104], kL: [108, 142], fL: [112, 178], tL: [123, 182], kR: [94, 143], fR: [88, 178], tR: [99, 182] },
+      { head: [110, 41], neck: [106, 53], mid: [103, 81], hip: [101, 107], sh: [105, 58], eL: [77, 60], hL: [76, 36], eR: [104, 82], hR: [108, 104], kL: [110, 143], fL: [112, 178], tL: [123, 182], kR: [95, 143], fR: [88, 178], tR: [99, 182] }] },
+  seatChest: { name: 'Seated Chair Chest Opener', short: 'Seated Chest Opener', cat: 'f', lvl: 1, eq: 'chair', target: 'Chest · Front shoulders',
+    props: [CHAIR_SEAT], hl: ['torsoUp'],
+    cues: ['Sit tall, feet flat', 'Reach hands back, lift the chest', 'Shoulders away from ears'],
+    frames: [F(SEAT, { eL: [84, 112], hL: [100, 130] }), F(SEAT, { head: [80, 70], neck: [77, 83], mid: [75, 110], sh: [77, 87], eL: [64, 110], hL: [54, 130] })] },
+  catCow: { name: 'Mat Cat-Cow Flow', short: 'Cat-Cow', cat: 'f', lvl: 1, eq: 'mat', target: 'Spine mobility',
+    props: [MAT], hl: ['torsoUp', 'torsoLow'],
+    cues: ['Inhale: chest forward, tailbone up', 'Exhale: round like a cat', 'Move one vertebra at a time'],
+    frames: [F(QUAD, { mid: [96, 150], head: [136, 127] }), F(QUAD, { mid: [96, 128], neck: [121, 142], head: [128, 151] })] },
+  childPose: { name: "Mat Child's Pose Reach", short: "Child's Pose Reach", cat: 'f', lvl: 1, eq: 'mat', target: 'Lats · Low back',
+    props: [MAT], hl: ['torsoLow', 'uaL'],
+    cues: ['Knees wide, big toes together', 'Hips sink toward the heels', 'Walk fingertips long'],
+    frames: [
+      { head: [158, 130], neck: [146, 138], mid: [122, 140], hip: [96, 142], sh: [146, 140], eL: [147, 160], hL: [148, 179], kL: [96, 178], fL: [62, 180] },
+      { head: [128, 170], neck: [116, 166], mid: [90, 162], hip: [64, 158], sh: [116, 166], eL: [140, 172], hL: [164, 176], kL: [96, 178], fL: [62, 180] }] },
+  hamHinge: { name: 'Chair Hamstring Hinge', short: 'Hamstring Hinge', cat: 'f', lvl: 1, eq: 'chair', target: 'Hamstrings', bilateral: true,
+    props: [{ t: 'chairSide', x: 142, w: 30, seat: 138, top: 92 }], hl: ['thL'],
+    cues: ['Heel on the seat, toes up', 'Hinge from the hips, back flat', 'Soft knee, no bouncing'],
+    frames: [
+      { head: [104, 40], neck: [102, 52], mid: [100, 80], hip: [98, 106], sh: [102, 57], eL: [110, 80], hL: [118, 104], kL: [124, 122], fL: [150, 134], tL: [152, 124], kR: [98, 143], fR: [98, 178], tR: [109, 182] },
+      { head: [134, 58], neck: [124, 66], mid: [112, 86], hip: [98, 108], sh: [123, 70], eL: [133, 92], hL: [142, 114], kL: [124, 122], fL: [150, 134], tL: [152, 124], kR: [98, 143], fR: [98, 178], tR: [109, 182] }] },
+  hipFlexor: { name: 'Mat Kneeling Hip Flexor Stretch', short: 'Hip Flexor Stretch', cat: 'f', lvl: 1, eq: 'mat', target: 'Hip flexors · Quads', bilateral: true,
+    props: [MAT], hl: ['thL', 'torsoLow'],
+    cues: ['Tuck the tailbone slightly', 'Glide hips forward', 'Reach tall through the fingertips'],
+    frames: [
+      { head: [102, 82], neck: [100, 94], mid: [98, 120], hip: [96, 146], sh: [100, 98], eL: [104, 74], hL: [108, 52], kL: [78, 178], fL: [44, 180], tL: [40, 181], kR: [128, 142], fR: [130, 178], tR: [141, 182] },
+      { head: [103, 86], neck: [104, 98], mid: [106, 124], hip: [106, 150], sh: [104, 102], eL: [102, 78], hL: [98, 56], kL: [78, 178], fL: [44, 180], tL: [40, 181], kR: [134, 144], fR: [130, 178], tR: [141, 182] }] },
+  calfWall: { name: 'Wall Calf & Achilles Stretch', short: 'Wall Calf Stretch', cat: 'f', lvl: 1, eq: 'wall', target: 'Calves · Achilles', bilateral: true,
+    props: [{ t: 'wall', x: 162, r: true }], hl: ['shinL'],
+    cues: ['Back heel presses down', 'Back leg long and straight', 'Lean into the wall slowly'],
+    frames: [
+      { head: [132, 52], neck: [124, 62], mid: [114, 84], hip: [104, 108], sh: [124, 66], eL: [142, 62], hL: [160, 58], kL: [86, 140], fL: [68, 176], tL: [79, 182], kR: [128, 142], fR: [124, 178], tR: [135, 182] },
+      { head: [138, 55], neck: [130, 64], mid: [119, 86], hip: [108, 110], sh: [130, 68], eL: [146, 70], hL: [160, 60], kL: [88, 142], fL: [68, 176], tL: [79, 182], kR: [128, 142], fR: [124, 178], tR: [135, 182] }] },
+  figure4: { name: 'Chair Seated Figure-4', short: 'Seated Figure-4', cat: 'f', lvl: 1, eq: 'chair', target: 'Glutes · Piriformis', bilateral: true,
+    props: [CHAIR_SEAT], hl: ['thL', 'glutes'], gl: [-4, 2],
+    cues: ['Ankle rests on the opposite knee', 'Flex the top foot', 'Hinge forward with a long spine'],
+    frames: [
+      F(SEAT, { eL: [90, 106], hL: [104, 122], kL: [102, 120], fL: [112, 136], tL: [120, 134], kR: [110, 138], fR: [110, 177], tR: [121, 181] }),
+      F(SEAT, { head: [100, 84], neck: [91, 93], mid: [80, 114], sh: [90, 97], eL: [100, 112], hL: [108, 126], kL: [102, 120], fL: [112, 136], tL: [120, 134], kR: [110, 138], fR: [110, 177], tR: [121, 181] })] },
+  seatSideBend: { name: 'Chair Seated Side Bend', short: 'Seated Side Bend', cat: 'f', lvl: 1, eq: 'chair', target: 'Obliques · Lats', view: 'front', bilateral: true,
+    props: [{ t: 'chairFront', x: 70, w: 60, top: 96, seat: 138 }], hl: ['torsoUp', 'uaL'],
+    cues: ['Both sit bones grounded', 'Reach up and over', 'Breathe into the side ribs'],
+    frames: [
+      { head: [100, 72], neck: [100, 84], mid: [100, 110], hip: [100, 136], shL: [88, 88], shR: [112, 88], eL: [80, 110], hL: [86, 132], eR: [120, 110], hR: [114, 132], hipL: [92, 136], hipR: [108, 136], kL: [84, 148], fL: [84, 178], tL: [78, 182], kR: [116, 148], fR: [116, 178], tR: [122, 182] },
+      { head: [114, 76], neck: [108, 87], mid: [103, 111], hip: [100, 136], shL: [97, 90], shR: [119, 93], eL: [92, 64], hL: [112, 50], eR: [128, 114], hR: [126, 134], hipL: [92, 136], hipR: [108, 136], kL: [84, 148], fL: [84, 178], tL: [78, 182], kR: [116, 148], fR: [116, 178], tR: [122, 182] }] }
+};
+const EX_KEYS = Object.keys(EX);
+
+const PROGRAMS = {
+  mix: { name: 'Daily Mix', icon: 'sparkle', desc: 'A fresh full-body blend each day', pattern: ['p', 'l', 'g', 'c', 'p', 'l', 'g', 'c'] },
+  posture: { name: 'Posture Reset', icon: 'posture', desc: 'Upper back, neck & chest openers', pattern: ['p', 'f', 'p', 'c', 'p', 'g'] },
+  burn: { name: 'Barre Burn', icon: 'flame', desc: 'Legs & glutes endurance', pattern: ['l', 'g', 'l', 'g', 'c', 'l'] },
+  core: { name: 'Core & Lengthen', icon: 'target', desc: 'Deep core with long lines', pattern: ['c', 'p', 'c', 'g', 'c', 'f'] },
+  stretch: { name: 'Stretch & Release', icon: 'leaf', desc: 'Gentle mobility & flexibility', pattern: ['f', 'p', 'f', 'c', 'f'], gentle: true }
+};
+
+/* =========================================================
+   Divisions: each comes with real, working benefits
+   ========================================================= */
+const DIVS = [
+  { name: 'Blush', icon: 'heart', bonus: 0, promo: 0, cap: 2, price: 50, daily: 0,
+    perks: ['Your debut at the barre', '1 pearl per minute trained', 'Hold up to 2 Streak Freezes', 'Ballet Pink & Blush Night themes'] },
+  { name: 'Rosé', icon: 'rose', bonus: 10, promo: 30, cap: 2, price: 50, daily: 0, theme: 'rose',
+    perks: ['+10% pearls on every workout', '30-pearl promotion bouquet', 'Rosé theme unlocked'] },
+  { name: 'Pearl', icon: 'pearl', bonus: 15, promo: 40, cap: 2, price: 50, daily: 5, theme: 'pearl',
+    perks: ['+15% pearls on every workout', '+5 bonus pearls on daily challenges', '40-pearl promotion gift', 'Pearl theme unlocked'] },
+  { name: 'Ribbon', icon: 'bow', bonus: 20, promo: 60, cap: 3, price: 50, daily: 5, theme: 'ribbon',
+    perks: ['+20% pearls on every workout', 'Hold up to 3 Streak Freezes', '60-pearl promotion gift', 'Strawberry Ribbon theme unlocked'] },
+  { name: 'Satin', icon: 'shoe', bonus: 25, promo: 80, cap: 3, price: 40, daily: 10, theme: 'satin',
+    perks: ['+25% pearls on every workout', 'Streak Freezes cost only 40', '+10 bonus pearls on daily challenges', 'Lavender Satin theme unlocked'] },
+  { name: 'Swan', icon: 'swan', bonus: 35, promo: 100, cap: 3, price: 40, daily: 10, weeklyFreeze: true, theme: 'swan',
+    perks: ['+35% pearls on every workout', 'A free Streak Freeze every Monday', '100-pearl promotion gift', 'Midnight Swan theme unlocked'] },
+  { name: 'Prima', icon: 'tiara', bonus: 50, promo: 150, cap: 3, price: 30, daily: 15, weeklyFreeze: true, stipend: 50, theme: 'prima',
+    perks: ['+50% pearls on every workout', '50-pearl royalty every Monday', 'Free weekly freeze, and freezes cost 30', '+15 bonus pearls on daily challenges', 'Prima Champagne theme unlocked'] }
+];
+const THEMES = {
+  ballet: { name: 'Ballet Pink', div: 0, sw: ['#FFE2EB', '#E0628A'] },
+  night: { name: 'Blush Night', div: 0, sw: ['#331C27', '#F48FB1'] },
+  rose: { name: 'Rosé', div: 1, sw: ['#F6D3DB', '#C2456E'] },
+  pearl: { name: 'Pearl', div: 2, sw: ['#F4E8E6', '#C98199'] },
+  ribbon: { name: 'Strawberry Ribbon', div: 3, sw: ['#FFD6E3', '#F25C8A'] },
+  satin: { name: 'Lavender Satin', div: 4, sw: ['#E9DDF8', '#A57BD6'] },
+  swan: { name: 'Midnight Swan', div: 5, sw: ['#2A2140', '#F2A7C3'] },
+  prima: { name: 'Prima Champagne', div: 6, sw: ['#F6E6D2', '#C8964E'] }
+};
+const THEME_BG = { ballet: '#FFF5F7', night: '#1C1317', rose: '#FBEDF0', pearl: '#FBF8F5', ribbon: '#FFF0F4', satin: '#F8F3FC', swan: '#15131F', prima: '#FCF7EF' };
+
+/* =========================================================
+   Achievements (34, three rarities)
+   ========================================================= */
+const RARITY = { 1: 'Petal', 2: 'Pearl', 3: 'Diamond' };
+const st = () => S.stats;
+const ACH = [
+  ['first', 'First Plié', 'Finish your first session', 'shoe', 1, 10, () => st().sessions, 1],
+  ['s10', 'Ten Toes', 'Finish 10 sessions', 'sparkle', 1, 25, () => st().sessions, 10],
+  ['s25', 'Quarter Century', 'Finish 25 sessions', 'star', 2, 50, () => st().sessions, 25],
+  ['s50', 'Half Century', 'Finish 50 sessions', 'medal', 2, 80, () => st().sessions, 50],
+  ['s100', 'Centennial Grace', 'Finish 100 sessions', 'tiara', 3, 150, () => st().sessions, 100],
+  ['st3', 'Ribbon Tied', 'Reach a 3-day streak', 'bow', 1, 15, () => S.best, 3],
+  ['st7', 'Week of Grace', 'Reach a 7-day streak', 'flame', 1, 30, () => S.best, 7],
+  ['st14', 'Fortnight Poise', 'Reach a 14-day streak', 'flame', 2, 60, () => S.best, 14],
+  ['st30', 'Month of Elegance', 'Reach a 30-day streak', 'rose', 3, 120, () => S.best, 30],
+  ['st100', 'Eternal Pointe', 'Reach a 100-day streak', 'gem', 3, 300, () => S.best, 100],
+  ['m60', 'First Hour', 'Train 60 minutes in total', 'clock', 1, 15, () => st().minutes, 60],
+  ['m300', 'Five-Hour Grace', 'Train 300 minutes in total', 'clock', 2, 60, () => st().minutes, 300],
+  ['m1000', 'Thousand-Minute Muse', 'Train 1,000 minutes in total', 'gem', 3, 150, () => st().minutes, 1000],
+  ['v10', 'Curious Dancer', 'Try 10 different moves', 'sparkle', 1, 25, () => Object.keys(st().moves).length, 10],
+  ['v25', 'Wide Repertoire', 'Try 25 different moves', 'blossom', 2, 60, () => Object.keys(st().moves).length, 25],
+  ['vall', 'Full Repertoire', 'Try every move in the library', 'tiara', 3, 150, () => Object.keys(st().moves).length, EX_KEYS.length],
+  ['progs', 'Program Explorer', 'Finish every program at least once', 'star', 2, 50, () => Object.keys(st().programs).length, Object.keys(PROGRAMS).length],
+  ['flaw1', 'Flawless', 'Finish with no skips, swaps or pauses', 'heartcheck', 1, 15, () => st().flawless, 1],
+  ['flaw10', 'Poised Perfectionist', 'Finish 10 flawless sessions', 'gem', 2, 60, () => st().flawless, 10],
+  ['early', 'Early Swan', 'Finish a session before 8 AM', 'sun', 1, 20, () => st().early, 1],
+  ['night', 'Moonlight Barre', 'Finish a session after 9 PM', 'moon', 1, 20, () => st().night, 1],
+  ['weekend', 'Weekend Ballerina', 'Train on both Saturday and Sunday', 'blossom', 1, 20, () => st().weekend, 1],
+  ['long1', 'Long Line', 'Finish a 20-minute session', 'clock', 1, 20, () => st().long20, 1],
+  ['long10', 'Marathon Muse', 'Finish 10 twenty-minute sessions', 'medal', 2, 80, () => st().long20, 10],
+  ['tall', 'Standing Tall', 'Rate your posture 5 · Tall', 'posture', 1, 10, () => st().fives, 1],
+  ['diary', 'Posture Diary', 'Log 10 posture check-ins', 'heart', 2, 40, () => st().checkins, 10],
+  ['daily7', 'Daily Devotion', 'Complete 7 daily challenges', 'target', 2, 40, () => st().dailies, 7],
+  ['weekall', 'Week Perfected', 'Complete all 3 weekly challenges in one week', 'star', 2, 60, () => st().perfectWeeks, 1],
+  ['freeze', 'Saved by Snow', 'Let a Streak Freeze save your streak', 'snow', 1, 15, () => st().freezeSaves, 1],
+  ['rich', 'Pearl Collector', 'Earn 1,000 pearls in total', 'pearl', 2, 50, () => st().lifetime, 1000],
+  ['promo', 'Rising Star', 'Earn your first promotion', 'up', 1, 30, () => st().promotions, 1],
+  ['podium', 'Center Stage', 'Finish a league week at #1', 'trophy', 2, 60, () => st().firsts, 1],
+  ['swanAch', 'Swan Lake', 'Reach the Swan division', 'swan', 3, 100, () => S.league.best, 5],
+  ['prima', 'Prima Ballerina', 'Reach the Prima division', 'tiara', 3, 200, () => S.league.best, 6]
+].map(a => ({ id: a[0], name: a[1], desc: a[2], icon: a[3], r: a[4], reward: a[5], val: a[6], goal: a[7] }));
+const ACH_IDS = new Set(ACH.map(a => a.id));
+
+/* =========================================================
+   Challenges
+   ========================================================= */
+const DAILY = [
+  { id: 'noskip', icon: 'target', title: 'Finish 10 mins without skipping', test: r => r.min >= 10 && r.skips === 0 },
+  { id: 'noswap', icon: 'heartcheck', title: 'Finish a session without swapping a move', test: r => r.swaps === 0 },
+  { id: 'long', icon: 'clock', title: 'Go long: finish a 15-minute session', test: r => r.min >= 15 },
+  { id: 'checkin', icon: 'posture', title: 'Log a posture check-in after a session', test: r => r.rating > 0 },
+  { id: 'posture', icon: 'posture', title: 'Finish a Posture Reset session', test: r => r.prog === 'posture', prog: 'posture' },
+  { id: 'burn', icon: 'flame', title: 'Finish a Barre Burn session', test: r => r.prog === 'burn', prog: 'burn' },
+  { id: 'core', icon: 'target', title: 'Finish a Core & Lengthen session', test: r => r.prog === 'core', prog: 'core' },
+  { id: 'stretch', icon: 'leaf', title: 'Finish a Stretch & Release session', test: r => r.prog === 'stretch', prog: 'stretch' },
+  { id: 'nopause', icon: 'sparkle', title: 'Finish a session without pausing', test: r => r.pauses === 0 }
+];
+const WEEKLY_POOL = [
+  { id: 's4', title: 'Complete 4 sessions', goal: 4, unit: 'sessions', val: w => w.sessions },
+  { id: 'm30', title: 'Log 30 total minutes', goal: 30, unit: 'min', val: w => w.minutes },
+  { id: 'd3', title: 'Train on 3 different days', goal: 3, unit: 'days', val: w => w.days },
+  { id: 'mv12', title: 'Do 12 different moves', goal: 12, unit: 'moves', val: w => w.moves },
+  { id: 'pg3', title: 'Try 3 different programs', goal: 3, unit: 'programs', val: w => w.progs },
+  { id: 'fl2', title: 'Finish 2 flawless sessions', goal: 2, unit: 'flawless', val: w => w.flawless },
+  { id: 'ci3', title: 'Log 3 posture check-ins', goal: 3, unit: 'check-ins', val: w => w.checkins }
+];
+
+/* =========================================================
+   State + persistence (localStorage)
+   ========================================================= */
+const KEY = 'barre.save.v1';
+const DEFAULT = {
+  v: 2, streak: 0, best: 0, lastWorkoutDate: null, frozenThrough: null,
+  coins: 0, freezes: 0, history: [], recent: [], shuffle: 0,
+  daily: { date: null, done: false },
+  weekly: { week: null, claimed: [] },
+  league: { week: null, div: 0, best: 0, lastWeek: null, lastRank: null, lastPts: 0, lastDiv: 0, lastMove: null, announced: null },
+  stats: { sessions: 0, minutes: 0, lifetime: 0, flawless: 0, early: 0, night: 0, weekend: 0, long20: 0, fives: 0, checkins: 0, dailies: 0, perfectWeeks: 0, freezeSaves: 0, promotions: 0, firsts: 0, freezesBought: 0, moves: {}, programs: {} },
+  ach: {},
+  settings: { sound: true, volume: 0.8, pitch: 880, theme: 'ballet', duration: 10, program: 'mix', reminder: '07:30', motion: 'auto' }
+};
+function hydrate(o) {
+  const d = clone(DEFAULT);
+  if (!o || typeof o !== 'object') return d;
+  const N = (v, def, lo = 0, hi = 1e12) => { v = Number(v); return Number.isFinite(v) ? Math.min(hi, Math.max(lo, Math.floor(v))) : def; };
+  d.streak = N(o.streak, 0); d.best = Math.max(N(o.best, 0), d.streak); d.coins = N(o.coins, 0); d.freezes = N(o.freezes, 0, 0, 3); d.shuffle = N(o.shuffle, 0);
+  d.lastWorkoutDate = isYmd(o.lastWorkoutDate) ? o.lastWorkoutDate : null;
+  d.frozenThrough = isYmd(o.frozenThrough) ? o.frozenThrough : null;
+  if (Array.isArray(o.history)) d.history = o.history.filter(h => h && isYmd(h.d)).slice(-200).map(h => ({
+    d: h.d, t: N(h.t, 0), h: N(h.h, 12, 0, 23), min: N(h.min, 10, 0, 60), prog: PROGRAMS[h.prog] ? h.prog : 'mix',
+    skips: N(h.skips, 0), swaps: N(h.swaps, 0), pauses: N(h.pauses, 0), rating: N(h.rating, 0, 0, 5),
+    moves: Array.isArray(h.moves) ? h.moves.filter(k => EX[k]) : []
+  }));
+  if (Array.isArray(o.recent)) d.recent = o.recent.filter(k => EX[k]).slice(-16);
+  if (o.daily && isYmd(o.daily.date)) d.daily = { date: o.daily.date, done: !!o.daily.done };
+  if (o.weekly && isYmd(o.weekly.week)) d.weekly = { week: o.weekly.week, claimed: Array.isArray(o.weekly.claimed) ? o.weekly.claimed.filter(x => typeof x === 'string') : [] };
+  const L = o.league || {};
+  d.league = {
+    week: isYmd(L.week) ? L.week : null, div: N(L.div, 0, 0, 6), best: Math.max(N(L.best, 0, 0, 6), N(L.div, 0, 0, 6)),
+    lastWeek: isYmd(L.lastWeek) ? L.lastWeek : null, lastRank: L.lastRank ? N(L.lastRank, null, 1, 11) : null, lastPts: N(L.lastPts, 0),
+    lastDiv: N(L.lastDiv, 0, 0, 6), lastMove: ['up', 'down', 'stay'].includes(L.lastMove) ? L.lastMove : null, announced: isYmd(L.announced) ? L.announced : null
+  };
+  if (o.stats && typeof o.stats === 'object') {
+    for (const k in d.stats) {
+      if (k === 'moves' || k === 'programs') {
+        const src = o.stats[k] && typeof o.stats[k] === 'object' ? o.stats[k] : {};
+        for (const m in src) if ((k === 'moves' ? EX[m] : PROGRAMS[m])) d.stats[k][m] = N(src[m], 0);
+      } else d.stats[k] = N(o.stats[k], 0);
+    }
+  } else {
+    d.stats.sessions = d.history.length; d.stats.minutes = d.history.reduce((a, h) => a + h.min, 0); d.stats.lifetime = d.coins;
+    d.stats.checkins = d.history.filter(h => h.rating > 0).length; d.stats.fives = d.history.filter(h => h.rating === 5).length;
+    ['scap', 'plie', 'wallGlute', 'arab', 'deadbug', 'chest'].forEach(k => { if (d.history.length) d.stats.moves[k] = 1; });
+  }
+  if (o.ach && typeof o.ach === 'object') for (const k in o.ach) if (ACH_IDS.has(k)) d.ach[k] = isYmd(o.ach[k]) ? o.ach[k] : ymd();
+  const s = o.settings || {};
+  const legacy = { dark: 'ballet', light: 'ballet' }; // v1 defaulted to dark; v2 starts everyone on Ballet Pink
+  d.settings = {
+    sound: s.sound !== undefined ? !!s.sound : true,
+    volume: Math.min(1, Math.max(0, Number(s.volume) || 0.8)),
+    pitch: N(s.pitch, 880, 440, 1320),
+    theme: THEMES[s.theme] ? s.theme : (legacy[s.theme] || 'ballet'),
+    duration: [10, 15, 20].includes(Number(s.duration)) ? Number(s.duration) : 10,
+    program: PROGRAMS[s.program] ? s.program : 'mix',
+    reminder: /^\d{2}:\d{2}$/.test(s.reminder || '') ? s.reminder : '07:30',
+    motion: ['auto', 'on', 'off'].includes(s.motion) ? s.motion : 'auto'
+  };
+  return d;
+}
+function load() { try { const raw = localStorage.getItem(KEY); if (raw) return hydrate(JSON.parse(raw)); } catch (e) {} return clone(DEFAULT); }
+let S = load();
+function save() { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) {} }
+const div = () => DIVS[S.league.div];
+const freezeCap = () => div().cap;
+function addPearls(n) { n = Math.max(0, Math.round(n)); S.coins += n; S.stats.lifetime += n; return n; }
+
+/* =========================================================
+   SVG Pose Engine: 2-frame tween, 1 s cycle, muscle highlight
+   ========================================================= */
+const SEGS = [
+  ['shR', 'eR', 'uaR', 1], ['eR', 'hR', 'faR', 1], ['hipR', 'kR', 'thR', 1], ['kR', 'fR', 'shinR', 1], ['fR', 'tR', 'footR', 1],
+  ['head', 'neck', 'neck', 0], ['neck', 'mid', 'torsoUp', 0], ['mid', 'hip', 'torsoLow', 0], ['shL', 'shR', 'shoulders', 0], ['hipL', 'hipR', 'pelvis', 0],
+  ['hipL', 'kL', 'thL', 0], ['kL', 'fL', 'shinL', 0], ['fL', 'tL', 'footL', 0], ['shL', 'eL', 'uaL', 0], ['eL', 'hL', 'faL', 0]
+];
+function normFrame(f) {
+  const o = {}; for (const k in f) o[k] = f[k].slice();
+  o.sh = o.sh || o.neck; o.shL = o.shL || o.sh; o.shR = o.shR || o.shL;
+  o.eL = o.eL || o.sh; o.hL = o.hL || o.eL;
+  o.eR = o.eR || o.eL; o.hR = o.hR || o.hL;
+  o.hipL = o.hipL || o.hip; o.hipR = o.hipR || o.hipL;
+  o.kR = o.kR || o.kL; o.tL = o.tL || o.fL;
+  o.tR = o.tR || (f.fR ? f.fR.slice() : o.tL); o.fR = o.fR || o.fL;
+  return o;
+}
+function propsSvg(props) {
+  return props.map(p => {
+    switch (p.t) {
+      case 'wall': {
+        const x0 = p.r ? p.x : p.x - 16;
+        let s = `<rect x="${x0}" y="6" width="16" height="178" class="pfill"/>`;
+        for (let y = 16; y < 196; y += 13) s += `<line x1="${x0}" y1="${Math.min(y + 8, 184)}" x2="${x0 + 16}" y2="${y - 8}" class="phatch"/>`;
+        return s + `<line x1="${p.x}" y1="6" x2="${p.x}" y2="184" class="pline"/>`;
+      }
+      case 'wallBack': {
+        let s = '<rect x="22" y="6" width="156" height="178" rx="10" class="pfill"/>';
+        for (let y = 36; y < 184; y += 30) s += `<line x1="22" y1="${y}" x2="178" y2="${y}" class="phatch"/>`;
+        return s;
+      }
+      case 'post': return `<rect x="${p.x}" y="6" width="${p.w}" height="178" rx="2" class="pfill pstroke"/>`;
+      case 'chairSide': {
+        const { x, w, seat, top } = p, bx = p.back === 'r' ? x + w : x, fx = p.back === 'r' ? x : x + w;
+        return `<rect x="${bx - 3}" y="${top}" width="7" height="${Math.max(10, seat - top - 14)}" rx="3" class="pfill pstroke"/>
+          <line x1="${bx}" y1="${top}" x2="${bx}" y2="183" class="pline"/>
+          <line x1="${fx}" y1="${seat}" x2="${fx}" y2="183" class="pline"/>
+          <line x1="${x - 2}" y1="${seat}" x2="${x + w + 3}" y2="${seat}" class="pline pthick"/>`;
+      }
+      case 'chairFront': {
+        const { x, w, seat, top } = p;
+        return `<line x1="${x}" y1="${top}" x2="${x}" y2="183" class="pline"/>
+          <line x1="${x + w}" y1="${top}" x2="${x + w}" y2="183" class="pline"/>
+          <line x1="${x}" y1="${top}" x2="${x + w}" y2="${top}" class="pline pthick"/>
+          <line x1="${x}" y1="${top + 15}" x2="${x + w}" y2="${top + 15}" class="pline"/>
+          <line x1="${x - 5}" y1="${seat}" x2="${x + w + 5}" y2="${seat}" class="pline pthick"/>`;
+      }
+      case 'mat': return '<rect x="6" y="177" width="188" height="6" rx="3" class="pmat"/>';
+    }
+    return '';
+  }).join('');
+}
+let poseUid = 0;
+class PoseView {
+  constructor(svg) { this.svg = svg; this.id = 'pv' + (poseUid++); this.timer = null; this.raf = 0; }
+  set(key, side) {
+    this.stop();
+    const ex = EX[key]; this.ex = ex;
+    this.frames = ex.frames.map(normFrame); this.cur = clone(this.frames[0]); this.frame = 0;
+    const NS = 'http://www.w3.org/2000/svg', front = ex.view === 'front', hl = ex.hl || [];
+    const mirror = side === 'L' ? ' transform="translate(200 0) scale(-1 1)"' : '';
+    this.svg.innerHTML = `<defs><filter id="${this.id}f" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="4"/></filter></defs>
+      <g${mirror}>${propsSvg(ex.props)}<line x1="0" y1="184" x2="200" y2="184" class="floor"/>
+      <g class="gl" filter="url(#${this.id}f)"></g><g class="bd"></g></g>`;
+    const glowG = this.svg.querySelector('.gl'), bodyG = this.svg.querySelector('.bd');
+    const mk = (tag, cls, parent) => { const e = document.createElementNS(NS, tag); e.setAttribute('class', cls); parent.appendChild(e); return e; };
+    this.lines = [];
+    const addSeg = s => {
+      const isHl = hl.includes(s[2]), far = s[3] && !front;
+      if (isHl) this.lines.push({ el: mk('line', 'glowline', glowG), a: s[0], b: s[1] });
+      this.lines.push({ el: mk('line', 'seg' + (far ? ' far' : '') + (isHl ? ' hl' : ''), bodyG), a: s[0], b: s[1] });
+    };
+    SEGS.filter(s => s[3]).forEach(addSeg);
+    this.glute = null;
+    if (hl.includes('glutes')) {
+      this.gluteGlow = mk('circle', 'glute-glow', glowG); this.gluteGlow.setAttribute('r', 11);
+      this.glute = mk('circle', 'glute', bodyG); this.glute.setAttribute('r', 7);
+    }
+    SEGS.filter(s => !s[3]).forEach(addSeg);
+    this.head = mk('circle', 'headc', bodyG); this.head.setAttribute('r', 9);
+    this.draw();
+  }
+  draw() {
+    const c = this.cur;
+    for (const l of this.lines) { const A = c[l.a], B = c[l.b]; l.el.setAttribute('x1', A[0].toFixed(1)); l.el.setAttribute('y1', A[1].toFixed(1)); l.el.setAttribute('x2', B[0].toFixed(1)); l.el.setAttribute('y2', B[1].toFixed(1)); }
+    this.head.setAttribute('cx', c.head[0].toFixed(1)); this.head.setAttribute('cy', c.head[1].toFixed(1));
+    if (this.glute) {
+      const g = this.ex.gl || [-5, 0], x = (c.hip[0] + g[0]).toFixed(1), y = (c.hip[1] + g[1]).toFixed(1);
+      [this.glute, this.gluteGlow].forEach(e => { e.setAttribute('cx', x); e.setAttribute('cy', y); });
+    }
+  }
+  play() { if (this.timer) return; this.timer = setInterval(() => { this.frame ^= 1; this.tweenTo(this.frames[this.frame]); }, 1000); }
+  stop() { clearInterval(this.timer); this.timer = null; cancelAnimationFrame(this.raf); }
+  reset() { this.stop(); if (!this.frames) return; this.frame = 0; this.cur = clone(this.frames[0]); this.draw(); }
+  tweenTo(target) {
+    const from = clone(this.cur), t0 = performance.now(), D = 640;
+    cancelAnimationFrame(this.raf);
+    const step = now => {
+      let k = Math.min(1, (now - t0) / D); k = k < .5 ? 2 * k * k : 1 - Math.pow(-2 * k + 2, 2) / 2;
+      for (const j in target) this.cur[j] = [from[j][0] + (target[j][0] - from[j][0]) * k, from[j][1] + (target[j][1] - from[j][1]) * k];
+      this.draw();
+      if (k < 1) this.raf = requestAnimationFrame(step);
+    };
+    this.raf = requestAnimationFrame(step);
+  }
+}
+
+/* =========================================================
+   Web Audio sound engine (synthesized, no files)
+   ========================================================= */
+const Sound = {
+  ctx: null, out: null,
+  unlock() {
+    try {
+      if (!this.ctx) {
+        const AC = window.AudioContext || window.webkitAudioContext; if (!AC) return;
+        this.ctx = new AC(); this.out = this.ctx.createGain(); this.out.connect(this.ctx.destination);
+      }
+      if (this.ctx.state !== 'running') this.ctx.resume();
+      const b = this.ctx.createBuffer(1, 1, 22050), s = this.ctx.createBufferSource(); s.buffer = b; s.connect(this.out); s.start(0);
+    } catch (e) {}
+  },
+  ready(force) {
+    if ((!S.settings.sound && !force) || !this.ctx) return false;
+    if (this.ctx.state === 'suspended') this.ctx.resume();
+    this.out.gain.value = S.settings.volume; return true;
+  },
+  tone(f, when, dur, type, peak) {
+    const c = this.ctx, t = c.currentTime + when, o = c.createOscillator(), g = c.createGain();
+    o.type = type; o.frequency.setValueAtTime(f, t);
+    g.gain.setValueAtTime(0.0001, t); g.gain.exponentialRampToValueAtTime(peak, t + 0.012); g.gain.exponentialRampToValueAtTime(0.0001, t + dur);
+    o.connect(g); g.connect(this.out); o.start(t); o.stop(t + dur + 0.05);
+  },
+  beep(force) { if (!this.ready(force)) return; const p = S.settings.pitch; this.tone(p, 0, 0.15, 'triangle', 0.7); this.tone(p * 2, 0, 0.08, 'sine', 0.14); },
+  chime(force) { if (!this.ready(force)) return; const p = S.settings.pitch * 0.75; [1, 1.26, 1.5, 2].forEach((m, i) => this.tone(p * m, i * 0.075, 0.75 - i * 0.06, 'sine', 0.48)); },
+  tick(i) { if (!this.ready()) return; const p = S.settings.pitch * 0.6 * Math.pow(1.06, i); this.tone(p, 0, 0.09, 'sine', 0.32); this.tone(p * 2, 0, 0.05, 'triangle', 0.08); },
+  fanfare() { if (!this.ready()) return; const p = S.settings.pitch * 0.5; [1, 1.26, 1.5, 2, 1.5, 2].forEach((m, i) => this.tone(p * m, i * 0.12, 0.45, 'triangle', 0.4)); this.tone(p * 2, 0.74, 1.3, 'sine', 0.36); this.tone(p * 3, 0.74, 1.3, 'sine', 0.12); }
+};
+const vib = ms => { try { navigator.vibrate && navigator.vibrate(ms); } catch (e) {} };
+
+/* =========================================================
+   Screen Wake Lock
+   ========================================================= */
+let wakeLock = null;
+async function requestWake() {
+  try {
+    if ('wakeLock' in navigator && document.visibilityState === 'visible') {
+      wakeLock = await navigator.wakeLock.request('screen');
+      wakeLock.addEventListener('release', () => { wakeLock = null; renderWake(); });
+    }
+  } catch (e) { wakeLock = null; }
+  renderWake();
+}
+function releaseWake() { try { wakeLock && wakeLock.release(); } catch (e) {} wakeLock = null; }
+function renderWake() { $('#pWake').textContent = wakeLock ? 'Screen stays awake during your workout' : ('wakeLock' in navigator ? 'Screen wake lock paused' : 'Tip: raise your auto-lock time, this browser can’t keep the screen awake'); }
+
+/* =========================================================
+   Streak + Freeze logic
+   ========================================================= */
+function checkStreak() {
+  if (!S.lastWorkoutDate || S.streak <= 0) return;
+  const today = ymd(), lastActive = maxDate(S.lastWorkoutDate, S.frozenThrough);
+  const missed = dayNum(today) - dayNum(lastActive) - 1;
+  if (missed <= 0) return;
+  const use = Math.min(missed, S.freezes);
+  S.freezes -= use;
+  if (use < missed) {
+    const lost = S.streak; S.streak = 0; S.frozenThrough = null;
+    setTimeout(() => toast(use ? `Used ${use} freeze, but your ${lost}-day streak ended. Begin again today.` : `Your ${lost}-day streak reset. Begin a new one today.`, 'snow'), 700);
+  } else {
+    S.frozenThrough = addDays(today, -1); S.stats.freezeSaves++;
+    setTimeout(() => toast(`${use > 1 ? use + ' Streak Freezes' : 'A Streak Freeze'} kept your ${S.streak}-day streak safe`, 'snow'), 700);
+  }
+  save();
+}
+function bumpStreak() {
+  const today = ymd();
+  if (S.lastWorkoutDate === today) return false;
+  const lastActive = maxDate(S.lastWorkoutDate, S.frozenThrough);
+  S.streak = (S.streak > 0 && lastActive && dayNum(today) - dayNum(lastActive) === 1) ? S.streak + 1 : 1;
+  S.best = Math.max(S.best, S.streak);
+  S.lastWorkoutDate = today; S.frozenThrough = null;
+  return true;
+}
+
+/* =========================================================
+   Challenges + achievements evaluation
+   ========================================================= */
+const dailyFor = date => DAILY[((dayNum(date) % DAILY.length) + DAILY.length) % DAILY.length];
+const dailyDone = () => S.daily.date === ymd() && S.daily.done;
+function evalDaily(entry) {
+  const today = ymd(); if (dailyDone() || entry.d !== today) return null;
+  const ch = dailyFor(today);
+  if (ch.test(entry)) { S.daily = { date: today, done: true }; S.stats.dailies++; const p = addPearls(15 + div().daily); return { ch, p }; }
+  return null;
+}
+function weeklyFor(wk) { const r = rng(hashStr('weekly|' + wk)), pool = WEEKLY_POOL.slice(), out = []; while (out.length < 3) out.push(pool.splice(Math.floor(r() * pool.length), 1)[0]); return out; }
+function weekStats(wk = weekKey()) {
+  const end = addDays(wk, 7), list = S.history.filter(h => h.d >= wk && h.d < end), mv = new Set();
+  list.forEach(h => h.moves.forEach(k => mv.add(k)));
+  return {
+    sessions: list.length, minutes: list.reduce((a, h) => a + h.min, 0), days: new Set(list.map(h => h.d)).size, moves: mv.size,
+    progs: new Set(list.map(h => h.prog)).size, flawless: list.filter(h => !h.skips && !h.swaps && !h.pauses).length, checkins: list.filter(h => h.rating > 0).length
+  };
+}
+function syncWeekly() { const wk = weekKey(); if (S.weekly.week !== wk) S.weekly = { week: wk, claimed: [] }; }
+function evalWeekly() {
+  syncWeekly(); const stt = weekStats(), got = [];
+  weeklyFor(S.weekly.week).forEach(c => { if (!S.weekly.claimed.includes(c.id) && c.val(stt) >= c.goal) { S.weekly.claimed.push(c.id); addPearls(50); got.push(c); } });
+  if (got.length && S.weekly.claimed.length === 3) S.stats.perfectWeeks++;
+  return got;
+}
+function evalAchievements() {
+  const got = [];
+  for (let pass = 0; pass < 3; pass++) {
+    let any = false;
+    ACH.forEach(a => { if (!S.ach[a.id] && a.val() >= a.goal) { S.ach[a.id] = ymd(); addPearls(a.reward); got.push(a); any = true; } });
+    if (!any) break;
+  }
+  return got;
+}
+function announceAchievements(list) {
+  if (!list.length) return;
+  save(); renderAll(); bump('#hCoins');
+  list.forEach((a, i) => setTimeout(() => toast(`Badge unlocked: ${a.name} · +${a.reward} pearls`, a.icon), 900 + i * 3000));
+}
+
+/* =========================================================
+   Deterministic league with divisions
+   Points = Base + DayOfWeek × Rate (fractional day, Monday 00:00 = 0)
+   ========================================================= */
+const NAMES = ['pliépriya', 'wallsit_wes', 'tess.tendon', 'coracore', 'raj.aligned', 'amy_arabesque', 'spine.sam', 'tomás_tall', 'barreben', 'sky_scapula', 'mina.pointe', 'yuna_swan', 'lia.relevé', 'jisoo_stretch', 'chloe.core', 'hana_bloom', 'ella.en.pointe', 'sora_satin', 'nari.ribbon', 'dahye.dance', 'ivy_posture', 'mei_pearl', 'rin.rosé', 'kate.kneels'];
+const dayProgress = () => Math.min(7, Math.max(0, (Date.now() - mondayOf().getTime()) / 864e5));
+function boardFor(wk, dayProg, dv) {
+  const pr = rng(hashStr(wk + '|div' + dv)), pool = NAMES.slice(), names = [];
+  while (names.length < 10) names.push(pool.splice(Math.floor(pr() * pool.length), 1)[0]);
+  const scale = 1 + 0.15 * dv;
+  const rows = names.map(name => {
+    const r = rng(hashStr(wk + '|' + name)), base = Math.floor(r() * 45 * scale), rate = Math.floor((30 + r() * 125) * scale);
+    return { name, pts: Math.round(base + dayProg * rate), rate, hue: hashStr(name) % 360 };
+  });
+  rows.push({ name: 'You', me: true, pts: weekStats(wk).minutes * 10 });
+  return rows.sort((a, b) => b.pts - a.pts || (a.me ? -1 : b.me ? 1 : 0));
+}
+function rollLeague() {
+  const wk = weekKey(), L = S.league;
+  if (!L.week) { L.week = wk; save(); return; }
+  let guard = 0, rolled = false;
+  while (L.week < wk && guard++ < 12) {
+    const b = boardFor(L.week, 7, L.div), i = b.findIndex(r => r.me), rank = i + 1;
+    L.lastWeek = L.week; L.lastRank = rank; L.lastPts = b[i].pts; L.lastDiv = L.div;
+    if (rank === 1) S.stats.firsts++;
+    let move = 'stay';
+    if (rank <= 3 && L.div < DIVS.length - 1) { L.div++; move = 'up'; S.stats.promotions++; addPearls(DIVS[L.div].promo); }
+    else if (rank >= 10 && L.div > 0) { L.div--; move = 'down'; }
+    L.best = Math.max(L.best, L.div); L.lastMove = move;
+    L.week = addDays(L.week, 7); rolled = true;
+  }
+  L.week = wk;
+  if (rolled) {
+    const d = div();
+    if (d.weeklyFreeze && S.freezes < d.cap) S.freezes++;
+    if (d.stipend) addPearls(d.stipend);
+  }
+  save();
+}
+function announceLeague() {
+  const L = S.league;
+  if (!L.lastMove || L.announced === L.lastWeek) return;
+  L.announced = L.lastWeek; save();
+  if (L.lastMove === 'up') { whenUnlocked(() => showLevelUp(L.lastDiv, L.div, L)); return; }
+  const d = div(), up = false, down = L.lastMove === 'down';
+  openModal(`<div class="done-hero"><div class="big">${ic(up ? d.icon : down ? 'heart' : d.icon)}</div>
+      <h2>${up ? `Promoted to ${d.name}!` : down ? `Back to ${d.name}` : `You held ${d.name}`}</h2>
+      <p class="muted" style="margin-top:6px">Last week you finished #${L.lastRank} with ${L.lastPts.toLocaleString()} pts.</p></div>
+    ${up ? `<div class="rewards">${d.perks.map(p => `<div class="rw st"><span class="ri">${ic('check')}</span><span class="rt">${p}</span></div>`).join('')}</div>`
+      : `<p class="muted center" style="margin:16px 0">${down ? 'Every prima started somewhere. Finish in the top 3 this week to rise again.' : 'Finish in the top 3 this week to rise to the next division.'}</p>`}
+    <button class="btn primary block" data-m="ok">Lovely</button>`, { onClick: a => a === 'ok' && closeModal() });
+}
+
+/* =========================================================
+   Session planner: varied, seeded, avoids recent moves
+   ========================================================= */
+const DUR = { prep: 10, work: 45, rest: 15 };
+const planSeed = () => hashStr(`${ymd()}|${S.settings.program}|${S.settings.duration}|${S.shuffle}|${S.stats.sessions}`);
+function buildPlan(n, progId, seed) {
+  const P = PROGRAMS[progId], r = rng(seed), recent = new Set(S.recent), used = new Set(), plan = [];
+  let gid = 0;
+  const pick = (cat, room) => {
+    let c = EX_KEYS.filter(k => EX[k].cat === cat && !used.has(k) && (EX[k].bilateral ? 2 : 1) <= room);
+    if (!c.length) c = EX_KEYS.filter(k => EX[k].cat === cat && (EX[k].bilateral ? 2 : 1) <= room);
+    if (!c.length) return null;
+    const w = c.map(k => (recent.has(k) ? 1 : 5) * (P.gentle ? (EX[k].lvl === 1 ? 2 : 0.6) : (progId === 'burn' && EX[k].lvl === 1 ? 0.5 : 1)));
+    let x = r() * w.reduce((a, b) => a + b, 0);
+    for (let i = 0; i < c.length; i++) { x -= w[i]; if (x <= 0) return c[i]; }
+    return c[c.length - 1];
+  };
+  const push = k => { used.add(k); const g = gid++; if (EX[k].bilateral) plan.push({ key: k, side: 'R', g }, { key: k, side: 'L', g }); else plan.push({ key: k, side: null, g }); };
+  const pat = P.pattern, off = Math.floor(r() * pat.length), main = n - 2;
+  let i = 0;
+  while (plan.length < main) {
+    const room = main - plan.length, cat = i === 0 ? (P.gentle ? 'f' : 'p') : pat[(i + off) % pat.length];
+    i++;
+    const k = pick(cat, room) || pick('c', room) || pick('p', room);
+    if (k) push(k);
+  }
+  while (plan.length < n) push(pick('f', n - plan.length));
+  return plan;
+}
+const currentPlan = () => buildPlan(S.settings.duration, S.settings.program, planSeed());
+const exKeyOf = b => b.alt || b.key;
+
+/* =========================================================
+   Workout engine
+   ========================================================= */
+const plannedSec = n => DUR.prep + n * DUR.work + (n - 1) * DUR.rest;
+const W = { active: false };
+let tickIv = null;
+const pose = new PoseView($('#pSvg'));
+
+function startWorkout() {
+  if (W.active) { showTab('player'); return; }
+  Sound.unlock();
+  const min = S.settings.duration;
+  Object.assign(W, { active: true, paused: false, min, prog: S.settings.program, plan: currentPlan(), idx: 0, phase: 'prep', skips: 0, swaps: 0, pauses: 0, done: new Set(), elapsed: 0, lastTick: performance.now(), shown: null });
+  document.body.classList.add('workout');
+  $('#playerIdle').hidden = true; $('#playerActive').hidden = false;
+  showTab('player'); window.scrollTo(0, 0);
+  startPhase('prep'); requestWake();
+  clearInterval(tickIv); tickIv = setInterval(tick, 100);
+}
+function startPhase(ph) {
+  W.phase = ph; W.endAt = performance.now() + DUR[ph] * 1000; W.lastSec = null;
+  renderPlayer();
+  const stg = $('#pStage'); stg.classList.remove('flash'); void stg.offsetWidth; stg.classList.add('flash');
+  tick();
+}
+function totalRemain(rem) {
+  const N = W.plan.length, i = W.idx; let t = Math.max(0, rem) / 1000;
+  if (W.phase === 'prep') t += N * DUR.work + (N - 1) * DUR.rest;
+  else if (W.phase === 'work') t += (N - 1 - i) * (DUR.work + DUR.rest);
+  else t += DUR.work + (N - 2 - i) * (DUR.work + DUR.rest);
+  return t;
+}
+function tick() {
+  if (!W.active) return;
+  const now = performance.now();
+  if (!W.paused) W.elapsed += now - W.lastTick;
+  W.lastTick = now;
+  const rem = W.paused ? W.remain : W.endAt - now;
+  const sec = Math.max(0, Math.ceil(rem / 1000));
+  if (sec !== W.lastSec) {
+    W.lastSec = sec;
+    const t = $('#pTimer'), hot = sec <= 3 && sec > 0 && !W.paused;
+    t.textContent = sec; t.classList.toggle('hot', hot); t.classList.remove('tick');
+    if (!hot && !W.paused) { void t.offsetWidth; t.classList.add('tick'); }
+    if (!W.paused && sec <= 3 && sec >= 1) Sound.beep();
+  }
+  const left = totalRemain(rem), total = plannedSec(W.plan.length);
+  $('#pLeft').textContent = fmtClock(left) + ' left';
+  $('#pBar').style.width = (100 * (1 - left / total)).toFixed(2) + '%';
+  if (!W.paused && rem <= 0) advance(false);
+}
+function advance(skipped) {
+  const N = W.plan.length;
+  if (W.phase === 'prep') { Sound.chime(); vib(80); startPhase('work'); }
+  else if (W.phase === 'work') {
+    if (!skipped) W.done.add(exKeyOf(W.plan[W.idx]));
+    if (W.idx >= N - 1) finishWorkout(); else { Sound.chime(); vib(80); startPhase('rest'); }
+  } else { W.idx++; Sound.chime(); vib(80); startPhase('work'); }
+}
+function displayBlock() { return W.plan[W.phase === 'rest' ? W.idx + 1 : W.idx]; }
+function renderPlayer() {
+  if (!W.active) return;
+  const N = W.plan.length, b = displayBlock(), k = exKeyOf(b), ex = EX[k];
+  $('#playerActive').dataset.phase = W.phase;
+  $('#pPhase').textContent = { prep: 'GET READY', work: 'WORK', rest: 'REST' }[W.phase];
+  $('#pBlock').textContent = `${W.plan.indexOf(b) + 1} / ${N}`;
+  $('#pEq').innerHTML = `${ic(EQUIP[ex.eq].icon)}${EQUIP[ex.eq].label}`;
+  $('#pFocus').textContent = (ex.lvl === 1 ? 'Gentle · ' : '') + CATS[ex.cat].name;
+  $('#pName').textContent = ex.name;
+  $('#pTarget').textContent = ex.target;
+  $('#pSide').textContent = ex.bilateral && b.side ? (b.side === 'R' ? '· Right side' : '· Left side') : '';
+  $('#pCues').innerHTML = ex.cues.map(c => `<li>${ic('heart')}${c}</li>`).join('');
+  const flag = $('#pFlag'); flag.hidden = W.phase === 'work'; flag.textContent = W.phase === 'prep' ? 'First up' : 'Up next';
+  $('#pPaused').hidden = !W.paused;
+  const key = k + (b.side || '');
+  if (W.shown !== key) {
+    pose.set(k, ex.bilateral ? b.side : null); W.shown = key;
+    ['#pEq', '#pName', '#pTarget', '#pCues', '#pSvg'].forEach(s => { const e = $(s); e.classList.remove('fresh'); void e.getBoundingClientRect(); e.classList.add('fresh'); });
+  }
+  $('#pSvg').classList.toggle('dim', W.phase !== 'work');
+  if (W.phase === 'work' && !W.paused) pose.play(); else pose.reset();
+  $('#pSwap').innerHTML = b.alt ? `${ic('swap')}Original` : `${ic('swap')}Gentler`;
+  $('#pPauseUse').setAttribute('href', W.paused ? '#i-play' : '#i-pause');
+  $('#pPause').setAttribute('aria-label', W.paused ? 'Resume' : 'Pause');
+  renderWake();
+}
+function setPaused(p, manual) {
+  if (!W.active || p === W.paused) return;
+  if (p) { W.remain = W.endAt - performance.now(); W.paused = true; if (manual) W.pauses++; }
+  else { W.endAt = performance.now() + W.remain; W.paused = false; W.lastTick = performance.now(); }
+  W.lastSec = null; renderPlayer(); tick();
+}
+function skip() {
+  if (!W.active) return;
+  if (W.paused) setPaused(false);
+  if (W.phase === 'work') W.skips++;
+  advance(W.phase === 'work');
+}
+function gentlerFor(b) {
+  const cat = EX[b.key].cat, inPlan = new Set(W.plan.map(exKeyOf));
+  let c = EX_KEYS.filter(k => EX[k].cat === cat && k !== b.key && EX[k].lvl === 1 && !inPlan.has(k));
+  if (!c.length) c = EX_KEYS.filter(k => EX[k].cat === cat && k !== b.key && !inPlan.has(k));
+  if (!c.length) c = EX_KEYS.filter(k => EX[k].lvl === 1 && k !== b.key);
+  return c[(W.swaps + b.g) % c.length];
+}
+function swap() {
+  if (!W.active) return;
+  const b = displayBlock(), group = W.plan.filter(x => x.g === b.g);
+  if (b.alt) { group.forEach(x => { x.alt = null; }); toast(`Back to ${EX[b.key].short}`, 'swap'); }
+  else { const k = gentlerFor(b); group.forEach(x => { x.alt = k; }); W.swaps++; toast(`Swapped to ${EX[k].short}`, 'swap'); }
+  renderPlayer();
+}
+function stopEngine() {
+  W.active = false; clearInterval(tickIv); pose.stop(); releaseWake();
+  document.body.classList.remove('workout');
+  $('#playerActive').hidden = true; $('#playerIdle').hidden = false;
+}
+function confirmEnd() {
+  const wasPaused = W.paused; setPaused(true);
+  openModal(`<h2>End workout?</h2><p class="muted" style="margin-top:8px">Unfinished sessions don’t earn pearls or count toward your streak.</p>
+    <div class="actions"><button class="btn" data-m="keep">Keep going</button><button class="btn danger" data-m="end">End</button></div>`, {
+    onClick: a => {
+      if (a === 'keep') { closeModal(); if (!wasPaused) setPaused(false); }
+      if (a === 'end') { closeModal(); stopEngine(); showTab('train'); toast('Workout ended', 'heart'); }
+    }, onDismiss: () => { if (!wasPaused) setPaused(false); }
+  });
+}
+function finishWorkout() {
+  const min = W.min, counted = W.elapsed / 1000 >= 0.7 * plannedSec(W.plan.length);
+  const res = { counted, min, skips: W.skips, swaps: W.swaps, pauses: W.pauses, rewards: [], entry: null };
+  stopEngine(); Sound.fanfare(); vib([100, 60, 160]);
+  if (counted) {
+    const now = new Date(), moves = Array.from(W.done);
+    const entry = { d: ymd(), t: Date.now(), h: now.getHours(), min, prog: W.prog, skips: W.skips, swaps: W.swaps, pauses: W.pauses, rating: 0, moves };
+    const fresh = moves.filter(k => !S.stats.moves[k]);
+    const wkNow = weekKey(), dp = dayProgress(), before = boardFor(wkNow, dp, S.league.div);
+    S.history.push(entry); if (S.history.length > 200) S.history = S.history.slice(-200);
+    res.entry = entry;
+    res.climb = { before, after: boardFor(wkNow, dp, S.league.div), div: S.league.div };
+    const s = S.stats; s.sessions++; s.minutes += min; s.programs[W.prog] = (s.programs[W.prog] || 0) + 1;
+    moves.forEach(k => { s.moves[k] = (s.moves[k] || 0) + 1; });
+    if (min >= 20) s.long20++;
+    if (!W.skips && !W.swaps && !W.pauses) s.flawless++;
+    if (entry.h < 8) s.early++;
+    if (entry.h >= 21) s.night++;
+    if (now.getDay() === 0 && S.history.some(h => h.d === addDays(entry.d, -1))) s.weekend++;
+    S.recent = S.recent.concat(moves).slice(-16);
+    const d = div(), p = addPearls(min * (1 + d.bonus / 100));
+    res.rewards.push({ icon: 'pearl', amt: `+${p}`, text: `${min}-minute ${PROGRAMS[W.prog].name}${d.bonus ? ` (+${d.bonus}% ${d.name} bonus)` : ''}` });
+    const was = S.streak;
+    if (bumpStreak()) res.rewards.push({ icon: 'flame', amt: S.streak, text: S.streak > was ? `Day ${S.streak} streak${S.streak === S.best && S.streak > 1 ? ', a new best!' : ''}` : 'Streak started', cls: 'st' });
+    if (fresh.length) res.rewards.push({ icon: 'sparkle', amt: `${fresh.length} new`, text: `First time: ${fresh.map(k => EX[k].short).join(', ')}`, cls: 'st' });
+    const dc = evalDaily(entry); if (dc) res.rewards.push({ icon: dc.ch.icon, amt: `+${dc.p}`, text: 'Daily: ' + dc.ch.title });
+    evalWeekly().forEach(c => res.rewards.push({ icon: 'star', amt: '+50', text: 'Weekly: ' + c.title }));
+    evalAchievements().forEach(a => res.rewards.push({ icon: a.icon, amt: `+${a.reward}`, text: `Badge unlocked: ${a.name}`, cls: 'ach' }));
+    save();
+  }
+  renderAll(); bump('#hCoins'); bump('#hStreak');
+  showComplete(res);
+}
+
+/* =========================================================
+   Completion + 5-second posture reflection
+   ========================================================= */
+const RATE_LABELS = ['', 'Slumped', 'Stiff', 'Okay', 'Aligned', 'Tall'];
+function showComplete(res) {
+  const reflect = res.counted ? `<div class="reflect">
+      <div class="eyebrow">5-second posture check</div>
+      <div class="ring"><svg viewBox="0 0 60 60"><circle class="bg" cx="30" cy="30" r="26"/><circle class="fg" id="rFg" cx="30" cy="30" r="26"/></svg><span id="rCount">5</span></div>
+      <div class="r-prompt" id="rPrompt">Stand tall, feet grounded</div>
+      <div class="rate" id="rRate">${[1, 2, 3, 4, 5].map(v => `<button data-v="${v}">${v}<small>${RATE_LABELS[v]}</small></button>`).join('')}</div>
+      <div class="r-saved" id="rSaved"></div>
+    </div>` : '';
+  openModal(`<div class="done-hero"><div class="big">${ic(res.counted ? 'bow' : 'heart')}</div>
+      <h2>${res.counted ? 'Beautifully done' : 'Nice effort'}</h2>
+      <p class="muted">${res.min} min · ${res.skips} skip${res.skips === 1 ? '' : 's'} · ${res.swaps} swap${res.swaps === 1 ? '' : 's'}</p></div>
+    ${res.counted ? `<div class="rewards stagger">${res.rewards.map(r => `<div class="rw ${r.cls || ''}"><span class="ri">${ic(r.icon)}</span><span class="rt">${r.text}</span><b>${r.amt}</b></div>`).join('')}</div>`
+      : `<div class="warn">Too many moves were skipped for this session to count. Finish at least 70% of it to earn pearls and keep your streak.</div>`}
+    ${reflect}
+    <button class="btn primary block" data-m="done">Done</button>`, {
+    dismissable: false,
+    onClick: a => {
+      if (a !== 'done') return;
+      closeModal();
+      const c = res.climb, climbed = c && c.after.findIndex(r => r.me) < c.before.findIndex(r => r.me);
+      if (climbed) setTimeout(() => showClimb(c, () => showTab('train')), 200); else showTab('train');
+    }
+  });
+  if (!res.counted) return;
+  const prompts = ['Stand tall, feet grounded', 'Roll shoulders back & down', 'Ribcage knit down', 'Crown of the head lifts', 'How tall do you feel?'];
+  let n = 5;
+  requestAnimationFrame(() => requestAnimationFrame(() => { const fg = $('#rFg'); if (fg) fg.style.strokeDashoffset = '0'; }));
+  const iv = setInterval(() => {
+    n--; const c = $('#rCount'), p = $('#rPrompt'); if (!c) { clearInterval(iv); return; }
+    c.textContent = n > 0 ? n : '✓'; p.textContent = prompts[Math.min(4, 5 - n)];
+    if (n <= 0) clearInterval(iv);
+  }, 1000);
+  modalCleanup.push(() => clearInterval(iv));
+  let rated = false;
+  $$('#rRate button').forEach(btn => btn.addEventListener('click', () => {
+    const v = +btn.dataset.v, prev = res.entry.rating; res.entry.rating = v;
+    if (!rated) { S.stats.checkins++; rated = true; }
+    if (v === 5 && prev !== 5) S.stats.fives++;
+    $$('#rRate button').forEach(b => b.classList.toggle('sel', b === btn));
+    let msg = `Logged: ${RATE_LABELS[v]}. It’s on your posture trend.`;
+    const dc = evalDaily(res.entry); if (dc) { msg = `+${dc.p} pearls, daily challenge complete! ` + msg; bump('#hCoins'); }
+    const ach = evalAchievements(); if (ach.length) msg += ` Badge unlocked: ${ach.map(a => a.name).join(', ')}!`;
+    save(); renderAll(); $('#rSaved').textContent = msg;
+  }));
+}
+
+/* =========================================================
+   Motion helpers, rank-climb and level-up animations
+   ========================================================= */
+const reduced = () => S.settings.motion === 'off' || (S.settings.motion === 'auto' && matchMedia('(prefers-reduced-motion: reduce)').matches);
+function applyMotion() { document.documentElement.classList.toggle('calm', reduced()); }
+function countTo(el, from, to, dur = 800) {
+  if (!el) return;
+  if (reduced() || from === to) { el.textContent = to.toLocaleString(); return; }
+  let t0 = null;
+  el.textContent = from.toLocaleString();
+  const step = now => { if (t0 === null) t0 = now; const k = Math.min(1, Math.max(0, (now - t0) / dur)), e = 1 - Math.pow(1 - k, 3); el.textContent = Math.round(from + (to - from) * e).toLocaleString(); if (k < 1) requestAnimationFrame(step); };
+  requestAnimationFrame(step);
+}
+function petals(n = 32) {
+  if (reduced()) return;
+  const cols = ['var(--accent)', 'var(--accent-strong)', '#FFC4D6', 'var(--pearl)', '#FFFFFF'];
+  for (let i = 0; i < n; i++) {
+    const p = document.createElement('i'), s = 7 + Math.random() * 9;
+    p.className = 'petal';
+    p.style.cssText = `left:${Math.random() * 100}vw;width:${s}px;height:${s}px;background:${cols[i % cols.length]};--x:${Math.round(Math.random() * 140 - 70)}px;--r:${Math.round(Math.random() * 720 - 360)}deg;--d:${(2.2 + Math.random() * 1.8).toFixed(2)}s;--dl:${(Math.random() * .6).toFixed(2)}s`;
+    document.body.appendChild(p); setTimeout(() => p.remove(), 5200);
+  }
+}
+function openOverlay(html) { const el = document.createElement('div'); el.className = 'climb'; el.innerHTML = `<div class="climb-in">${html}</div>`; document.body.appendChild(el); return el; }
+function closeOverlay(el, then) { el.classList.add('leaving'); setTimeout(() => { el.remove(); if (then) then(); }, reduced() ? 0 : 300); }
+const avatarOf = r => r.me ? ic('bow') : r.name.replace(/[^a-zA-Zéá]/g, '').slice(0, 1).toUpperCase();
+
+// Post-workout: your row climbs the weekly table, passing each rival one by one.
+function showClimb(c, then) {
+  const RH = 40, before = c.before, after = c.after, n = before.length;
+  const fromI = before.findIndex(r => r.me), toI = after.findIndex(r => r.me);
+  const d = DIVS[c.div], next = DIVS[c.div + 1], meB = before[fromI], meA = after[toI];
+  const el = openOverlay(`
+    <div class="climb-head">
+      <div class="eyebrow">${d.name} Division · weekly league</div>
+      <div class="climb-rank" id="cRank"><span class="hash">#</span><span id="cRankN">${fromI + 1}</span></div>
+      <div class="climb-sub" id="cSub">Climbing the ranks…</div>
+      <div class="climb-pts">${ic('sparkle')}<span id="cPts">${meB.pts.toLocaleString()}</span> pts</div>
+    </div>
+    <div class="cboard" style="height:${n * RH}px">
+      ${next ? `<div class="cline up" style="top:${3 * RH - 2}px"><span>Promotion zone</span></div>` : ''}
+      ${c.div > 0 ? `<div class="cline down" style="top:${(n - 2) * RH - 2}px"><span>Relegation zone</span></div>` : ''}
+      ${before.map((r, i) => `<div class="crow${r.me ? ' me' : ''}" style="transform:translateY(${i * RH}px)"><span class="rk">${i + 1}</span><span class="av" style="${r.me ? '' : `background:hsl(${r.hue} 75% 88%)`}">${avatarOf(r)}</span><span class="nm">${r.me ? 'You' : '@' + r.name}</span><span class="pt">${r.pts.toLocaleString()}</span></div>`).join('')}
+    </div>
+    <div class="climb-note" id="cNote"></div>
+    <button class="btn primary block" id="cGo">Continue</button>`);
+  const q = s => el.querySelector(s);
+  const order = Array.from(el.querySelectorAll('.crow')), meEl = order[fromI];
+  const place = () => order.forEach((e, i) => { e.style.transform = `translateY(${i * RH}px)`; e.querySelector('.rk').textContent = i + 1; });
+  let pos = fromI, k = 0, iv = null, done = false;
+  const timers = [];
+  const finish = () => {
+    if (done) return; done = true; clearInterval(iv);
+    while (pos > toI) { const a = order[pos - 1]; order[pos - 1] = meEl; order[pos] = a; pos--; }
+    place();
+    q('#cRankN').textContent = toI + 1; q('#cPts').textContent = meA.pts.toLocaleString(); meEl.querySelector('.pt').textContent = meA.pts.toLocaleString();
+    const rank = q('#cRank'); rank.classList.remove('pop'); void rank.offsetWidth; rank.classList.add('pop');
+    const places = fromI - toI, entered = next && toI <= 2 && fromI > 2;
+    let sub, note;
+    if (entered) {
+      sub = 'Promotion zone!';
+      note = `<div class="zone-promo"><span class="medal">${ic(d.icon)}</span>${ic('chev')}<span class="medal next">${ic(next.icon)}</span></div>Hold the top 3 until Monday to rise to <b>${next.name}</b>.`;
+      petals(44); Sound.fanfare(); vib([60, 40, 120]);
+    } else {
+      sub = `You climbed ${places} place${places === 1 ? '' : 's'}!`;
+      if (toI <= 2) note = next ? `You’re in the promotion zone. Hold it until Monday to rise to <b>${next.name}</b>.` : 'Shining at the top of Prima.';
+      else {
+        const above = after[toI - 1], gap = above.pts - meA.pts + 1;
+        note = `<b>${gap.toLocaleString()} pts</b> to pass @${above.name}, about ${Math.ceil(gap / 10)} more minutes.${next ? ` ${toI - 2} place${toI - 2 === 1 ? '' : 's'} from the promotion zone.` : ''}`;
+      }
+      if (c.div > 0 && fromI >= n - 2 && toI < n - 2) note = 'Safe from the relegation zone. ' + note;
+      petals(16); Sound.chime();
+    }
+    q('#cSub').textContent = sub;
+    const nt = q('#cNote'); nt.innerHTML = note; nt.classList.add('show');
+  };
+  if (reduced()) finish();
+  else {
+    timers.push(setTimeout(() => { countTo(q('#cPts'), meB.pts, meA.pts, 900); countTo(meEl.querySelector('.pt'), meB.pts, meA.pts, 900); }, 450));
+    const stepMs = Math.max(170, Math.min(320, 1800 / Math.max(1, fromI - toI)));
+    timers.push(setTimeout(() => {
+      iv = setInterval(() => {
+        if (pos <= toI) return finish();
+        const a = order[pos - 1]; order[pos - 1] = meEl; order[pos] = a; pos--; place();
+        a.classList.remove('passed'); void a.offsetWidth; a.classList.add('passed');
+        q('#cRankN').textContent = pos + 1; Sound.tick(k++); vib(12);
+      }, stepMs);
+    }, 950));
+  }
+  q('#cGo').addEventListener('click', () => { timers.forEach(clearTimeout); clearInterval(iv); closeOverlay(el, then); });
+}
+
+// Monday promotion: the old division medal flips into the new one and the ladder lights up.
+function showLevelUp(from, to, L) {
+  const A = DIVS[from], B = DIVS[to];
+  const el = openOverlay(`
+    <div class="climb-head">
+      <div class="eyebrow">Promotion · last week you finished #${L.lastRank}</div>
+      <div class="lvl-stage" id="lvStage"><span class="lvl-ring"></span><div class="lvl-medal old">${ic(A.icon)}</div><div class="lvl-medal new">${ic(B.icon)}</div></div>
+      <div class="climb-sub" id="lvSub">${A.name} Division</div>
+    </div>
+    <div class="track" id="lvTrack">${DIVS.map((dv, i) => `<span class="${i <= from ? 'on' : ''}" title="${dv.name}">${ic(dv.icon)}</span>`).join('')}</div>
+    <div class="eyebrow center" style="margin-top:22px">Your new benefits</div>
+    <ul class="perks lv-perks" id="lvPerks">${B.perks.map(p => `<li>${ic('check')}${p}</li>`).join('')}</ul>
+    <button class="btn primary block" id="lvGo">Lovely</button>`);
+  const q = s => el.querySelector(s);
+  const go = () => {
+    q('#lvStage').classList.add('go'); q('#lvSub').textContent = `Welcome to ${B.name}`;
+    const sp = q('#lvTrack').children[to]; if (sp) sp.classList.add('on', 'pop');
+    petals(48); Sound.fanfare(); vib([60, 40, 120]);
+    setTimeout(() => q('#lvPerks').classList.add('show'), reduced() ? 0 : 550);
+  };
+  const t = setTimeout(go, reduced() ? 0 : 750);
+  q('#lvGo').addEventListener('click', () => { clearTimeout(t); closeOverlay(el); });
+}
+
+/* =========================================================
+   UI: modal, toast, tabs
+   ========================================================= */
+let modalCleanup = [];
+function openModal(html, opts = {}) {
+  closeModal(true);
+  const root = $('#modalRoot');
+  root.innerHTML = `<div class="modal-back"><div class="sheet" role="dialog" aria-modal="true">${html}</div></div>`;
+  const back = root.firstChild;
+  back.addEventListener('click', e => {
+    if (e.target === back && opts.dismissable !== false) { const d = opts.onDismiss; closeModal(); d && d(); return; }
+    const m = e.target.closest('[data-m]'); if (m && opts.onClick) opts.onClick(m.dataset.m);
+  });
+}
+function closeModal(instant) {
+  modalCleanup.forEach(f => f()); modalCleanup = [];
+  const root = $('#modalRoot'), back = root.firstChild;
+  if (!back) return;
+  if (instant || reduced()) { root.innerHTML = ''; return; }
+  back.classList.add('closing'); back.style.pointerEvents = 'none';
+  setTimeout(() => { if (back.parentNode) back.remove(); }, 230);
+}
+let toastT;
+function toast(msg, icon = 'sparkle') { const t = $('#toast'); t.innerHTML = ic(icon) + '<span></span>'; t.lastChild.textContent = msg; t.classList.add('show'); clearTimeout(toastT); toastT = setTimeout(() => t.classList.remove('show'), 2800); }
+function bump(sel) { const e = $(sel); e.classList.remove('bump'); void e.offsetWidth; e.classList.add('bump'); }
+
+let activeTab = 'train', rankView = 'league', libFilter = 'all', enterT;
+const TAB_ORDER = ['train', 'player', 'ranks', 'shop', 'settings'];
+function showTab(name) {
+  const from = TAB_ORDER.indexOf(activeTab), to = TAB_ORDER.indexOf(name), changed = name !== activeTab;
+  activeTab = name;
+  $$('.tab').forEach(s => {
+    const on = s.id === 'tab-' + name;
+    s.classList.toggle('active', on);
+    if (on && changed) { s.classList.remove('from-r', 'from-l'); s.classList.add(to > from ? 'from-r' : 'from-l', 'entering'); }
+  });
+  clearTimeout(enterT); enterT = setTimeout(() => $$('.tab.entering').forEach(s => s.classList.remove('entering')), 1200);
+  $$('#tabbar button').forEach(b => b.classList.toggle('active', b.dataset.tab === name));
+  if (name === 'ranks') renderRanks();
+  if (name === 'shop') renderShop();
+  if (name === 'train') renderTrain();
+  if (name === 'player' && !W.active) renderLibrary();
+  if (!W.active) window.scrollTo(0, 0);
+}
+
+/* =========================================================
+   Renderers
+   ========================================================= */
+let shownCoins = null;
+function renderTop() {
+  $('#hStreak').innerHTML = `${ic('flame', 'c-streak')}${S.streak}`;
+  $('#hCoins').innerHTML = `${ic('pearl', 'c-pearl')}<span></span>`;
+  countTo($('#hCoins span'), shownCoins == null ? S.coins : shownCoins, S.coins, 900); shownCoins = S.coins;
+  const done = S.lastWorkoutDate === ymd(), b = $('#hBadge');
+  b.innerHTML = `${ic(done ? 'heartcheck' : 'heart')}Today`; b.classList.toggle('done', done);
+  b.title = done ? 'Workout done today' : 'No workout yet today';
+}
+let flowOpen = false;
+function renderTrain() {
+  const now = new Date(), h = now.getHours(), today = ymd();
+  $('#tDate').textContent = now.toLocaleDateString(undefined, { weekday: 'long', month: 'long', day: 'numeric' });
+  $('#tGreet').textContent = S.lastWorkoutDate === today ? 'Done for today. Stay graceful.' : h < 12 ? 'Good morning, ballerina.' : h < 18 ? 'Good afternoon. Lengthen up.' : 'Good evening. Soften & unwind.';
+  const ch = dailyFor(today), done = dailyDone();
+  $('#dIc').innerHTML = ic(done ? 'heartcheck' : ch.icon);
+  $('#dTitle').textContent = ch.title + (ch.prog && !done && S.settings.program !== ch.prog ? ' · tap to select' : '');
+  $('#dBar').style.width = done ? '100%' : '0%';
+  $('#dRw').innerHTML = done ? `${ic('check')}Done` : `+${15 + div().daily}${ic('pearl')}`;
+  $('#dailyCard').classList.toggle('done', done);
+  $('#dailyCard').dataset.goprog = ch.prog || '';
+  const P = S.settings.program;
+  $('#progs').innerHTML = Object.keys(PROGRAMS).map(k => `<button class="chip${k === P ? ' on' : ''}" data-prog="${k}">${ic(PROGRAMS[k].icon)}${PROGRAMS[k].name}</button>`).join('');
+  $('#progDesc').textContent = PROGRAMS[P].desc;
+  const n = S.settings.duration;
+  $$('#durSeg button').forEach(b => b.classList.toggle('on', +b.dataset.dur === n));
+  // flow preview (grouped by move)
+  const plan = currentPlan(), groups = [];
+  plan.forEach(b => { const last = groups[groups.length - 1]; if (last && last.g === b.g) last.n++; else groups.push({ g: b.g, key: b.key, n: 1 }); });
+  const shown = flowOpen ? groups : groups.slice(0, 4);
+  $('#flowHead').textContent = `Today's flow · ${groups.length} moves`;
+  $('#flowList').innerHTML = shown.map((g, i) => { const e = EX[g.key]; return `<li><span class="n">${i + 1}</span><span class="nm">${e.short}${g.n > 1 ? '<small>both sides</small>' : ''}${!S.stats.moves[g.key] ? '<small>· new</small>' : ''}</span>${ic(EQUIP[e.eq].icon)}</li>`; }).join('')
+    + (groups.length > 4 ? `<li class="more" id="flowMore">${flowOpen ? 'Show less' : `+ ${groups.length - 4} more moves`}</li>` : '');
+  $('#startLabel').textContent = `Start ${n}-min ${PROGRAMS[P].name}`;
+  $('#idleStart').textContent = `Start ${n}-min ${PROGRAMS[P].name}`;
+  $('#tStreak').textContent = S.streak; $('#tBest').textContent = `best ${S.best}`;
+  $('#tFreeze').textContent = `${S.freezes}/${freezeCap()}`;
+  $('#tWeek').textContent = weekStats().minutes;
+  const rated = S.history.filter(x => x.rating > 0).slice(-7);
+  $('#trend').innerHTML = rated.length
+    ? `<div class="trend">${rated.map(x => `<div class="tb" title="${RATE_LABELS[x.rating]}"><i style="height:${x.rating * 20}%"></i><small>${parseYmd(x.d).toLocaleDateString(undefined, { weekday: 'narrow' })}</small></div>`).join('')}</div>
+       <p class="hint">Average ${(rated.reduce((a, x) => a + x.rating, 0) / rated.length).toFixed(1)} / 5, where 5 means “Tall”.</p>`
+    : '<p class="empty">Finish a session and rate how tall you feel. Your posture trend blooms here.</p>';
+  const recent = S.history.slice(-5).reverse();
+  $('#recent').innerHTML = recent.length
+    ? recent.map(x => `<div class="hist"><div><b>${x.min} min</b> <span class="muted small">${PROGRAMS[x.prog].name}</span><br><span class="muted small">${fmtDay(x.d)}</span></div><div class="r">${x.rating ? RATE_LABELS[x.rating] : ''}${x.moves.length ? `<br>${x.moves.length} moves` : ''}</div></div>`).join('')
+    : '<p class="empty">No sessions yet. Your first 10 minutes start the streak.</p>';
+}
+function renderRanks(light) {
+  if (light && rankView !== 'league') return;
+  if (!light) {
+    $$('#rankSeg button').forEach(b => b.classList.toggle('on', b.dataset.rview === rankView));
+    $('#rvLeague').hidden = rankView !== 'league'; $('#rvBadges').hidden = rankView !== 'badges';
+    if (rankView === 'badges') return renderBadges();
+  }
+  const wk = weekKey(), L = S.league, d = div(), board = boardFor(wk, dayProgress(), L.div);
+  const next = mondayOf(); next.setDate(next.getDate() + 7);
+  if (!light) $('#divHero').innerHTML = `<div class="medal">${ic(d.icon)}</div><div style="flex:1;min-width:0">
+      <div class="eyebrow">Division ${L.div + 1} of ${DIVS.length}</div><div class="div-name">${d.name} Division</div>
+      <div class="muted small">Resets in ${fmtSpan(next - Date.now())}</div>
+      <div class="perk-chips"><span>${ic('pearl')}+${d.bonus}% pearls</span><span>${ic('snow')}${d.cap} freeze slots</span>${d.weeklyFreeze ? `<span>${ic('gift')}weekly freeze</span>` : ''}${d.stipend ? `<span>${ic('tiara')}+${d.stipend}/week</span>` : ''}</div></div>`;
+  const myI = board.findIndex(r => r.me);
+  $('#rMine').textContent = `You're #${myI + 1} of ${board.length}`;
+  let html = '';
+  board.forEach((r, i) => {
+    if (i === 3 && L.div < DIVS.length - 1) html += `<div class="zone up">Promotion zone</div>`;
+    if (i === board.length - 2 && L.div > 0) html += `<div class="zone down">Relegation zone</div>`;
+    const av = r.me ? '' : r.name.replace(/[^a-zA-Zéá]/g, '').slice(0, 1).toUpperCase();
+    html += `<div class="lb-row${r.me ? ' me' : ''}${i < 3 ? ' top' : ''}">
+      <div class="lb-rank">${i < 3 ? ic(['tiara', 'medal', 'star'][i]) : i + 1}</div>
+      <div class="lb-av" style="${r.me ? '' : `background:hsl(${r.hue} 75% 88%)`}">${r.me ? ic('bow') : av}</div>
+      <div class="lb-name">${r.me ? 'You' : '@' + r.name}<small>${r.me ? `${weekStats(wk).minutes} min this week` : `pace ~${Math.round(r.rate / 10)} min/day`}</small></div>
+      <div class="lb-pts">${r.pts.toLocaleString()}</div></div>`;
+  });
+  $('#lb').innerHTML = html;
+  if (light) return;
+  const last = $('#rLast');
+  if (L.lastRank && L.lastWeek) {
+    last.hidden = false;
+    const mv = L.lastMove === 'up' ? `${ic('up')}Promoted` : L.lastMove === 'down' ? `${ic('down')}Relegated` : 'Held division';
+    last.innerHTML = `<div class="row-h"><span class="eyebrow">Last week · ${fmtDay(L.lastWeek)}</span><span class="tag">${mv}</span></div>
+      <div style="font-weight:900;font-size:18px;margin-top:6px">#${L.lastRank} in ${DIVS[L.lastDiv].name} · ${L.lastPts.toLocaleString()} pts</div>`;
+  } else last.hidden = true;
+  $('#ladder').innerHTML = DIVS.map((dv, i) => {
+    const here = i === L.div, got = i <= L.best, cls = here ? 'here' : got ? 'got' : 'locked';
+    const stt = here ? 'You’re here' : got ? 'Achieved' : i === L.best + 1 ? 'Next' : 'Locked';
+    return `<div class="rung ${cls}"><div class="rung-top"><div class="medal">${ic(dv.icon)}</div><div><h3>${dv.name}</h3><div class="muted small">Division ${i + 1}</div></div><span class="st">${stt}</span></div>
+      <ul class="perks">${dv.perks.map(p => `<li>${ic(got ? 'check' : 'lock')}${p}</li>`).join('')}</ul></div>`;
+  }).join('');
+}
+function renderBadges() {
+  const got = ACH.filter(a => S.ach[a.id]).length;
+  $('#badgeSum').innerHTML = `<div class="medal">${ic('medal')}</div><div style="flex:1"><div class="eyebrow">Achievements</div>
+    <div class="div-name">${got} of ${ACH.length} unlocked</div><div class="bar" style="margin-top:8px"><i style="width:${(100 * got / ACH.length).toFixed(0)}%"></i></div></div>`;
+  const order = ACH.slice().sort((a, b) => (!!S.ach[b.id] - !!S.ach[a.id]));
+  $('#badges').innerHTML = order.map(a => {
+    const on = !!S.ach[a.id], v = Math.min(a.val(), a.goal);
+    return `<div class="badge r${a.r}${on ? '' : ' locked'}"><div class="bmed">${ic(on ? a.icon : a.icon)}</div><b>${a.name}</b><small>${a.desc}</small>
+      ${on ? `<div class="rar">${RARITY[a.r]} · ${fmtDay(S.ach[a.id])}</div>` : `<div class="bar"><i style="width:${(100 * v / a.goal).toFixed(0)}%"></i></div><div class="rar">${v}/${a.goal} · +${a.reward}</div>`}</div>`;
+  }).join('');
+}
+function renderShop() {
+  syncWeekly();
+  const d = div(), cap = freezeCap();
+  $('#sCoins').textContent = S.coins.toLocaleString();
+  $('#sBonus').textContent = d.bonus ? `${d.name} division: +${d.bonus}% pearls on every workout` : 'Climb the league for pearl bonuses';
+  $('#slots').innerHTML = Array.from({ length: cap }, (_, i) => `<span class="${i < S.freezes ? 'on' : ''}">${ic('snow')}</span>`).join('') + `<em>${S.freezes}/${cap} owned</em>`;
+  const b = $('#buyFreeze');
+  b.disabled = S.freezes >= cap || S.coins < d.price;
+  b.innerHTML = S.freezes >= cap ? `Inventory full (${cap}/${cap})` : S.coins < d.price ? `Need ${d.price - S.coins} more pearls` : `Buy for ${d.price} ${ic('pearl')}`;
+  const stt = weekStats(), next = mondayOf(); next.setDate(next.getDate() + 7);
+  $('#wkReset').textContent = `new set in ${fmtSpan(next - Date.now())}`;
+  $('#weeklyList').innerHTML = weeklyFor(S.weekly.week).map(c => {
+    const v = Math.min(c.val(stt), c.goal), claimed = S.weekly.claimed.includes(c.id);
+    return `<div class="wk${claimed ? ' claimed' : ''}"><div class="wk-top">${c.title}<span>${claimed ? ic('check') + '+50' : '+50' + ic('pearl')}</span></div>
+      <div class="bar"><i style="width:${(100 * v / c.goal).toFixed(0)}%"></i></div><small>${v} / ${c.goal} ${c.unit}</small></div>`;
+  }).join('');
+  const ch = dailyFor(ymd()), done = dailyDone();
+  $('#dailyShop').innerHTML = `<div class="wk${done ? ' claimed' : ''}"><div class="wk-top">${ch.title}<span>${done ? ic('check') : ''}+${15 + d.daily}${done ? '' : ic('pearl')}</span></div>
+    <div class="bar"><i style="width:${done ? 100 : 0}%"></i></div><small>${done ? 'Completed today' : 'Resets at midnight'}</small></div>`;
+  $('#earnList').innerHTML = `<li><span>Finish a workout</span><b>1/min${d.bonus ? ` +${d.bonus}%` : ''} ${ic('pearl')}</b></li>
+    <li><span>Daily challenge</span><b>+${15 + d.daily} ${ic('pearl')}</b></li>
+    <li><span>Each weekly challenge</span><b>+50 ${ic('pearl')}</b></li>
+    <li><span>Unlock a badge</span><b>+10 to 300 ${ic('pearl')}</b></li>
+    <li><span>Get promoted</span><b>+30 to 150 ${ic('pearl')}</b></li>`;
+}
+function renderSettings() {
+  const s = S.settings;
+  $('#themes').innerHTML = Object.keys(THEMES).map(k => {
+    const t = THEMES[k], locked = S.league.best < t.div;
+    return `<button class="theme-sw${s.theme === k ? ' on' : ''}" data-theme-set="${k}"${locked ? ` data-locked="${t.div}"` : ''}>
+      <i style="background:linear-gradient(135deg,${t.sw[0]} 50%,${t.sw[1]} 50%)">${locked ? `<span class="lk">${ic('lock')}</span>` : ''}</i>${t.name}</button>`;
+  }).join('');
+  $$('#motionSeg button').forEach(b => b.classList.toggle('on', b.dataset.motion === s.motion));
+  $('#sndOn').checked = s.sound;
+  $('#vol').value = s.volume; $('#volVal').textContent = Math.round(s.volume * 100) + '%';
+  $('#pitch').value = s.pitch; $('#pitchVal').textContent = s.pitch + ' Hz';
+  $('#remTime').value = s.reminder;
+  renderInstall();
+}
+const libViews = [];
+function renderLibrary() {
+  $('#libChips').innerHTML = [['all', 'All', 'sparkle']].concat(Object.keys(CATS).map(k => [k, CATS[k].name, CATS[k].icon]))
+    .map(c => `<button class="chip${libFilter === c[0] ? ' on' : ''}" data-libf="${c[0]}">${ic(c[2])}${c[1]}</button>`).join('');
+  const keys = EX_KEYS.filter(k => libFilter === 'all' || EX[k].cat === libFilter);
+  const tried = EX_KEYS.filter(k => S.stats.moves[k]).length;
+  $('#libCount').textContent = `${tried}/${EX_KEYS.length} tried`;
+  $('#lib').innerHTML = keys.map(k => {
+    const e = EX[k];
+    return `<button class="lib-card" data-preview="${k}">${S.stats.moves[k] ? `<span class="tried">${ic('check')}</span>` : ''}<svg viewBox="0 0 200 200" class="pose" data-k="${k}" aria-hidden="true"></svg>
+      <div class="lib-meta"><span class="tag${e.lvl === 1 ? ' g' : ''}">${ic(CATS[e.cat].icon)}${e.lvl === 1 ? 'Gentle' : CATS[e.cat].name}</span><b>${e.short}</b><small>${ic(EQUIP[e.eq].icon)}${EQUIP[e.eq].label} · ${e.target.split(' · ')[0]}</small></div></button>`;
+  }).join('');
+  libViews.length = 0;
+  $$('#lib svg[data-k]').forEach(svg => { const v = new PoseView(svg); v.set(svg.dataset.k); libViews.push(v); });
+}
+function previewMove(k) {
+  const e = EX[k];
+  openModal(`<div class="row-h"><span class="tag${e.lvl === 1 ? ' g' : ''}">${ic(CATS[e.cat].icon)}${CATS[e.cat].name}${e.lvl === 1 ? ' · Gentle' : ''}</span><span class="muted small">${ic(EQUIP[e.eq].icon)} ${EQUIP[e.eq].label}</span></div>
+    <h2 style="margin-top:10px">${e.name}</h2>
+    <div class="p-target" style="margin-top:6px"><span class="dot"></span>${e.target}${e.bilateral ? '<span class="p-side">· both sides</span>' : ''}</div>
+    <svg class="pose pv" id="pvSvg" viewBox="0 0 200 200"></svg>
+    <ul class="cues">${e.cues.map(c => `<li>${ic('heart')}${c}</li>`).join('')}</ul>
+    <p class="muted small">${S.stats.moves[k] ? `Done ${S.stats.moves[k]}×` : 'Not tried yet'}</p>
+    <button class="btn block" data-m="close" style="margin-top:14px">Close</button>`, { onClick: a => a === 'close' && closeModal() });
+  const pv = new PoseView($('#pvSvg')); pv.set(k); pv.play(); modalCleanup.push(() => pv.stop());
+}
+function renderAll() { renderTop(); renderTrain(); renderShop(); renderRanks(); renderSettings(); }
+function applyTheme() {
+  document.documentElement.dataset.theme = S.settings.theme;
+  $('#themeColor').setAttribute('content', THEME_BG[S.settings.theme] || '#FFF5F7');
+}
+
+/* =========================================================
+   Calendar (.ics) export
+   ========================================================= */
+function downloadIcs() {
+  const [hh, mm] = S.settings.reminder.split(':').map(Number);
+  const start = new Date(); start.setHours(hh, mm, 0, 0);
+  if (start <= new Date()) start.setDate(start.getDate() + 1);
+  const end = new Date(start.getTime() + 10 * 6e4);
+  const f = d => `${d.getFullYear()}${pad(d.getMonth() + 1)}${pad(d.getDate())}T${pad(d.getHours())}${pad(d.getMinutes())}00`;
+  const z = new Date().toISOString().replace(/[-:]/g, '').replace(/\.\d+/, '');
+  const url = location.href.split('#')[0];
+  const ics = ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//barre//posture app//EN', 'CALSCALE:GREGORIAN', 'METHOD:PUBLISH',
+    'BEGIN:VEVENT', `UID:barre-daily-${Date.now()}@barre.app`, `DTSTAMP:${z}`, `DTSTART:${f(start)}`, `DTEND:${f(end)}`, 'RRULE:FREQ=DAILY',
+    'SUMMARY:barre · 10-min posture workout', `DESCRIPTION:Mat\\, wall\\, chair. Open barre and tap Start.\\n${url}`, `URL:${url}`,
+    'BEGIN:VALARM', 'ACTION:DISPLAY', 'DESCRIPTION:Time for barre. Stand tall!', 'TRIGGER:-PT0M', 'END:VALARM',
+    'END:VEVENT', 'END:VCALENDAR'].join('\r\n');
+  const blob = new Blob([ics], { type: 'text/calendar;charset=utf-8' });
+  const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'barre-daily-reminder.ics';
+  document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(() => URL.revokeObjectURL(a.href), 4000);
+  toast(`Daily reminder at ${S.settings.reminder} downloaded. Open it to add to your calendar.`, 'calendar');
+}
+
+/* =========================================================
+   Backup: export / import save codes
+   ========================================================= */
+const b64e = s => { const by = new TextEncoder().encode(s); let bin = ''; for (let i = 0; i < by.length; i++) bin += String.fromCharCode(by[i]); return btoa(bin); };
+const b64d = s => new TextDecoder().decode(Uint8Array.from(atob(s), c => c.charCodeAt(0)));
+async function exportCode() {
+  const code = 'BARRE1:' + b64e(JSON.stringify(S));
+  const ta = $('#saveCode'); ta.value = code;
+  try { await navigator.clipboard.writeText(code); toast('Save code copied to clipboard', 'copy'); }
+  catch (e) { ta.focus(); ta.select(); try { document.execCommand('copy'); toast('Save code copied', 'copy'); } catch (_) { toast('Save code ready. Select and copy it.', 'copy'); } }
+}
+function importCode() {
+  const raw = $('#saveCode').value.trim().replace(/\s+/g, '');
+  let obj;
+  try { if (!raw.startsWith('BARRE1:')) throw 0; obj = JSON.parse(b64d(raw.slice(7))); if (!obj || typeof obj !== 'object' || !Array.isArray(obj.history)) throw 0; }
+  catch (e) { toast('That doesn’t look like a valid barre save code', 'info'); return; }
+  const prev = hydrate(obj), n = prev.stats.sessions;
+  openModal(`<h2>Import this save?</h2><p class="muted" style="margin-top:8px">It has a ${prev.streak}-day streak, ${prev.coins} pearls and ${n} session${n === 1 ? '' : 's'}. Your current progress on this device will be replaced.</p>
+    <div class="actions"><button class="btn" data-m="no">Cancel</button><button class="btn primary" data-m="yes">Import</button></div>`, {
+    onClick: a => {
+      if (a === 'no') closeModal();
+      if (a === 'yes') { S = prev; save(); closeModal(); applyTheme(); checkStreak(); rollLeague(); renderAll(); $('#saveCode').value = ''; toast('Save imported', 'heartcheck'); }
+    }
+  });
+}
+
+/* =========================================================
+   PWA: runtime manifest (data URI), icons, install, service worker
+   ========================================================= */
+function makeIcon(size, maskable) {
+  const c = document.createElement('canvas'); c.width = c.height = size; const g = c.getContext('2d'), s = size / 100;
+  const grd = g.createLinearGradient(0, 0, size, size); grd.addColorStop(0, '#FFE9F0'); grd.addColorStop(1, '#FBC9D8');
+  g.fillStyle = grd;
+  if (maskable) g.fillRect(0, 0, size, size);
+  else { const r = 24 * s; g.beginPath(); g.moveTo(r, 0); g.arcTo(size, 0, size, size, r); g.arcTo(size, size, 0, size, r); g.arcTo(0, size, 0, 0, r); g.arcTo(0, 0, size, 0, r); g.fill(); }
+  const k = maskable ? 0.78 : 1, o = 50 * s * (1 - k);
+  g.save(); g.translate(o, o); g.scale(s * k, s * k);
+  g.lineJoin = 'round'; g.lineCap = 'round';
+  g.fillStyle = '#F7B8CB'; g.strokeStyle = '#C8426F'; g.lineWidth = 4;
+  g.beginPath(); g.moveTo(50, 46); g.bezierCurveTo(42, 32, 24, 26, 19, 31); g.bezierCurveTo(14, 36, 17, 56, 24, 59); g.bezierCurveTo(31, 62, 43, 56, 50, 46);
+  g.bezierCurveTo(58, 32, 76, 26, 81, 31); g.bezierCurveTo(86, 36, 83, 56, 76, 59); g.bezierCurveTo(69, 62, 57, 56, 50, 46); g.fill(); g.stroke();
+  g.lineWidth = 4.5; g.beginPath(); g.moveTo(46, 53); g.lineTo(37, 80); g.moveTo(54, 53); g.lineTo(63, 80); g.stroke();
+  g.fillStyle = '#C8426F'; g.beginPath(); g.arc(50, 47, 7, 0, Math.PI * 2); g.fill();
+  g.restore();
+  return c.toDataURL('image/png');
+}
+function setupPWA() {
+  try {
+    const start = location.href.split('#')[0].split('?')[0], scope = start.replace(/[^/]*$/, '');
+    const manifest = {
+      name: 'barre', short_name: 'barre', description: 'Posture, endurance & flexibility in 10 graceful minutes. Mat, wall and chair only.',
+      id: start, start_url: start, scope, display: 'fullscreen', display_override: ['fullscreen', 'standalone'], orientation: 'portrait',
+      background_color: '#FFF5F7', theme_color: '#FFF5F7', categories: ['health', 'fitness'],
+      icons: [
+        { src: makeIcon(192), sizes: '192x192', type: 'image/png', purpose: 'any' },
+        { src: makeIcon(512), sizes: '512x512', type: 'image/png', purpose: 'any' },
+        { src: makeIcon(512, true), sizes: '512x512', type: 'image/png', purpose: 'maskable' }
+      ]
+    };
+    if (location.protocol.startsWith('http')) $('#manifestLink').href = 'data:application/manifest+json,' + encodeURIComponent(JSON.stringify(manifest));
+    $('#appleIcon').href = makeIcon(180, true);
+  } catch (e) {}
+  // Service worker: caches this page for offline use. Browsers require the worker to be a
+  // same-origin JS file, so it lives in sw.js next to index.html (the app still works without it).
+  if ('serviceWorker' in navigator && location.protocol.startsWith('http')) {
+    window.addEventListener('load', () => navigator.serviceWorker.register('./sw.js').catch(() => {}));
+  }
+}
+let deferredPrompt = null;
+window.addEventListener('beforeinstallprompt', e => { e.preventDefault(); deferredPrompt = e; renderInstall(); });
+window.addEventListener('appinstalled', () => { deferredPrompt = null; renderInstall(); toast('barre installed', 'heartcheck'); });
+function renderInstall() {
+  const standalone = matchMedia('(display-mode: fullscreen)').matches || matchMedia('(display-mode: standalone)').matches || navigator.standalone;
+  const ios = /iphone|ipad|ipod/i.test(navigator.userAgent);
+  $('#installBtn').hidden = !deferredPrompt || standalone;
+  $('#installText').textContent = standalone ? 'Running as an installed app.'
+    : ios ? 'In Safari, tap the Share button, then “Add to Home Screen”.'
+      : deferredPrompt ? 'Install barre to your home screen for a full-screen app.'
+        : 'Open your browser menu and choose “Install app” or “Add to Home screen”.';
+}
+
+/* =========================================================
+   Events
+   ========================================================= */
+document.addEventListener('click', e => {
+  const t = e.target.closest('[data-tab],[data-start],[data-dur],[data-preview],[data-theme-set],[data-prog],[data-rview],[data-libf],[data-motion],#flowMore,#dailyCard');
+  if (!t) return;
+  if (t.dataset.tab) showTab(t.dataset.tab);
+  else if (t.dataset.motion) { S.settings.motion = t.dataset.motion; save(); applyMotion(); renderSettings(); if (!reduced()) petals(18); }
+  else if (t.hasAttribute('data-start')) startWorkout();
+  else if (t.dataset.dur) { S.settings.duration = +t.dataset.dur; save(); renderTrain(); }
+  else if (t.dataset.prog) { S.settings.program = t.dataset.prog; save(); renderTrain(); }
+  else if (t.dataset.preview) previewMove(t.dataset.preview);
+  else if (t.dataset.rview) { rankView = t.dataset.rview; renderRanks(); }
+  else if (t.dataset.libf) { libFilter = t.dataset.libf; renderLibrary(); }
+  else if (t.id === 'flowMore') { flowOpen = !flowOpen; renderTrain(); }
+  else if (t.id === 'dailyCard') { const p = t.dataset.goprog; if (p && !dailyDone() && S.settings.program !== p) { S.settings.program = p; save(); renderTrain(); toast(`${PROGRAMS[p].name} selected`, PROGRAMS[p].icon); } }
+  else if (t.dataset.themeSet) {
+    if (t.dataset.locked) return toast(`Reach the ${DIVS[+t.dataset.locked].name} division to unlock ${THEMES[t.dataset.themeSet].name}`, 'lock');
+    const root = document.documentElement; root.classList.add('theming'); setTimeout(() => root.classList.remove('theming'), 600);
+    S.settings.theme = t.dataset.themeSet; save(); applyTheme(); renderSettings();
+  }
+});
+$('#shuffleBtn').addEventListener('click', () => { S.shuffle++; save(); renderTrain(); toast('A fresh flow, just for you', 'shuffle'); });
+$('#pPause').addEventListener('click', () => setPaused(!W.paused, true));
+$('#pSkip').addEventListener('click', skip);
+$('#pSwap').addEventListener('click', swap);
+$('#pEnd').addEventListener('click', confirmEnd);
+$('#buyFreeze').addEventListener('click', () => {
+  const d = div();
+  if (S.freezes >= freezeCap()) return toast(`You already hold the max of ${freezeCap()} freezes`, 'snow');
+  if (S.coins < d.price) return toast(`You need ${d.price - S.coins} more pearls`, 'pearl');
+  S.coins -= d.price; S.freezes++; S.stats.freezesBought++; save(); renderAll(); bump('#hCoins'); toast('Streak Freeze added', 'snow');
+});
+$('#sndOn').addEventListener('change', e => { S.settings.sound = e.target.checked; save(); if (S.settings.sound) { Sound.unlock(); Sound.beep(); } });
+$('#vol').addEventListener('input', e => { S.settings.volume = +e.target.value; $('#volVal').textContent = Math.round(S.settings.volume * 100) + '%'; save(); });
+$('#vol').addEventListener('change', () => Sound.beep(true));
+$('#pitch').addEventListener('input', e => { S.settings.pitch = +e.target.value; $('#pitchVal').textContent = S.settings.pitch + ' Hz'; save(); });
+$('#pitch').addEventListener('change', () => Sound.beep(true));
+$('#testSnd').addEventListener('click', () => { Sound.unlock(); [0, 1, 2].forEach(i => setTimeout(() => Sound.beep(true), i * 1000)); setTimeout(() => Sound.chime(true), 3000); });
+$('#remTime').addEventListener('change', e => { if (/^\d{2}:\d{2}$/.test(e.target.value)) { S.settings.reminder = e.target.value; save(); } });
+$('#icsBtn').addEventListener('click', downloadIcs);
+$('#exportBtn').addEventListener('click', exportCode);
+$('#importBtn').addEventListener('click', importCode);
+$('#installBtn').addEventListener('click', async () => { if (!deferredPrompt) return; deferredPrompt.prompt(); try { await deferredPrompt.userChoice; } catch (e) {} deferredPrompt = null; renderInstall(); });
+$('#resetBtn').addEventListener('click', () => openModal(`<h2>Reset everything?</h2><p class="muted" style="margin-top:8px">This deletes your streak, pearls, badges, division and session history on this device. Export a save code first if you might want it back.</p>
+  <div class="actions"><button class="btn" data-m="no">Cancel</button><button class="btn danger" data-m="yes">Reset</button></div>`, {
+  onClick: a => { if (a === 'no') closeModal(); if (a === 'yes') { const keep = S.settings; S = clone(DEFAULT); S.settings = keep; S.settings.theme = 'ballet'; rollLeague(); save(); closeModal(); applyTheme(); renderAll(); toast('Progress reset', 'heart'); } }
+}));
+const pendingUnlock = [];
+function whenUnlocked(fn) { if ($('#unlock')) pendingUnlock.push(fn); else fn(); }
+$('#unlock').addEventListener('click', () => {
+  Sound.unlock(); const u = $('#unlock'); u.classList.add('leaving');
+  setTimeout(() => {
+    u.remove();
+    const s = $('#tab-' + activeTab); s.classList.remove('active'); void s.offsetWidth; s.classList.add('active', 'entering'); // replay entrance
+    pendingUnlock.splice(0).forEach(f => f());
+  }, 420);
+}, { once: true });
+document.addEventListener('keydown', e => {
+  if (!W.active || $('#modalRoot').firstChild) return;
+  if (e.code === 'Space') { e.preventDefault(); setPaused(!W.paused, true); }
+  if (e.key === 'ArrowRight') skip();
+});
+function dayCheck() { checkStreak(); rollLeague(); announceLeague(); announceAchievements(evalAchievements()); renderAll(); }
+document.addEventListener('visibilitychange', () => {
+  if (document.visibilityState !== 'visible') return;
+  if (W.active) requestWake();
+  if (!W.active) dayCheck();
+});
+let lastDay = ymd();
+setInterval(() => {
+  if (ymd() !== lastDay && !W.active) { lastDay = ymd(); dayCheck(); }
+  else if (activeTab === 'ranks' && !W.active) renderRanks(true);
+}, 30000);
+
+/* =========================================================
+   Boot
+   ========================================================= */
+applyTheme();
+applyMotion();
+try { matchMedia('(prefers-reduced-motion: reduce)').addEventListener('change', applyMotion); } catch (e) {}
+setupPWA();
+syncWeekly();
+renderLibrary();
+dayCheck();
+})();
+</script>
+</body>
+</html>
