@@ -1,6 +1,6 @@
 // barre service worker: caches index.html (and the Google Fonts it uses) so the app opens offline.
 // Bump CACHE when you publish a new index.html to force a refresh.
-const CACHE = 'barre-v3';
+const CACHE = 'barre-v4';
 const ASSETS = ['./', './index.html'];
 const FONT_HOSTS = ['fonts.googleapis.com', 'fonts.gstatic.com'];
 

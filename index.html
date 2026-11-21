@@ -396,6 +396,28 @@ button:active:not(:disabled){transform:scale(.96)}
 .unlock.leaving{opacity:0;transform:scale(1.05);transition:opacity .4s ease,transform .4s ease}
 .theming,.theming *{transition:background-color .45s ease,color .45s ease,border-color .45s ease,fill .45s ease,stroke .45s ease!important}
 
+/* ================= TRAINING LEVEL ================= */
+.lvl-card{display:flex;gap:12px;align-items:center;cursor:pointer}
+.lvl-card>.ic{color:var(--muted);flex:none}
+.lvl-num{flex:none;width:50px;height:50px;border-radius:18px;display:grid;place-items:center;font-size:24px;font-weight:900;background:linear-gradient(135deg,var(--accent),var(--accent-strong));color:var(--accent-ink);box-shadow:0 8px 18px -10px var(--accent-strong)}
+.lvl-tags{display:flex;flex-wrap:wrap;gap:5px;margin:-2px 0 8px}
+.lvl-tags span{display:inline-flex;align-items:center;gap:3px;font-size:11.5px;font-weight:800;padding:3px 8px;border-radius:999px;background:var(--surface2);color:var(--accent-strong)}
+.lvl-tags .ic{width:13px;height:13px}
+.lvl-card small{display:block;margin-top:5px;font-size:12px;font-weight:700}
+.lv-list{list-style:none;display:grid;gap:6px;margin:14px 0}
+.lv-list li{display:flex;gap:12px;align-items:center;padding:10px 12px;border-radius:16px;background:var(--surface2)}
+.lv-list li>div{flex:1;min-width:0}
+.lv-list li b{display:block;font-weight:900;font-size:14px;margin-bottom:4px}
+.lv-list li .lvl-tags{margin:0}
+.lv-list li.cur{background:var(--accent-soft);outline:1.5px solid var(--accent)}
+.lv-list li.lock{opacity:.6}
+.lv-n{flex:none;width:32px;height:32px;border-radius:11px;display:grid;place-items:center;font-weight:900;background:var(--surface);color:var(--accent-strong)}
+.p-cues li.lvl-cue{color:var(--accent-strong)}
+.rate.eff{grid-template-columns:repeat(3,1fr)}
+.rate.eff button{font-size:15px;padding:12px 0 10px}
+.lvl-medal.num{font-size:70px;font-weight:900;letter-spacing:-.03em}
+.track.lv-track span{font-weight:900;font-size:15px;width:34px;height:34px}
+
 /* ================= RANK CLIMB + LEVEL-UP ================= */
 .climb{position:fixed;inset:0;z-index:90;overflow-y:auto;background:var(--bg);background-image:radial-gradient(110% 55% at 50% 0%,var(--bg2),transparent 72%);padding:calc(env(safe-area-inset-top) + 22px) 18px calc(env(safe-area-inset-bottom) + 18px);animation:fadeIn .35s ease}
 .climb.leaving{animation:fadeOut .3s ease forwards}
@@ -538,6 +560,7 @@ body.workout main{padding:0}
         </div>
         <div class="ch-rw" id="dRw"></div>
       </div>
+      <div class="card lvl-card" id="lvlCard" role="button" aria-label="Training level"></div>
       <div class="card">
         <div class="row-h"><span class="eyebrow">Program</span><span class="muted small" id="progDesc"></span></div>
         <div class="chips" id="progs"></div>
@@ -574,7 +597,7 @@ body.workout main{padding:0}
       <div id="playerIdle">
         <h1 class="title">Player</h1>
         <div class="card idle-card">
-          <p class="muted">No workout running. Each block is 45 seconds of work and 15 seconds to reset.</p>
+          <p class="muted" id="idleText">No workout running.</p>
           <button class="btn primary block" data-start id="idleStart">Start workout</button>
         </div>
         <div class="sec-h"><h2>Move library</h2><span class="muted small" id="libCount"></span></div>
@@ -985,6 +1008,44 @@ const EX = {
 };
 const EX_KEYS = Object.keys(EX);
 
+/* =========================================================
+   Progressive overload: 8 training levels.
+   Density (work ↑ rest ↓) → tempo → advanced variations → burnout finish.
+   ========================================================= */
+const LEVELS = [
+  { name: 'Foundations', work: 30, rest: 30, need: 3, gentle: 1.6 },
+  { name: 'Foundations', work: 35, rest: 25, need: 3, gentle: 1.3 },
+  { name: 'Build', work: 40, rest: 20, need: 4, gentle: 1 },
+  { name: 'Build', work: 45, rest: 15, need: 4, gentle: 1 },
+  { name: 'Strength', work: 45, rest: 15, need: 5, gentle: .6, tempo: true },
+  { name: 'Strength', work: 50, rest: 10, need: 5, gentle: .5, tempo: true },
+  { name: 'Advanced', work: 50, rest: 10, need: 6, gentle: .3, tempo: true, adv: true },
+  { name: 'Prima', work: 50, rest: 10, need: 0, gentle: .2, tempo: true, adv: true, burn: true }
+];
+const ISO = new Set(['wallGlute', 'bridge', 'birdDog', 'plank']);
+const ADV = {
+  scap: 'Lift arms an inch off the wall at the top', chinTuck: 'Hold each press for 5 seconds', swanLift: 'Float the hands off the mat at the top',
+  proneW: 'Hold the W for 3 counts each rep', seatSqueeze: 'Arms in a goalpost, pulse the squeeze', seatThoracic: 'Reach arms overhead as you extend',
+  plie: 'Keep heels lifted the whole set', heelRaise: 'Single leg, switch halfway', releveSquat: 'Stay high on your toes at the bottom',
+  curtsy: 'Hover the back knee, never touch down', sitStand: 'Hover an inch above the seat before rising', sideLeg: 'Let go of the chair for balance',
+  wallSitHeel: 'Sit 2 inches lower', splitSquat: 'Add 4 pulses at the bottom', wallGlute: 'Lift one heel, switch halfway',
+  arab: 'Add 4 pulses at the top of each lift', bridge: 'March the feet while holding the lift', slBridge: 'Hold the top for 3 counts each rep',
+  donkey: 'Add 3 pulses at the top', birdDog: 'Tap elbow to knee between reaches', chairBridge: 'One leg on the chair, switch halfway',
+  sideLying: 'Pulse at the top of each lift', deadbug: 'Straighten the legs and lower to a hover', heelSlide: 'Hover the sliding heel off the mat',
+  plank: 'Lift one foot, switch every 10 seconds', hundred: 'Extend the legs to 45°', wallPlank: 'Walk the feet back for a lower angle',
+  seatKnee: 'Hands off the seat, arms reach forward', toeTaps: 'Tap with straighter legs', chest: 'Slide the elbow higher on the frame',
+  seatChest: 'Lift the hands off the seat as you open', catCow: 'Pause for 2 counts at each end', childPose: 'Walk the hands to one side, then the other',
+  hamHinge: 'Flex the toes back toward you', hipFlexor: 'Reach the arm up and over the front leg', calfWall: 'Soften the back knee to reach the deep calf',
+  figure4: 'Hinge a little lower on every exhale', seatSideBend: 'Hold the far wrist and lengthen'
+};
+const lvl = () => LEVELS[S.train.level - 1];
+function levelCue(k) {
+  const L = lvl(), e = EX[k];
+  if (L.adv && ADV[k]) return ['sparkle', 'Level up: ' + ADV[k]];
+  if (L.tempo) return ['clock', e.cat === 'f' ? 'Exhale and ease a little deeper each breath' : ISO.has(k) ? 'Hold 10% deeper, full tension' : 'Slow tempo: 3 counts down, 1 up'];
+  return null;
+}
+
 const PROGRAMS = {
   mix: { name: 'Daily Mix', icon: 'sparkle', desc: 'A fresh full-body blend each day', pattern: ['p', 'l', 'g', 'c', 'p', 'l', 'g', 'c'] },
   posture: { name: 'Posture Reset', icon: 'posture', desc: 'Upper back, neck & chest openers', pattern: ['p', 'f', 'p', 'c', 'p', 'g'] },
@@ -1063,7 +1124,10 @@ const ACH = [
   ['promo', 'Rising Star', 'Earn your first promotion', 'up', 1, 30, () => st().promotions, 1],
   ['podium', 'Center Stage', 'Finish a league week at #1', 'trophy', 2, 60, () => st().firsts, 1],
   ['swanAch', 'Swan Lake', 'Reach the Swan division', 'swan', 3, 100, () => S.league.best, 5],
-  ['prima', 'Prima Ballerina', 'Reach the Prima division', 'tiara', 3, 200, () => S.league.best, 6]
+  ['prima', 'Prima Ballerina', 'Reach the Prima division', 'tiara', 3, 200, () => S.league.best, 6],
+  ['lvl3', 'Getting Stronger', 'Reach training Level 3', 'up', 1, 20, () => S.train.best, 3],
+  ['lvl5', 'Strength Era', 'Reach training Level 5', 'flame', 2, 60, () => S.train.best, 5],
+  ['lvl8', 'Prima Strength', 'Reach training Level 8', 'tiara', 3, 200, () => S.train.best, 8]
 ].map(a => ({ id: a[0], name: a[1], desc: a[2], icon: a[3], r: a[4], reward: a[5], val: a[6], goal: a[7] }));
 const ACH_IDS = new Set(ACH.map(a => a.id));
 
@@ -1103,6 +1167,7 @@ const DEFAULT = {
   league: { week: null, div: 0, best: 0, lastWeek: null, lastRank: null, lastPts: 0, lastDiv: 0, lastMove: null, announced: null },
   stats: { sessions: 0, minutes: 0, lifetime: 0, flawless: 0, early: 0, night: 0, weekend: 0, long20: 0, fives: 0, checkins: 0, dailies: 0, perfectWeeks: 0, freezeSaves: 0, promotions: 0, firsts: 0, freezesBought: 0, moves: {}, programs: {} },
   ach: {},
+  train: { level: 1, xp: 0, hard: 0, best: 1, eased: null },
   settings: { sound: true, volume: 0.8, pitch: 880, theme: 'ballet', duration: 10, program: 'mix', reminder: '07:30', motion: 'auto' }
 };
 function hydrate(o) {
@@ -1115,8 +1180,11 @@ function hydrate(o) {
   if (Array.isArray(o.history)) d.history = o.history.filter(h => h && isYmd(h.d)).slice(-200).map(h => ({
     d: h.d, t: N(h.t, 0), h: N(h.h, 12, 0, 23), min: N(h.min, 10, 0, 60), prog: PROGRAMS[h.prog] ? h.prog : 'mix',
     skips: N(h.skips, 0), swaps: N(h.swaps, 0), pauses: N(h.pauses, 0), rating: N(h.rating, 0, 0, 5),
-    moves: Array.isArray(h.moves) ? h.moves.filter(k => EX[k]) : []
+    moves: Array.isArray(h.moves) ? h.moves.filter(k => EX[k]) : [],
+    effort: ['easy', 'right', 'hard'].includes(h.effort) ? h.effort : null, lv: N(h.lv, 0, 0, 8)
   }));
+  const T = o.train || {};
+  d.train = { level: N(T.level, 1, 1, 8), xp: N(T.xp, 0, 0, 20), hard: N(T.hard, 0, 0, 5), best: N(T.best, 1, 1, 8), eased: isYmd(T.eased) ? T.eased : null };
   if (Array.isArray(o.recent)) d.recent = o.recent.filter(k => EX[k]).slice(-16);
   if (o.daily && isYmd(o.daily.date)) d.daily = { date: o.daily.date, done: !!o.daily.done };
   if (o.weekly && isYmd(o.weekly.week)) d.weekly = { week: o.weekly.week, claimed: Array.isArray(o.weekly.claimed) ? o.weekly.claimed.filter(x => typeof x === 'string') : [] };
@@ -1453,7 +1521,8 @@ function buildPlan(n, progId, seed) {
     let c = EX_KEYS.filter(k => EX[k].cat === cat && !used.has(k) && (EX[k].bilateral ? 2 : 1) <= room);
     if (!c.length) c = EX_KEYS.filter(k => EX[k].cat === cat && (EX[k].bilateral ? 2 : 1) <= room);
     if (!c.length) return null;
-    const w = c.map(k => (recent.has(k) ? 1 : 5) * (P.gentle ? (EX[k].lvl === 1 ? 2 : 0.6) : (progId === 'burn' && EX[k].lvl === 1 ? 0.5 : 1)));
+    const gentleW = lvl().gentle; // lower levels favour gentle moves, higher levels favour strength moves
+    const w = c.map(k => (recent.has(k) ? 1 : 5) * (P.gentle ? (EX[k].lvl === 1 ? 2 : 0.6) : (EX[k].lvl === 1 ? gentleW * (progId === 'burn' ? 0.5 : 1) : 1)));
     let x = r() * w.reduce((a, b) => a + b, 0);
     for (let i = 0; i < c.length; i++) { x -= w[i]; if (x <= 0) return c[i]; }
     return c[c.length - 1];
@@ -1484,8 +1553,9 @@ const pose = new PoseView($('#pSvg'));
 function startWorkout() {
   if (W.active) { showTab('player'); return; }
   Sound.unlock();
-  const min = S.settings.duration;
-  Object.assign(W, { active: true, paused: false, min, prog: S.settings.program, plan: currentPlan(), idx: 0, phase: 'prep', skips: 0, swaps: 0, pauses: 0, done: new Set(), elapsed: 0, lastTick: performance.now(), shown: null });
+  const min = S.settings.duration, L = lvl();
+  DUR.work = L.work; DUR.rest = L.rest; // progressive overload: density grows with level
+  Object.assign(W, { burn: !!L.burn, level: S.train.level, active: true, paused: false, min, prog: S.settings.program, plan: currentPlan(), idx: 0, phase: 'prep', skips: 0, swaps: 0, pauses: 0, done: new Set(), elapsed: 0, lastTick: performance.now(), shown: null });
   document.body.classList.add('workout');
   $('#playerIdle').hidden = true; $('#playerActive').hidden = false;
   showTab('player'); window.scrollTo(0, 0);
@@ -1517,6 +1587,10 @@ function tick() {
     const t = $('#pTimer'), hot = sec <= 3 && sec > 0 && !W.paused;
     t.textContent = sec; t.classList.toggle('hot', hot); t.classList.remove('tick');
     if (!hot && !W.paused) { void t.offsetWidth; t.classList.add('tick'); }
+    if (W.burn && W.phase === 'work' && !W.paused) { // Level 8: burnout finish in the last 10 s
+      const k = exKeyOf(W.plan[W.idx]), on = sec <= 10 && sec > 0 && EX[k].cat !== 'f', f = $('#pFlag');
+      f.hidden = !on; if (on) f.textContent = ISO.has(k) ? 'Burnout · max squeeze' : 'Burnout · tiny pulses';
+    }
     if (!W.paused && sec <= 3 && sec >= 1) Sound.beep();
   }
   const left = totalRemain(rem), total = plannedSec(W.plan.length);
@@ -1544,7 +1618,8 @@ function renderPlayer() {
   $('#pName').textContent = ex.name;
   $('#pTarget').textContent = ex.target;
   $('#pSide').textContent = ex.bilateral && b.side ? (b.side === 'R' ? '· Right side' : '· Left side') : '';
-  $('#pCues').innerHTML = ex.cues.map(c => `<li>${ic('heart')}${c}</li>`).join('');
+  const lc = levelCue(k);
+  $('#pCues').innerHTML = ex.cues.map(c => `<li>${ic('heart')}${c}</li>`).join('') + (lc ? `<li class="lvl-cue">${ic(lc[0])}${lc[1]}</li>` : '');
   const flag = $('#pFlag'); flag.hidden = W.phase === 'work'; flag.textContent = W.phase === 'prep' ? 'First up' : 'Up next';
   $('#pPaused').hidden = !W.paused;
   const key = k + (b.side || '');
@@ -1606,7 +1681,7 @@ function finishWorkout() {
   stopEngine(); Sound.fanfare(); vib([100, 60, 160]);
   if (counted) {
     const now = new Date(), moves = Array.from(W.done);
-    const entry = { d: ymd(), t: Date.now(), h: now.getHours(), min, prog: W.prog, skips: W.skips, swaps: W.swaps, pauses: W.pauses, rating: 0, moves };
+    const entry = { d: ymd(), t: Date.now(), h: now.getHours(), min, prog: W.prog, skips: W.skips, swaps: W.swaps, pauses: W.pauses, rating: 0, moves, effort: 'right', lv: W.level };
     const fresh = moves.filter(k => !S.stats.moves[k]);
     const wkNow = weekKey(), dp = dayProgress(), before = boardFor(wkNow, dp, S.league.div);
     S.history.push(entry); if (S.history.length > 200) S.history = S.history.slice(-200);
@@ -1651,17 +1726,36 @@ function showComplete(res) {
       <p class="muted">${res.min} min · ${res.skips} skip${res.skips === 1 ? '' : 's'} · ${res.swaps} swap${res.swaps === 1 ? '' : 's'}</p></div>
     ${res.counted ? `<div class="rewards stagger">${res.rewards.map(r => `<div class="rw ${r.cls || ''}"><span class="ri">${ic(r.icon)}</span><span class="rt">${r.text}</span><b>${r.amt}</b></div>`).join('')}</div>`
       : `<div class="warn">Too many moves were skipped for this session to count. Finish at least 70% of it to earn pearls and keep your streak.</div>`}
+    ${res.counted ? `<div class="reflect">
+      <div class="eyebrow">How did that feel?</div>
+      <div class="rate eff" id="effRow"><button data-e="easy">Easy<small>more please</small></button><button data-e="right" class="sel">Just right<small>keep going</small></button><button data-e="hard">Too hard<small>ease off</small></button></div>
+      <div class="r-saved" id="effNote"></div>
+    </div>` : ''}
     ${reflect}
     <button class="btn primary block" data-m="done">Done</button>`, {
     dismissable: false,
     onClick: a => {
       if (a !== 'done') return;
+      const prog = res.counted ? applyProgress(res.entry, res.effort || 'right') : null;
       closeModal();
-      const c = res.climb, climbed = c && c.after.findIndex(r => r.me) < c.before.findIndex(r => r.me);
-      if (climbed) setTimeout(() => showClimb(c, () => showTab('train')), 200); else showTab('train');
+      // Post-workout sequence: strength level-up → league climb → home
+      const c = res.climb, climbed = c && c.after.findIndex(r => r.me) < c.before.findIndex(r => r.me), steps = [];
+      if (prog && prog.type === 'up') steps.push(next => showStrengthUp(prog.from, prog.to, next));
+      if (prog && prog.type === 'down') steps.push(next => { toast(`Eased to Level ${prog.to} so you can recover. You’ll climb back fast.`, 'heart'); next(); });
+      if (climbed) steps.push(next => showClimb(c, next));
+      steps.push(() => { showTab('train'); if (prog) announceAchievements(prog.ach); });
+      const run = i => steps[i](() => run(i + 1));
+      setTimeout(() => run(0), 200);
     }
   });
   if (!res.counted) return;
+  const effNote = () => { $('#effNote').textContent = describeProgress(progressPlan(res.entry, res.effort || 'right')); };
+  effNote();
+  $$('#effRow button').forEach(btn => btn.addEventListener('click', () => {
+    res.effort = btn.dataset.e;
+    $$('#effRow button').forEach(b => b.classList.toggle('sel', b === btn));
+    effNote();
+  }));
   const prompts = ['Stand tall, feet grounded', 'Roll shoulders back & down', 'Ribcage knit down', 'Crown of the head lifts', 'How tall do you feel?'];
   let n = 5;
   requestAnimationFrame(() => requestAnimationFrame(() => { const fg = $('#rFg'); if (fg) fg.style.strokeDashoffset = '0'; }));
@@ -1801,6 +1895,99 @@ function showLevelUp(from, to, L) {
 }
 
 /* =========================================================
+   Training level: autoregulated progression
+   Easy +2 · Just right +1 · Too hard 0 · 2× Too hard in a row = ease down
+   Heavy skipping holds progress · 10+ days off = ease down one level
+   ========================================================= */
+function progressPlan(entry, effort) {
+  const T = S.train, L = LEVELS[T.level - 1], skipHeavy = entry.skips > entry.min * 0.25;
+  const gain = skipHeavy ? 0 : effort === 'easy' ? 2 : effort === 'hard' ? 0 : 1;
+  const hard = effort === 'hard' ? T.hard + 1 : 0;
+  if (hard >= 2 && T.level > 1) return { type: 'down', level: T.level - 1, xp: 0, hard: 0, gain };
+  const xp = T.xp + gain;
+  if (L.need && xp >= L.need) return { type: 'up', level: T.level + 1, xp: 0, hard, gain };
+  return { type: null, level: T.level, xp: L.need ? xp : 0, hard, gain, skipHeavy };
+}
+function describeProgress(p) {
+  const T = S.train, L = LEVELS[T.level - 1];
+  if (p.type === 'up') return `Level up! Tap Done to rise to Level ${p.level}.`;
+  if (p.type === 'down') return `Two tough sessions in a row, so barre will ease you to Level ${p.level} to recover.`;
+  if (p.skipHeavy) return 'Lots of skips this time, so your level progress holds steady.';
+  if (!L.need) return 'You’re at the top level. Every session keeps you strong.';
+  return `Level ${T.level} progress: ${p.xp}/${L.need}${p.gain ? ` (+${p.gain})` : ''}${p.hard ? '. One more tough session in a row eases you down a level.' : ''}`;
+}
+function applyProgress(entry, effort) {
+  const p = progressPlan(entry, effort), T = S.train, from = T.level;
+  entry.effort = effort;
+  T.level = p.level; T.xp = p.xp; T.hard = p.hard; if (p.type === 'up') T.best = Math.max(T.best, T.level);
+  const ach = evalAchievements();
+  save(); renderAll();
+  return { type: p.type, from, to: T.level, ach };
+}
+function checkDetrain() {
+  const T = S.train;
+  if (!S.lastWorkoutDate || T.level <= 1 || T.eased === S.lastWorkoutDate) return;
+  if (dayNum(ymd()) - dayNum(S.lastWorkoutDate) >= 10) {
+    T.level--; T.xp = 0; T.hard = 0; T.eased = S.lastWorkoutDate; save();
+    setTimeout(() => toast(`Welcome back! Eased to Level ${T.level} so you can rebuild safely`, 'heart'), 1400);
+  }
+}
+function levelTags(L) {
+  return `<span>${ic('clock')}${L.work}s work · ${L.rest}s reset</span>${L.tempo ? `<span>${ic('clock')}Slow tempo</span>` : ''}${L.adv ? `<span>${ic('sparkle')}Advanced</span>` : ''}${L.burn ? `<span>${ic('flame')}Burnout</span>` : ''}`;
+}
+function renderLevelCard() {
+  const T = S.train, L = lvl();
+  $('#lvlCard').innerHTML = `<div class="lvl-num">${T.level}</div><div class="ch-body"><div class="eyebrow">Training level</div>
+    <div class="ch-title">Level ${T.level} · ${L.name}</div><div class="lvl-tags">${levelTags(L)}</div>
+    <div class="bar"><i style="width:${L.need ? (100 * T.xp / L.need).toFixed(0) : 100}%"></i></div>
+    <small class="muted">${L.need ? `${T.xp}/${L.need} sessions to Level ${T.level + 1}` : 'Top level reached'}</small></div>${ic('chev')}`;
+}
+function showLevels() {
+  const T = S.train;
+  openModal(`<h2>Training levels</h2>
+    <p class="muted small" style="margin-top:6px">barre gets harder as you get stronger. After each session, tell it how that felt: Easy adds 2, Just right adds 1, Too hard adds 0. Two "Too hard" sessions in a row, or 10 days off, eases you down a level.</p>
+    <ul class="lv-list">${LEVELS.map((L, i) => `<li class="${i + 1 === T.level ? 'cur' : ''}${i + 1 > T.best ? ' lock' : ''}"><span class="lv-n">${i + 1}</span><div><b>${L.name}</b><div class="lvl-tags">${levelTags(L)}</div></div>${i + 1 === T.level ? `<span class="tag">You</span>` : ''}</li>`).join('')}</ul>
+    <p class="muted small">Want to change it yourself?</p>
+    <div class="actions"><button class="btn" data-m="easier"${T.level <= 1 ? ' disabled' : ''}>${ic('down')}Easier</button><button class="btn primary" data-m="harder"${T.level >= LEVELS.length ? ' disabled' : ''}>${ic('up')}Harder</button></div>`, {
+    onClick: a => {
+      if (a !== 'easier' && a !== 'harder') return;
+      // Manual changes adjust difficulty only; level badges still need earned progress (T.best).
+      T.level = Math.min(LEVELS.length, Math.max(1, T.level + (a === 'harder' ? 1 : -1))); T.xp = 0; T.hard = 0;
+      save(); renderAll(); showLevels(); toast(`Training set to Level ${T.level} · ${lvl().name}`, a === 'harder' ? 'up' : 'down');
+    }
+  });
+}
+// Strength level-up: big number flips, the ladder lights up, and the changes cascade in.
+function showStrengthUp(from, to, then) {
+  const A = LEVELS[from - 1], B = LEVELS[to - 1], ch = [];
+  if (B.work !== A.work || B.rest !== A.rest) ch.push(['clock', `${B.work}s work · ${B.rest}s reset (was ${A.work}s / ${A.rest}s)`]);
+  if (B.tempo && !A.tempo) ch.push(['clock', 'Slow-tempo cues: 3 counts down, 1 up']);
+  if (B.adv && !A.adv) ch.push(['sparkle', 'Advanced variation for every move']);
+  if (B.burn && !A.burn) ch.push(['flame', 'Burnout finish in the last 10 seconds']);
+  if (B.gentle < A.gentle) ch.push(['up', 'More strength moves, fewer gentle ones']);
+  ch.push(['target', B.need ? `${B.need} solid sessions to reach Level ${to + 1}` : 'The top of the ladder. Brava!']);
+  const el = openOverlay(`
+    <div class="climb-head">
+      <div class="eyebrow">Getting stronger</div>
+      <div class="lvl-stage" id="suStage"><span class="lvl-ring"></span><div class="lvl-medal old num">${from}</div><div class="lvl-medal new num">${to}</div></div>
+      <div class="climb-sub" id="suSub">Level ${from} · ${A.name}</div>
+    </div>
+    <div class="track lv-track" id="suTrack">${LEVELS.map((l, i) => `<span class="${i < from ? 'on' : ''}">${i + 1}</span>`).join('')}</div>
+    <div class="eyebrow center" style="margin-top:22px">What changes</div>
+    <ul class="perks lv-perks" id="suPerks">${ch.map(c => `<li>${ic(c[0])}${c[1]}</li>`).join('')}</ul>
+    <button class="btn primary block" id="suGo">Let’s go</button>`);
+  const q = s => el.querySelector(s);
+  const go = () => {
+    q('#suStage').classList.add('go'); q('#suSub').textContent = `Level ${to} · ${B.name}`;
+    const sp = q('#suTrack').children[to - 1]; if (sp) sp.classList.add('on', 'pop');
+    petals(44); Sound.fanfare(); vib([60, 40, 120]);
+    setTimeout(() => q('#suPerks').classList.add('show'), reduced() ? 0 : 550);
+  };
+  const t = setTimeout(go, reduced() ? 0 : 700);
+  q('#suGo').addEventListener('click', () => { clearTimeout(t); closeOverlay(el, then); });
+}
+
+/* =========================================================
    UI: modal, toast, tabs
    ========================================================= */
 let modalCleanup = [];
@@ -1878,7 +2065,10 @@ function renderTrain() {
   const plan = currentPlan(), groups = [];
   plan.forEach(b => { const last = groups[groups.length - 1]; if (last && last.g === b.g) last.n++; else groups.push({ g: b.g, key: b.key, n: 1 }); });
   const shown = flowOpen ? groups : groups.slice(0, 4);
-  $('#flowHead').textContent = `Today's flow · ${groups.length} moves`;
+  const L = lvl();
+  $('#flowHead').textContent = `Today's flow · ${groups.length} moves · ${L.work}s/${L.rest}s`;
+  $('#idleText').textContent = `No workout running. At Level ${S.train.level}, each block is ${L.work} seconds of work and ${L.rest} seconds to reset.`;
+  renderLevelCard();
   $('#flowList').innerHTML = shown.map((g, i) => { const e = EX[g.key]; return `<li><span class="n">${i + 1}</span><span class="nm">${e.short}${g.n > 1 ? '<small>both sides</small>' : ''}${!S.stats.moves[g.key] ? '<small>· new</small>' : ''}</span>${ic(EQUIP[e.eq].icon)}</li>`; }).join('')
     + (groups.length > 4 ? `<li class="more" id="flowMore">${flowOpen ? 'Show less' : `+ ${groups.length - 4} more moves`}</li>` : '');
   $('#startLabel').textContent = `Start ${n}-min ${PROGRAMS[P].name}`;
@@ -2128,8 +2318,9 @@ function renderInstall() {
    Events
    ========================================================= */
 document.addEventListener('click', e => {
-  const t = e.target.closest('[data-tab],[data-start],[data-dur],[data-preview],[data-theme-set],[data-prog],[data-rview],[data-libf],[data-motion],#flowMore,#dailyCard');
+  const t = e.target.closest('[data-tab],[data-start],[data-dur],[data-preview],[data-theme-set],[data-prog],[data-rview],[data-libf],[data-motion],#flowMore,#dailyCard,#lvlCard');
   if (!t) return;
+  if (t.id === 'lvlCard') return showLevels();
   if (t.dataset.tab) showTab(t.dataset.tab);
   else if (t.dataset.motion) { S.settings.motion = t.dataset.motion; save(); applyMotion(); renderSettings(); if (!reduced()) petals(18); }
   else if (t.hasAttribute('data-start')) startWorkout();
@@ -2187,7 +2378,7 @@ document.addEventListener('keydown', e => {
   if (e.code === 'Space') { e.preventDefault(); setPaused(!W.paused, true); }
   if (e.key === 'ArrowRight') skip();
 });
-function dayCheck() { checkStreak(); rollLeague(); announceLeague(); announceAchievements(evalAchievements()); renderAll(); }
+function dayCheck() { checkStreak(); checkDetrain(); rollLeague(); announceLeague(); announceAchievements(evalAchievements()); renderAll(); }
 document.addEventListener('visibilitychange', () => {
   if (document.visibilityState !== 'visible') return;
   if (W.active) requestWake();
